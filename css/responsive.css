@@ -8,14 +8,21 @@
   box-sizing: border-box !important;
 }
 
-html, body {
+html {
   width: 100% !important;
   max-width: 100% !important;
   overflow-x: hidden !important;
   margin: 0 !important;
   padding: 0 !important;
-  position: relative !important;
   -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
 }
 
 section, header, footer, nav, main, .container {

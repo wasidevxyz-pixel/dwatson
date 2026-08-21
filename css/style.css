@@ -257,12 +257,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   Top Announcement Bar & Header
+   Sticky Header Wrapper + Top Announcement Bar & Header
    ========================================================================== */
-.top-bar {
+
+/* Single wrapper so both bars always stay on screen, even with overflow-x:hidden on body */
+.sticky-header-wrap {
   position: sticky;
   top: 0;
-  z-index: 1001;
+  z-index: 1000;
+  width: 100%;
+}
+
+.top-bar {
   background: var(--dw-navy);
   color: var(--text-white);
   font-size: 0.85rem;
@@ -338,9 +344,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Header & Navigation */
 .site-header {
-  position: sticky;
-  top: 36px;
-  z-index: 1000;
+  position: relative;
+  z-index: 1;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);

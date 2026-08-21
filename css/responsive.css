@@ -178,10 +178,6 @@ section, header, footer, nav, main, .container {
     display: none; /* Hide topbar to maximize mobile screen real estate */
   }
 
-  .site-header {
-    top: 0; /* Reset: top-bar is hidden on mobile so header sticks at top */
-  }
-
   .navbar {
     height: 64px;
     padding: 0 16px;

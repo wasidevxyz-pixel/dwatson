@@ -21,54 +21,59 @@
 </head>
 <body>
 
-  <!-- Top Announcement & Quick Contact Bar -->
-  <div class="top-bar">
-    <div class="container top-bar-inner">
-      <div class="announcement-text">
-        <span class="badge-live">24/7 Live Service</span>
-        <span id="topAnnouncement">✨ 100% Genuine Medicines Guaranteed • 24/7 Universal Helpline: 051-8438111 • WhatsApp Express Delivery: 0332-9716666</span>
-      </div>
-      <div class="top-bar-links">
-        <a href="tel:0518438111" id="topPhone"><i class="fa-solid fa-phone"></i> Helpline: 051-8438111</a>
-        <a href="https://wa.me/923329716666" id="topWhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp: 0332-9716666</a>
-        <a href="admin.html" class="portal-link-btn" title="Open Content Management Studio"><i class="fa-solid fa-lock"></i> Portal Studio</a>
-      </div>
-    </div>
-  </div>
+  <!-- Sticky Header Wrapper (top bar + navbar stay visible on scroll) -->
+  <div class="sticky-header-wrap">
 
-  <!-- Main Sticky Header -->
-  <header class="site-header" id="siteHeader">
-    <div class="container">
-      <nav class="navbar">
-        <!-- Logo -->
-        <a href="index.html" class="brand-logo" title="D. Watson Chemist &amp; Superstore">
-          <img src="assets/images/logo.svg" alt="D. Watson Logo">
-        </a>
-
-        <!-- Desktop Navigation Links -->
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#about" class="nav-link">Our Heritage</a></li>
-          <li><a href="#departments" class="nav-link">Departments</a></li>
-          <li><a href="#products" class="nav-link">Products</a></li>
-          <li><a href="#branches" class="nav-link">Branches (24+)</a></li>
-          <li><a href="#gallery" class="nav-link">Gallery</a></li>
-          <li><a href="#contact" class="nav-link">Customer Care</a></li>
-          <li><a href="#faq" class="nav-link">FAQs</a></li>
-        </ul>
-
-        <!-- Right Action Button -->
-        <div class="nav-actions">
-          <a href="#prescription-box" class="btn btn-primary btn-sm">
-            <i class="fa-solid fa-file-prescription"></i> Upload Prescription
-          </a>
-          <button class="mobile-toggle" aria-label="Toggle navigation menu">
-            <i class="fa-solid fa-bars"></i>
-          </button>
+    <!-- Top Announcement & Quick Contact Bar -->
+    <div class="top-bar">
+      <div class="container top-bar-inner">
+        <div class="announcement-text">
+          <span class="badge-live">24/7 Live Service</span>
+          <span id="topAnnouncement">✨ 100% Genuine Medicines Guaranteed • 24/7 Universal Helpline: 051-8438111 • WhatsApp Express Delivery: 0332-9716666</span>
         </div>
-      </nav>
+        <div class="top-bar-links">
+          <a href="tel:0518438111" id="topPhone"><i class="fa-solid fa-phone"></i> Helpline: 051-8438111</a>
+          <a href="https://wa.me/923329716666" id="topWhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp: 0332-9716666</a>
+          <a href="admin.html" class="portal-link-btn" title="Open Content Management Studio"><i class="fa-solid fa-lock"></i> Portal Studio</a>
+        </div>
+      </div>
     </div>
-  </header>
+
+    <!-- Main Sticky Header -->
+    <header class="site-header" id="siteHeader">
+      <div class="container">
+        <nav class="navbar">
+          <!-- Logo -->
+          <a href="index.html" class="brand-logo" title="D. Watson Chemist &amp; Superstore">
+            <img src="assets/images/logo.svg" alt="D. Watson Logo">
+          </a>
+
+          <!-- Desktop Navigation Links -->
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">Our Heritage</a></li>
+            <li><a href="#departments" class="nav-link">Departments</a></li>
+            <li><a href="#products" class="nav-link">Products</a></li>
+            <li><a href="#branches" class="nav-link">Branches (24+)</a></li>
+            <li><a href="#gallery" class="nav-link">Gallery</a></li>
+            <li><a href="#contact" class="nav-link">Customer Care</a></li>
+            <li><a href="#faq" class="nav-link">FAQs</a></li>
+          </ul>
+
+          <!-- Right Action Button -->
+          <div class="nav-actions">
+            <a href="#prescription-box" class="btn btn-primary btn-sm">
+              <i class="fa-solid fa-file-prescription"></i> Upload Prescription
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle navigation menu">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+  </div><!-- end .sticky-header-wrap -->
 
   <!-- Hero Slider Section -->
   <section class="hero-section" id="home">

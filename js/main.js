@@ -773,8 +773,8 @@ function renderBranchCards(branches) {
           <a href="${b.mapUrl || '#'}" target="_blank" class="btn btn-outline btn-sm">
             <i class="fa-solid fa-diamond-turn-right"></i> Directions
           </a>
-          <a href="https://wa.me/${b.whatsapp || '923329716666'}?text=${encodeURIComponent(`Hi D.Watson, I am inquiring about the ${b.name} branch.`)}" target="_blank" class="btn btn-whatsapp btn-sm">
-            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          <a href="tel:${b.phone.split('/')[0].replace(/[^0-9]/g, '')}" class="btn btn-blue btn-sm">
+            <i class="fa-solid fa-phone"></i> Call Branch
           </a>
         </div>
       </div>

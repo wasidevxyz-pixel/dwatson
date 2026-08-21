@@ -1187,7 +1187,25 @@ async function fetchRecentCloudInquiries() {
   }
 }
 
+window.handleClearAllInquiries = function() {
+  if (confirm("Are you sure you want to permanently clear all customer inquiries and orders?")) {
+    if (typeof clearAllCustomerInquiries === "function") {
+      clearAllCustomerInquiries();
+    } else {
+      localStorage.setItem("dwatson_all_inquiries", "[]");
+      localStorage.setItem("dwatson_prescriptions", "[]");
+    }
+    renderPrescriptionsList();
+    showToast("All customer orders and inquiries cleared.");
+  }
+};
+
 function syncInquirySilently(inquiry) {
+  if (!inquiry || !inquiry.id) return;
+  if (typeof isDeletedInquiry === "function" && isDeletedInquiry(inquiry.id)) {
+    return; // Was permanently deleted by admin, ignore from cloud sync!
+  }
+
   const existing = typeof getCustomerInquiries === "function" ? getCustomerInquiries() : [];
   const alreadyExists = existing.some(i => i.id === inquiry.id);
   
@@ -1199,6 +1217,11 @@ function syncInquirySilently(inquiry) {
 }
 
 function handleNewIncomingInquiry(inquiry) {
+  if (!inquiry || !inquiry.id) return;
+  if (typeof isDeletedInquiry === "function" && isDeletedInquiry(inquiry.id)) {
+    return; // Was permanently deleted by admin
+  }
+
   const existing = typeof getCustomerInquiries === "function" ? getCustomerInquiries() : [];
   const alreadyExists = existing.some(i => i.id === inquiry.id);
   

@@ -1052,16 +1052,70 @@ async function saveCustomerInquiry(item) {
   }
 }
 
+const DELETED_INQUIRIES_KEY = "dwatson_deleted_inquiries";
+
+function getDeletedInquiryIds() {
+  try {
+    const raw = localStorage.getItem(DELETED_INQUIRIES_KEY);
+    if (raw) {
+      const arr = JSON.parse(raw);
+      if (Array.isArray(arr)) return arr;
+    }
+  } catch (e) {}
+  return [];
+}
+
+function markInquiryDeleted(id) {
+  if (!id) return;
+  try {
+    const deleted = getDeletedInquiryIds();
+    if (!deleted.includes(id)) {
+      deleted.push(id);
+      localStorage.setItem(DELETED_INQUIRIES_KEY, JSON.stringify(deleted.slice(-300)));
+    }
+  } catch (e) {}
+}
+
+function isDeletedInquiry(id) {
+  if (!id) return false;
+  const deleted = getDeletedInquiryIds();
+  return deleted.includes(id);
+}
+
 function deleteCustomerInquiry(id) {
   try {
+    markInquiryDeleted(id);
     let list = getCustomerInquiries();
     list = list.filter(item => item.id !== id);
     localStorage.setItem(INQUIRIES_STORAGE_KEY, JSON.stringify(list));
+    
+    // Also remove from legacy prescription list if exists
+    let rxList = getPrescriptionsData();
+    rxList = rxList.filter(item => item.id !== id);
+    localStorage.setItem(PRESCRIPTION_STORAGE_KEY, JSON.stringify(rxList));
+
     window.dispatchEvent(new Event("inquiriesDataUpdated"));
     window.dispatchEvent(new Event("prescriptionDataUpdated"));
     return true;
   } catch (e) {
     console.error("Error deleting inquiry:", e);
+    return false;
+  }
+}
+
+function clearAllCustomerInquiries() {
+  try {
+    const list = getCustomerInquiries();
+    list.forEach(item => {
+      if (item.id) markInquiryDeleted(item.id);
+    });
+    localStorage.setItem(INQUIRIES_STORAGE_KEY, JSON.stringify([]));
+    localStorage.setItem(PRESCRIPTION_STORAGE_KEY, JSON.stringify([]));
+    window.dispatchEvent(new Event("inquiriesDataUpdated"));
+    window.dispatchEvent(new Event("prescriptionDataUpdated"));
+    return true;
+  } catch (e) {
+    console.error("Error clearing inquiries:", e);
     return false;
   }
 }

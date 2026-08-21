@@ -245,8 +245,11 @@
               <p style="font-size:0.85rem; color:#64748B;">Live records of Product Inquiries &amp; Orders, Prescriptions, and Customer Inquiries with 1-click photo inspection and WhatsApp replies.</p>
             </div>
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-              <button class="btn btn-outline btn-sm" onclick="renderPrescriptionsList()">
+              <button class="btn btn-outline btn-sm" onclick="renderPrescriptionsList()" title="Refresh live inquiries list">
                 <i class="fa-solid fa-arrows-rotate"></i> Refresh List
+              </button>
+              <button class="btn btn-sm" style="background:#FEE2E2; color:#DC2626; border:1px solid #FECACA;" onclick="handleClearAllInquiries()" title="Permanently clear all inquiries">
+                <i class="fa-solid fa-trash-can"></i> Clear All
               </button>
             </div>
           </div>

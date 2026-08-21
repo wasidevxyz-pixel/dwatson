@@ -721,6 +721,17 @@ function renderBranches(branches) {
   }
 }
 
+
+// Returns the branch-specific phone number, preferring the dedicated PTCL/branch
+// line over the central helpline (051-8438111). Works for any "num1 / num2" pattern.
+function getBranchPhone(phoneStr) {
+  const CENTRAL_HELPLINE = "0518438111";
+  const numbers = phoneStr.split("/").map(n => n.trim());
+  // Prefer a number that is NOT the central helpline
+  const own = numbers.find(n => n.replace(/[^0-9]/g, "") !== CENTRAL_HELPLINE);
+  return (own || numbers[0]).replace(/[^0-9]/g, "");
+}
+
 function renderBranchCards(branches) {
   const container = document.getElementById("branchesGrid");
   if (!container) return;
@@ -773,7 +784,7 @@ function renderBranchCards(branches) {
           <a href="${b.mapUrl || '#'}" target="_blank" class="btn btn-outline btn-sm">
             <i class="fa-solid fa-diamond-turn-right"></i> Directions
           </a>
-          <a href="tel:${b.phone.split('/')[0].replace(/[^0-9]/g, '')}" class="btn btn-blue btn-sm">
+          <a href="tel:${getBranchPhone(b.phone)}" class="btn btn-blue btn-sm">
             <i class="fa-solid fa-phone"></i> Call Branch
           </a>
         </div>

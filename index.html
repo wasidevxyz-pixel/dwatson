@@ -15,9 +15,9 @@
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Stylesheets (v2.6) -->
+  <link rel="stylesheet" href="css/style.css?v=2.6">
+  <link rel="stylesheet" href="css/responsive.css?v=2.6">
 </head>
 <body>
 
@@ -596,49 +596,49 @@
         </div>
 
         <!-- Col 2: Quick Links -->
-        <div>
-          <h4 class="footer-heading">Quick Navigation</h4>
+        <div class="footer-card-box">
+          <h4 class="footer-heading"><i class="fa-solid fa-compass" style="color:var(--dw-red);"></i> Quick Navigation</h4>
           <ul class="footer-links">
             <li><a href="#home"><i class="fa-solid fa-angle-right"></i> Home Overview</a></li>
-            <li><a href="#about"><i class="fa-solid fa-angle-right"></i> Our Heritage &amp; Story</a></li>
-            <li><a href="#departments"><i class="fa-solid fa-angle-right"></i> Store Departments</a></li>
-            <li><a href="#products"><i class="fa-solid fa-angle-right"></i> Featured Products</a></li>
-            <li><a href="#branches"><i class="fa-solid fa-angle-right"></i> Branch Locator (24+)</a></li>
-            <li><a href="#gallery"><i class="fa-solid fa-angle-right"></i> Store Gallery</a></li>
-            <li><a href="admin.html"><i class="fa-solid fa-angle-right"></i> Content Portal Studio</a></li>
+            <li><a href="#about"><i class="fa-solid fa-angle-right"></i> Our Heritage</a></li>
+            <li><a href="#departments"><i class="fa-solid fa-angle-right"></i> Departments</a></li>
+            <li><a href="#products"><i class="fa-solid fa-angle-right"></i> Products</a></li>
+            <li><a href="#branches"><i class="fa-solid fa-angle-right"></i> Branches (24+)</a></li>
+            <li><a href="#gallery"><i class="fa-solid fa-angle-right"></i> Gallery</a></li>
+            <li><a href="admin.html"><i class="fa-solid fa-angle-right"></i> Portal Studio</a></li>
           </ul>
         </div>
 
         <!-- Col 3: Key Branches -->
-        <div>
-          <h4 class="footer-heading">Flagship Branches</h4>
+        <div class="footer-card-box">
+          <h4 class="footer-heading"><i class="fa-solid fa-store" style="color:var(--dw-red);"></i> Flagship Branches</h4>
           <ul class="footer-links" id="footerBranchList">
             <!-- Dynamic branch links -->
           </ul>
         </div>
 
         <!-- Col 4: Contact & Helpline -->
-        <div>
-          <h4 class="footer-heading">Customer Helpline</h4>
-          <div class="footer-contact-item">
+        <div class="footer-card-box footer-contact-col">
+          <h4 class="footer-heading"><i class="fa-solid fa-headset" style="color:var(--dw-red);"></i> Customer Helpline</h4>
+          <a href="tel:0518438111" class="footer-contact-item" style="text-decoration:none;">
             <i class="fa-solid fa-phone"></i>
             <div>
               <strong style="color:white; display:block;">Universal Helpline</strong>
-              <span id="footerHelpline">051-8438111</span>
+              <span id="footerHelpline" style="color:#60A5FA; font-weight:700;">051-8438111</span>
             </div>
-          </div>
-          <div class="footer-contact-item">
+          </a>
+          <a href="mailto:care@dwatson.co" class="footer-contact-item" style="text-decoration:none;">
             <i class="fa-solid fa-envelope"></i>
             <div>
               <strong style="color:white; display:block;">Customer Care Email</strong>
               <span id="footerEmail">care@dwatson.co</span>
             </div>
-          </div>
+          </a>
           <div class="footer-contact-item">
             <i class="fa-solid fa-location-dot"></i>
             <div>
               <strong style="color:white; display:block;">Headquarters</strong>
-              <span id="footerAddress">94-West, Jinnah Avenue, Block I, Blue Area, Islamabad</span>
+              <span id="footerAddress">94-West, Jinnah Avenue, Blue Area, Islamabad</span>
             </div>
           </div>
         </div>
@@ -646,13 +646,15 @@
 
       <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <div>
+        <div class="footer-copyright">
           &copy; 1975 &ndash; 2026 <strong>D. Watson Chemist &amp; Superstore</strong>. All Rights Reserved.
         </div>
-        <div style="display:flex; gap:16px;">
-          <a href="#about" style="color:#94A3B8;">Privacy Policy</a>
-          <a href="#about" style="color:#94A3B8;">Terms of Service</a>
-          <a href="admin.html" style="color:#DC2626; font-weight:700;"><i class="fa-solid fa-lock"></i> Portal Login</a>
+        <div class="footer-bottom-links">
+          <a href="#about">Privacy Policy</a>
+          <span style="color:#475569;">•</span>
+          <a href="#about">Terms of Service</a>
+          <span style="color:#475569;">•</span>
+          <a href="admin.html" class="portal-link-badge"><i class="fa-solid fa-lock"></i> Portal Studio</a>
         </div>
       </div>
     </div>

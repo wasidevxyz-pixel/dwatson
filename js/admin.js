@@ -1163,9 +1163,11 @@ function initRealtimeCloudSync() {
   setInterval(fetchRecentCloudInquiries, 10000);
 }
 
+let lastCloudPollTimestamp = Math.floor(Date.now() / 1000) - 30;
+
 async function fetchRecentCloudInquiries() {
   try {
-    const res = await fetch(`${ADMIN_CLOUD_URL}/json?poll=1&since=all`);
+    const res = await fetch(`${ADMIN_CLOUD_URL}/json?poll=1&since=${lastCloudPollTimestamp}`);
     if (res.ok) {
       const text = await res.text();
       const lines = text.trim().split("\n").filter(Boolean);
@@ -1173,6 +1175,9 @@ async function fetchRecentCloudInquiries() {
       lines.forEach(line => {
         try {
           const json = JSON.parse(line);
+          if (json && json.time) {
+            lastCloudPollTimestamp = Math.max(lastCloudPollTimestamp, json.time);
+          }
           if (json && json.message) {
             const payload = typeof json.message === "string" ? JSON.parse(json.message) : json.message;
             if (payload && payload.id) {

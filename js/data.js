@@ -344,7 +344,7 @@ const DEFAULT_SITE_DATA = {
       brand: "Nutricia Danone",
       price: "PKR 7,950",
       tag: "Imported Nutrition",
-      image: "assets/images/grocery.jpg",
+      image: "assets/images/Aptamil Gold+ Stage 1 Infant Formula (900g).jpg",
       description: "Premium nutritionally complete infant milk formula suitable from birth to 6 months.",
       inStock: true
     },
@@ -356,7 +356,7 @@ const DEFAULT_SITE_DATA = {
       brand: "Seven Seas UK",
       price: "PKR 4,800",
       tag: "Immune & Brain Support",
-      image: "assets/images/pharmacy.jpg",
+      image: "assets/images/Seven Seas Cod Liver Oil + Omega 3 (500ml).jpg",
       description: "Rich in natural Vitamins A, D and essential Omega-3 fatty acids EPA and DHA.",
       inStock: true
     },
@@ -368,7 +368,7 @@ const DEFAULT_SITE_DATA = {
       brand: "Centrum USA",
       price: "PKR 5,900",
       tag: "Daily Vitality",
-      image: "assets/images/pharmacy.jpg",
+      image: "assets/images/Centrum Adults Multivitamin (100 Tabs).jpg",
       description: "Complete multivitamin with micronutrients to feed cells, boost energy, immunity & metabolism.",
       inStock: true
     },
@@ -380,7 +380,7 @@ const DEFAULT_SITE_DATA = {
       brand: "Bioderma France",
       price: "PKR 5,200",
       tag: "Cult Cleanser",
-      image: "assets/images/cosmetics.jpg",
+      image: "assets/images/Bioderma Sensibio H2O Micellar Water (500ml).jpg",
       description: "Iconic soothing non-rinse micellar water makeup remover for sensitive skin.",
       inStock: true
     },
@@ -392,7 +392,7 @@ const DEFAULT_SITE_DATA = {
       brand: "D. Watson Surgical",
       price: "PKR 24,000",
       tag: "Hospital Grade",
-      image: "assets/images/surgical.jpg",
+      image: "assets/images/Folding Lightweight Mobility Wheelchair.jpg",
       description: "Durable chrome-plated steel frame wheelchair with ergonomic armrests and swing-away footrests.",
       inStock: true
     },
@@ -404,7 +404,7 @@ const DEFAULT_SITE_DATA = {
       brand: "Lindt Switzerland",
       price: "PKR 1,150",
       tag: "Imported Confectionery",
-      image: "assets/images/grocery.jpg",
+      image: "assets/images/Lindt Excellence 85% Cocoa Dark Chocolate.jpg",
       description: "Rich, full-bodied dark chocolate crafted with passion by Lindt Swiss master chocolatiers.",
       inStock: true
     }

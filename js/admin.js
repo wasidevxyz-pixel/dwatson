@@ -148,6 +148,29 @@ window.togglePasswordVisibility = function(inputId, iconEl) {
   }
 };
 
+/**
+ * Universal Image Upload Handler with Instant Local File Preview
+ */
+window.handleAdminImageUpload = function(inputEl, targetInputId, previewImgId) {
+  if (inputEl.files && inputEl.files[0]) {
+    const file = inputEl.files[0];
+    if (file.size > 5 * 1024 * 1024) {
+      showToast("Selected image is large (>5MB). Consider a smaller file.", "info");
+    }
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const dataUrl = e.target.result;
+      const targetInput = document.getElementById(targetInputId);
+      if (targetInput) targetInput.value = dataUrl;
+      const previewImg = document.getElementById(previewImgId);
+      if (previewImg) previewImg.src = dataUrl;
+      showToast("Photo selected! Click Save to apply.", "success");
+    };
+    reader.readAsDataURL(file);
+  }
+};
+
+
 function initInactivityWatcher() {
   const resetEvents = ["mousedown", "mousemove", "keydown", "scroll", "touchstart"];
   resetEvents.forEach(evt => {
@@ -291,9 +314,18 @@ window.openSlideModal = function(index = -1) {
         <textarea class="admin-form-input" id="slideSubtitle" rows="3" required>${escapeAdminHtml(slide.subtitle)}</textarea>
       </div>
       <div class="admin-form-group">
-        <label>Background Image URL / Path</label>
-        <input type="text" class="admin-form-input" id="slideImage" value="${escapeAdminHtml(slide.image)}" required>
-        <small style="color: #64748B; font-size: 0.78rem;">Use paths like <code>assets/images/pharmacy.jpg</code> or any image URL.</small>
+        <label>Slide Image (Upload Photo or Enter Path/URL)</label>
+        <div style="display:flex; gap:8px; align-items:center; margin-bottom:8px;">
+          <input type="text" class="admin-form-input" id="slideImage" value="${escapeAdminHtml(slide.image)}" style="flex:1;" oninput="document.getElementById('slideImgPreview').src=this.value;">
+          <label class="btn btn-outline btn-sm" style="cursor:pointer; white-space:nowrap; margin-bottom:0; display:inline-flex; align-items:center; gap:6px;">
+            <i class="fa-solid fa-cloud-arrow-up"></i> Upload
+            <input type="file" accept="image/*" style="display:none;" onchange="handleAdminImageUpload(this, 'slideImage', 'slideImgPreview')">
+          </label>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <img id="slideImgPreview" src="${slide.image || 'assets/images/pharmacy.jpg'}" alt="Preview" style="width:90px; height:50px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1;" onerror="this.onerror=null; this.src='assets/images/pharmacy.jpg';">
+          <small style="color:#64748B; font-size:0.78rem;">Preview of current image. You can upload a photo or paste a URL/path.</small>
+        </div>
       </div>
       <div class="form-grid-2">
         <div class="admin-form-group">
@@ -365,7 +397,7 @@ function renderBranchesList() {
 
   container.innerHTML = adminData.branches.map((branch, idx) => `
     <div class="editable-item-card">
-      <img src="${branch.image || 'assets/images/store_flagship.jpg'}" class="item-thumbnail" alt="${escapeAdminHtml(branch.name)}">
+      <img src="${branch.image || 'assets/images/store_flagship.jpg'}" class="item-thumbnail" alt="${escapeAdminHtml(branch.name)}" onerror="this.onerror=null; this.src='assets/images/store_flagship.jpg';">
       <div class="item-info">
         <div class="item-title">${escapeAdminHtml(branch.name)} ${branch.is24Hours ? '<span style="color:#DC2626; font-size:0.75rem; font-weight:800;">[24/7 OPEN]</span>' : ''}</div>
         <div class="item-sub"><strong>City:</strong> ${escapeAdminHtml(branch.city)} • <strong>Phone:</strong> ${escapeAdminHtml(branch.phone)}</div>
@@ -444,12 +476,23 @@ window.openBranchModal = function(index = -1) {
 
       <div class="form-grid-2">
         <div class="admin-form-group">
-          <label>Branch Image Path / URL</label>
-          <input type="text" class="admin-form-input" id="branchImage" value="${escapeAdminHtml(branch.image)}">
+          <label>Branch Image (Upload Photo or Enter Path/URL)</label>
+          <div style="display:flex; gap:8px; align-items:center; margin-bottom:8px;">
+            <input type="text" class="admin-form-input" id="branchImage" value="${escapeAdminHtml(branch.image)}" placeholder="assets/images/branches/f6-supermarket.jpg" style="flex:1;" oninput="document.getElementById('branchImgPreview').src=this.value;">
+            <label class="btn btn-outline btn-sm" style="cursor:pointer; white-space:nowrap; margin-bottom:0; display:inline-flex; align-items:center; gap:6px;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Upload
+              <input type="file" accept="image/*" style="display:none;" onchange="handleAdminImageUpload(this, 'branchImage', 'branchImgPreview')">
+            </label>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <img id="branchImgPreview" src="${branch.image || 'assets/images/store_flagship.jpg'}" alt="Preview" style="width:90px; height:52px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1;" onerror="this.onerror=null; this.src='assets/images/store_flagship.jpg';">
+            <small style="color:#64748B; font-size:0.78rem;">Real photo for ${escapeAdminHtml(branch.name)}</small>
+          </div>
         </div>
         <div class="admin-form-group">
           <label>Google Maps Direction Link</label>
           <input type="text" class="admin-form-input" id="branchMap" value="${escapeAdminHtml(branch.mapUrl || '')}">
+          <small style="color:#64748B; font-size:0.78rem;">Link to Google Maps location.</small>
         </div>
       </div>
 
@@ -595,8 +638,18 @@ window.openProductModal = function(index = -1) {
 
       <div class="form-grid-2">
         <div class="admin-form-group">
-          <label>Image Path / URL</label>
-          <input type="text" class="admin-form-input" id="prodImage" value="${escapeAdminHtml(prod.image)}">
+          <label>Product Image (Upload Photo or Enter Path/URL)</label>
+          <div style="display:flex; gap:8px; align-items:center; margin-bottom:8px;">
+            <input type="text" class="admin-form-input" id="prodImage" value="${escapeAdminHtml(prod.image)}" style="flex:1;" oninput="document.getElementById('prodImgPreview').src=this.value;">
+            <label class="btn btn-outline btn-sm" style="cursor:pointer; white-space:nowrap; margin-bottom:0; display:inline-flex; align-items:center; gap:6px;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Upload
+              <input type="file" accept="image/*" style="display:none;" onchange="handleAdminImageUpload(this, 'prodImage', 'prodImgPreview')">
+            </label>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <img id="prodImgPreview" src="${prod.image || 'assets/images/cosmetics.jpg'}" alt="Preview" style="width:70px; height:50px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1;" onerror="this.onerror=null; this.src='assets/images/cosmetics.jpg';">
+            <small style="color:#64748B; font-size:0.78rem;">Product package or bottle shot.</small>
+          </div>
         </div>
         <div class="admin-form-group">
           <label>Badge Tag (e.g. Dermatologist Recommended)</label>
@@ -733,8 +786,18 @@ window.openGalleryModal = function(index = -1) {
         </select>
       </div>
       <div class="admin-form-group">
-        <label>Image Path / URL</label>
-        <input type="text" class="admin-form-input" id="galImage" value="${escapeAdminHtml(item.image)}" required>
+        <label>Gallery Photo (Upload Photo or Enter Path/URL)</label>
+        <div style="display:flex; gap:8px; align-items:center; margin-bottom:8px;">
+          <input type="text" class="admin-form-input" id="galImage" value="${escapeAdminHtml(item.image)}" required style="flex:1;" oninput="document.getElementById('galImgPreview').src=this.value;">
+          <label class="btn btn-outline btn-sm" style="cursor:pointer; white-space:nowrap; margin-bottom:0; display:inline-flex; align-items:center; gap:6px;">
+            <i class="fa-solid fa-cloud-arrow-up"></i> Upload
+            <input type="file" accept="image/*" style="display:none;" onchange="handleAdminImageUpload(this, 'galImage', 'galImgPreview')">
+          </label>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <img id="galImgPreview" src="${item.image || 'assets/images/store_flagship.jpg'}" alt="Preview" style="width:90px; height:50px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1;" onerror="this.onerror=null; this.src='assets/images/store_flagship.jpg';">
+          <small style="color:#64748B; font-size:0.78rem;">Showcase photo preview.</small>
+        </div>
       </div>
       <div class="admin-form-group">
         <label>Caption / Description</label>

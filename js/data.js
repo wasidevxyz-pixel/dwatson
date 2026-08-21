@@ -422,7 +422,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-8438111 / 051-2822222",
       timings: "Open 24 Hours • 7 Days a Week",
       is24Hours: true,
-      image: "assets/images/store_flagship.jpg",
+      image: "assets/images/branches/blue-area.jpg",
       services: ["24/7 Pharmacy", "Cosmetics Studio", "Mega Superstore", "Optics Clinic", "Surgical Supplies", "Undergarments"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Blue+Area+Islamabad",
       whatsapp: "923329716666"
@@ -436,7 +436,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-8438111 / 051-2827534",
       timings: "Open 24 Hours • 7 Days a Week",
       is24Hours: true,
-      image: "assets/images/pharmacy.jpg",
+      image: "assets/images/branches/f6-supermarket.jpg",
       services: ["24/7 Pharmacy", "Luxury Cosmetics", "Grocery Essentials", "Optics", "Undergarments"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+F-6+Super+Market+Islamabad",
       whatsapp: "923329716666"
@@ -450,7 +450,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-8444479 / 051-2270425",
       timings: "08:00 AM - 01:00 AM Daily",
       is24Hours: false,
-      image: "assets/images/cosmetics.jpg",
+      image: "assets/images/branches/f7-markaz.jpg",
       services: ["Pharmacy", "Luxury Cosmetics", "Personal Care", "Optics"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+F-7+Markaz+Islamabad",
       whatsapp: "923329716666"
@@ -464,7 +464,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-2215784 / 051-8438111",
       timings: "Open 24 Hours • 7 Days a Week",
       is24Hours: true,
-      image: "assets/images/pharmacy.jpg",
+      image: "assets/images/branches/f10-markaz.jpg",
       services: ["24/7 Pharmacy", "Cosmetics Counter", "Superstore", "Optics Clinic", "Surgical Dept"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+F-10+Markaz+Islamabad",
       whatsapp: "923329716666"
@@ -478,7 +478,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-8441791 / 051-2102882",
       timings: "Open 24 Hours • 7 Days a Week",
       is24Hours: true,
-      image: "assets/images/grocery.jpg",
+      image: "assets/images/branches/f11-markaz.jpg",
       services: ["24/7 Pharmacy", "Superstore", "Cosmetics", "Optics"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+F-11+Markaz+Islamabad",
       whatsapp: "923329716666"
@@ -492,7 +492,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-2852211 / 051-2852233",
       timings: "08:00 AM - 12:00 AM Daily",
       is24Hours: false,
-      image: "assets/images/grocery.jpg",
+      image: "assets/images/branches/g9-markaz.jpg",
       services: ["Pharmacy", "Superstore", "Cosmetics", "Surgical Supplies"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+G-9+Markaz+Islamabad",
       whatsapp: "923329716666"
@@ -506,7 +506,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-8438111",
       timings: "08:00 AM - 12:00 AM Daily",
       is24Hours: false,
-      image: "assets/images/pharmacy.jpg",
+      image: "assets/images/branches/g11-markaz.jpg",
       services: ["Pharmacy", "Cosmetics", "Superstore Essentials"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+G-11+Markaz+Islamabad",
       whatsapp: "923329716666"
@@ -520,7 +520,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-8438111",
       timings: "08:00 AM - 11:00 PM Daily",
       is24Hours: false,
-      image: "assets/images/grocery.jpg",
+      image: "assets/images/branches/g15-markaz.jpg",
       services: ["Pharmacy", "Superstore", "Cosmetics", "Baby Care"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+G-15+Markaz+Islamabad",
       whatsapp: "923329716666"
@@ -534,7 +534,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-8487354 / 051-8438111",
       timings: "08:00 AM - 01:00 AM Daily",
       is24Hours: false,
-      image: "assets/images/cosmetics.jpg",
+      image: "assets/images/branches/i8-markaz.jpg",
       services: ["Pharmacy", "Superstore", "Cosmetics", "Optics"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+I-8+Markaz+Islamabad",
       whatsapp: "923329716666"
@@ -548,7 +548,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-4867777 / 051-8438111",
       timings: "08:00 AM - 12:00 AM Daily",
       is24Hours: false,
-      image: "assets/images/grocery.jpg",
+      image: "assets/images/branches/i10-markaz.jpg",
       services: ["Pharmacy", "Superstore", "Cosmetics", "Surgical"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+I-10+Markaz+Islamabad",
       whatsapp: "923329716666"
@@ -562,7 +562,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-6101287 / 051-8438111",
       timings: "Open 24 Hours • 7 Days a Week",
       is24Hours: true,
-      image: "assets/images/store_flagship.jpg",
+      image: "assets/images/branches/dha-phase2.jpg",
       services: ["24/7 Pharmacy", "Cosmetics", "Superstore", "Optics", "Surgical"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+DHA+Phase+2+Islamabad",
       whatsapp: "923329716666"
@@ -576,7 +576,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-5156072 / 051-5156062",
       timings: "08:00 AM - 01:00 AM Daily",
       is24Hours: false,
-      image: "assets/images/grocery.jpg",
+      image: "assets/images/branches/pwd.jpg",
       services: ["Pharmacy", "Superstore", "Cosmetics", "Baby Care"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+PWD+Islamabad",
       whatsapp: "923329716666"
@@ -590,7 +590,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-8438111",
       timings: "08:00 AM - 12:00 AM Daily",
       is24Hours: false,
-      image: "assets/images/pharmacy.jpg",
+      image: "assets/images/branches/ghauri-town.jpg",
       services: ["Pharmacy", "Superstore", "Cosmetics", "Personal Care"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Ghauri+Town+Islamabad",
       whatsapp: "923329716666"
@@ -604,7 +604,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-8438111",
       timings: "08:00 AM - 12:00 AM Daily",
       is24Hours: false,
-      image: "assets/images/store_flagship.jpg",
+      image: "assets/images/branches/gulberg-greens.jpg",
       services: ["Pharmacy", "Cosmetics Studio", "Superstore", "Optics"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Gulberg+Greens+Islamabad",
       whatsapp: "923329716666"
@@ -620,7 +620,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-5701070 / 051-5701071",
       timings: "Open 24 Hours • 7 Days a Week",
       is24Hours: true,
-      image: "assets/images/surgical.jpg",
+      image: "assets/images/branches/saddar-rawalpindi.jpg",
       services: ["24/7 Pharmacy", "Optics Lab", "Surgical Hub", "Cosmetics", "Undergarments"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Saddar+Rawalpindi",
       whatsapp: "923329716666"
@@ -634,7 +634,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-4571471 / 051-4571472",
       timings: "Open 24 Hours • 7 Days a Week",
       is24Hours: true,
-      image: "assets/images/pharmacy.jpg",
+      image: "assets/images/branches/chandni-chowk.jpg",
       services: ["24/7 Pharmacy", "Superstore", "Cosmetics", "Surgical Supplies"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Chandni+Chowk+Rawalpindi",
       whatsapp: "923329716666"
@@ -648,7 +648,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-5739999 / 051-8438111",
       timings: "08:00 AM - 01:00 AM Daily",
       is24Hours: false,
-      image: "assets/images/optics.jpg",
+      image: "assets/images/branches/bahria-phase4.jpg",
       services: ["Pharmacy", "Superstore", "Cosmetics", "Optics Boutique"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Bahria+Town+Phase+4+Rawalpindi",
       whatsapp: "923329716666"
@@ -662,7 +662,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-8770601 / 051-8770603",
       timings: "08:00 AM - 01:00 AM Daily",
       is24Hours: false,
-      image: "assets/images/store_flagship.jpg",
+      image: "assets/images/branches/bahria-phase6.jpg",
       services: ["Pharmacy", "Superstore", "Cosmetics", "Optics"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Bahria+Town+Phase+6",
       whatsapp: "923329716666"
@@ -676,7 +676,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-5766257 / 051-8438111",
       timings: "08:00 AM - 12:00 AM Daily",
       is24Hours: false,
-      image: "assets/images/cosmetics.jpg",
+      image: "assets/images/branches/chaklala.jpg",
       services: ["Pharmacy", "Cosmetics", "Superstore Essentials"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Chaklala+Scheme+3",
       whatsapp: "923329716666"
@@ -692,7 +692,7 @@ const DEFAULT_SITE_DATA = {
       phone: "042-35712345 / 051-8438111",
       timings: "Open 24 Hours • 7 Days a Week",
       is24Hours: true,
-      image: "assets/images/store_flagship.jpg",
+      image: "assets/images/branches/gulberg-lahore.jpg",
       services: ["24/7 Pharmacy", "Luxury Cosmetics", "Gourmet Supermarket", "Optics", "Surgical"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Gulberg+Lahore",
       whatsapp: "923329716666"
@@ -706,7 +706,7 @@ const DEFAULT_SITE_DATA = {
       phone: "0992-381111 / 051-8438111",
       timings: "08:00 AM - 11:00 PM Daily",
       is24Hours: false,
-      image: "assets/images/pharmacy.jpg",
+      image: "assets/images/branches/abbottabad.jpg",
       services: ["Pharmacy", "Superstore", "Cosmetics", "Surgical"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Abbottabad",
       whatsapp: "923329716666"
@@ -720,7 +720,7 @@ const DEFAULT_SITE_DATA = {
       phone: "057-2611111 / 051-8438111",
       timings: "08:00 AM - 11:00 PM Daily",
       is24Hours: false,
-      image: "assets/images/surgical.jpg",
+      image: "assets/images/branches/attock.jpg",
       services: ["Pharmacy", "Surgical Supplies", "Cosmetics", "Grocery"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Attock",
       whatsapp: "923329716666"
@@ -734,7 +734,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-3511111 / 051-8438111",
       timings: "08:00 AM - 11:00 PM Daily",
       is24Hours: false,
-      image: "assets/images/grocery.jpg",
+      image: "assets/images/branches/gujar-khan.jpg",
       services: ["Pharmacy", "Superstore", "Cosmetics", "Baby Care"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Gujar+Khan",
       whatsapp: "923329716666"
@@ -748,7 +748,7 @@ const DEFAULT_SITE_DATA = {
       phone: "0946-721111 / 051-8438111",
       timings: "08:00 AM - 10:00 PM Daily",
       is24Hours: false,
-      image: "assets/images/store_flagship.jpg",
+      image: "assets/images/branches/swat.jpg",
       services: ["Pharmacy", "Superstore", "Cosmetics", "Optics"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Swat",
       whatsapp: "923329716666"
@@ -762,7 +762,7 @@ const DEFAULT_SITE_DATA = {
       phone: "0997-301111 / 051-8438111",
       timings: "08:00 AM - 10:00 PM Daily",
       is24Hours: false,
-      image: "assets/images/pharmacy.jpg",
+      image: "assets/images/branches/mansehra.jpg",
       services: ["Pharmacy", "Cosmetics", "Superstore", "Surgical"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+Mansehra",
       whatsapp: "923329716666"
@@ -896,7 +896,13 @@ function getSiteData() {
         heroSlides: Array.isArray(parsed.heroSlides) && parsed.heroSlides.length ? parsed.heroSlides : DEFAULT_SITE_DATA.heroSlides,
         departments: Array.isArray(parsed.departments) && parsed.departments.length ? parsed.departments : DEFAULT_SITE_DATA.departments,
         products: Array.isArray(parsed.products) && parsed.products.length ? parsed.products : DEFAULT_SITE_DATA.products,
-        branches: Array.isArray(parsed.branches) && parsed.branches.length ? parsed.branches : DEFAULT_SITE_DATA.branches,
+        branches: Array.isArray(parsed.branches) && parsed.branches.length ? parsed.branches.map(b => {
+          const def = DEFAULT_SITE_DATA.branches.find(db => db.id === b.id);
+          if (def && (!b.image || b.image === 'assets/images/store_flagship.jpg' || b.image === 'assets/images/pharmacy.jpg' || b.image === 'assets/images/grocery.jpg' || b.image === 'assets/images/surgical.jpg' || b.image === 'assets/images/optics.jpg' || b.image === 'assets/images/cosmetics.jpg')) {
+            b.image = def.image;
+          }
+          return b;
+        }) : DEFAULT_SITE_DATA.branches,
         gallery: Array.isArray(parsed.gallery) && parsed.gallery.length ? parsed.gallery : DEFAULT_SITE_DATA.gallery,
         faqs: Array.isArray(parsed.faqs) && parsed.faqs.length ? parsed.faqs : DEFAULT_SITE_DATA.faqs
       };

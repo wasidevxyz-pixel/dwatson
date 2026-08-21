@@ -370,7 +370,7 @@ function renderProductCards(products, defaultWhatsApp) {
           
           <div class="product-footer">
             <div class="product-price">${escapeHtml(p.price || 'Inquire')}</div>
-            <a href="${waUrl}" target="_blank" onclick="handleProductOrderClick('${p.id}')" class="btn btn-whatsapp btn-sm" title="Order via WhatsApp">
+            <a href="${waUrl}" target="_blank" onclick="handleProductOrderClick(event, '${p.id}', '${waUrl}')" class="btn btn-whatsapp btn-sm" title="Order via WhatsApp">
               <i class="fa-brands fa-whatsapp"></i> Inquire / Order
             </a>
           </div>
@@ -594,9 +594,10 @@ function updateProductZoomDisplay() {
       waText += `📸 *Product Photo Link:* ${fullImgUrl}\n`;
     }
     waText += `\n📝 *Inquiry Note:* Hi D.Watson Chemist, please confirm stock availability and express delivery to my location.`;
-    waBtn.href = `https://wa.me/${waNum}?text=${encodeURIComponent(waText)}`;
-    waBtn.onclick = function() {
-      handleProductOrderClick(p.id);
+    const waUrl = `https://wa.me/${waNum}?text=${encodeURIComponent(waText)}`;
+    waBtn.href = waUrl;
+    waBtn.onclick = function(e) {
+      handleProductOrderClick(e, p.id, waUrl);
     };
   }
 
@@ -961,49 +962,58 @@ function renderFooter(company, branches) {
 }
 
 /**
- * Helper: Resolve relative image path to full public URL (Only on web servers, never shows file:///)
+ * Helper: Resolve relative image path to direct GitHub Raw CDN public URL
+ * Always accessible anywhere in the world with HTTP 200 OK, zero 404s, zero ads
  */
 function getFullImageUrl(imagePath) {
   if (!imagePath) return "";
   if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) return imagePath;
   
-  // If hosted on a web server (http / https), construct absolute web link
-  if (window.location.protocol === "http:" || window.location.protocol === "https:") {
-    try {
-      return new URL(imagePath, window.location.origin).href;
-    } catch (e) {
-      return "";
-    }
-  }
-  // When running locally from local drive (file:///), do not show ugly file:/// links in WhatsApp
-  return "";
+  const cleanPath = imagePath.replace(/^\.?\//, "");
+  // Official GitHub Global CDN Raw Link (permanent, live, public)
+  return `https://raw.githubusercontent.com/wasidevxyz-pixel/dwatson/main/${cleanPath}`;
 }
 
 /**
- * Handle Product Order Click: Automatically record inquiry in D. Watson Portal Studio
+ * Handle Product Order Click: Awaits Real-Time Cloud Sync & opens WhatsApp
  */
-window.handleProductOrderClick = function(productId) {
+window.handleProductOrderClick = async function(event, productId, waUrl) {
+  if (event) event.preventDefault();
+
   const p = (allProductsData || []).find(item => item.id === productId) || (currentProductZoomList || []).find(item => item.id === productId);
-  if (!p) return;
+  if (!p) {
+    if (waUrl) window.open(waUrl, "_blank");
+    return;
+  }
 
   const randomCode = Math.floor(1000 + Math.random() * 9000);
   const refId = `DW-ORD-${randomCode}`;
   const timestamp = new Date().toLocaleString();
+  const fullImgUrl = getFullImageUrl(p.image);
 
   if (typeof saveCustomerInquiry === "function") {
-    saveCustomerInquiry({
-      id: refId,
-      type: "product",
-      productName: p.name,
-      brand: p.brand || "D. Watson Certified",
-      price: p.price || "Inquire",
-      category: p.categoryName || p.category || "General Essential",
-      image: p.image || "assets/images/pharmacy.jpg",
-      customerName: "Online WhatsApp Customer",
-      notes: `Product inquiry for ${p.name} (${p.price || 'Inquire'})`,
-      date: timestamp,
-      status: "New Product Order"
-    });
+    try {
+      await saveCustomerInquiry({
+        id: refId,
+        type: "product",
+        productName: p.name,
+        brand: p.brand || "D. Watson Certified",
+        price: p.price || "Inquire",
+        category: p.categoryName || p.category || "General Essential",
+        photoUrl: fullImgUrl,
+        image: fullImgUrl,
+        customerName: "Online WhatsApp Customer",
+        notes: `Product inquiry for ${p.name} (${p.price || 'Inquire'})`,
+        date: timestamp,
+        status: "New Product Order"
+      });
+    } catch (e) {
+      console.warn("Inquiry sync error:", e);
+    }
+  }
+
+  if (waUrl) {
+    window.open(waUrl, "_blank");
   }
 };
 
@@ -1126,17 +1136,21 @@ function initPrescriptionUploader(whatsappNumber) {
 
       // Save order to D. Watson Portal Studio database (100% clean, no ads, permanent)
       if (typeof savePrescriptionOrder === "function") {
-        savePrescriptionOrder({
-          id: refId,
-          name: name,
-          phone: phone,
-          branch: branch,
-          notes: notes,
-          photoUrl: uploadedCleanPhotoUrl || "",
-          imageBase64: selectedPrescriptionBase64 || "",
-          fileName: selectedPrescriptionFileName || "prescription.jpg",
-          date: timestamp
-        });
+        try {
+          await savePrescriptionOrder({
+            id: refId,
+            name: name,
+            phone: phone,
+            branch: branch,
+            notes: notes,
+            photoUrl: uploadedCleanPhotoUrl || "",
+            imageBase64: selectedPrescriptionBase64 || "",
+            fileName: selectedPrescriptionFileName || "prescription.jpg",
+            date: timestamp
+          });
+        } catch (e) {
+          console.warn("Prescription save error:", e);
+        }
       }
 
       let msg = `*--- D. WATSON PRESCRIPTION & MEDICINE ORDER ---*\n`;

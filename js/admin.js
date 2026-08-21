@@ -47,6 +47,7 @@ function loadAdminState() {
    AUTHENTICATION & SECURITY GATE
    ========================================================================== */
 function initAuthGuard() {
+  initRealtimeCloudSync();
   const overlay = document.getElementById("adminAuthOverlay");
   const loginForm = document.getElementById("adminLoginForm");
   const isAuthSession = sessionStorage.getItem("dwatson_admin_auth") === "true" || localStorage.getItem("dwatson_admin_remember") === "true";

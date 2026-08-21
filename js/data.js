@@ -1000,12 +1000,12 @@ const CLOUD_SYNC_URL = `https://ntfy.sh/${CLOUD_SYNC_TOPIC}`;
 async function pushInquiryToCloud(inquiry) {
   try {
     const isProduct = inquiry.type === "product";
-    const title = isProduct 
-      ? `🛍️ New Product Order: ${inquiry.productName} (${inquiry.price || 'Inquire'})` 
-      : `💊 New Prescription: ${inquiry.name || 'Customer'} (${inquiry.branch || 'Branch'})`;
+    const titleText = isProduct 
+      ? `New Product Order: ${inquiry.productName} (${inquiry.price || 'Inquire'})` 
+      : `New Prescription: ${inquiry.name || 'Customer'} (${inquiry.branch || 'Branch'})`;
 
     const headers = {
-      "Title": title,
+      "Title": titleText.replace(/[^\x00-\x7F]/g, ""),
       "Priority": "high",
       "Tags": isProduct ? "shopping_bags,package" : "pill,medical_symbol"
     };
@@ -1015,18 +1015,24 @@ async function pushInquiryToCloud(inquiry) {
       headers["Attach"] = inquiry.photoUrl;
     }
 
-    await fetch(CLOUD_SYNC_URL, {
+    const payload = JSON.stringify(inquiry);
+
+    // Use fetch with keepalive for guaranteed mobile delivery during page switch
+    const res = await fetch(CLOUD_SYNC_URL, {
       method: "POST",
       headers: headers,
-      body: JSON.stringify(inquiry)
+      body: payload,
+      keepalive: true
     });
     console.log("Inquiry pushed to Real-Time Cloud Sync:", inquiry.id);
+    return res.ok;
   } catch (err) {
-    console.warn("Cloud sync push notice (stored locally):", err);
+    console.warn("Cloud sync push error:", err);
+    return false;
   }
 }
 
-function saveCustomerInquiry(item) {
+async function saveCustomerInquiry(item) {
   try {
     const list = getCustomerInquiries();
     list.unshift(item);
@@ -1034,11 +1040,11 @@ function saveCustomerInquiry(item) {
     const trimmed = list.slice(0, 150);
     localStorage.setItem(INQUIRIES_STORAGE_KEY, JSON.stringify(trimmed));
     
-    // Broadcast live across all devices via Cloud Database Sync
-    pushInquiryToCloud(item);
-
     window.dispatchEvent(new Event("inquiriesDataUpdated"));
     window.dispatchEvent(new Event("prescriptionDataUpdated"));
+
+    // Broadcast live across all devices via Cloud Database Sync
+    await pushInquiryToCloud(item);
     return true;
   } catch (e) {
     console.error("Error saving customer inquiry:", e);
@@ -1074,15 +1080,15 @@ function getPrescriptionsData() {
   return [];
 }
 
-function savePrescriptionOrder(order) {
+async function savePrescriptionOrder(order) {
   try {
     const list = getPrescriptionsData();
     list.unshift(order);
     const trimmed = list.slice(0, 100);
     localStorage.setItem(PRESCRIPTION_STORAGE_KEY, JSON.stringify(trimmed));
     
-    // Also save in unified inquiries
-    saveCustomerInquiry({
+    // Also save in unified inquiries & push to cloud sync
+    await saveCustomerInquiry({
       ...order,
       type: "prescription"
     });

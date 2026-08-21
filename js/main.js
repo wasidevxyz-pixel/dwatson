@@ -104,7 +104,7 @@ function renderHeroSlider(slides) {
   slides.forEach((slide, index) => {
     const slideDiv = document.createElement("div");
     slideDiv.className = `hero-slide ${index === 0 ? 'active' : ''}`;
-    slideDiv.style.backgroundImage = `url('${slide.image}')`;
+    slideDiv.style.backgroundImage = `url("${encodeURI(slide.image)}")`;
 
     slideDiv.innerHTML = `
       <div class="hero-slide-overlay"></div>
@@ -276,7 +276,7 @@ function renderDepartments(departments, defaultWhatsApp) {
     return `
       <div class="department-card" id="dept-${dept.id}">
         <div class="dept-img-wrap">
-          <img src="${dept.image}" alt="${escapeHtml(dept.name)}" loading="lazy">
+          <img src="${encodeURI(dept.image)}" alt="${escapeHtml(dept.name)}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/pharmacy.jpg';">
           <span class="dept-badge">${escapeHtml(dept.badge || "Featured")}</span>
           <div class="dept-icon-floating">
             <i class="${dept.icon || 'fa-solid fa-star'}"></i>
@@ -355,7 +355,7 @@ function renderProductCards(products, defaultWhatsApp) {
     return `
       <div class="product-card" data-product-id="${p.id}">
         <div class="product-img-wrap" onclick="openProductZoomModal('${p.id}')" title="Click to inspect & zoom ${escapeHtml(p.name)}">
-          <img src="${p.image || 'assets/images/pharmacy.jpg'}" alt="${escapeHtml(p.name)}" loading="lazy">
+          <img src="${encodeURI(p.image || 'assets/images/pharmacy.jpg')}" alt="${escapeHtml(p.name)}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/pharmacy.jpg';">
           <span class="product-badge-tag">${escapeHtml(p.tag || "100% Genuine")}</span>
           <span class="product-instock-badge"><i class="fa-solid fa-circle-check"></i> In Stock</span>
           <div class="product-zoom-hint-btn">
@@ -739,7 +739,7 @@ function renderBranchCards(branches) {
   container.innerHTML = branches.map(b => `
     <div class="branch-card">
       <div class="branch-card-header">
-        <img src="${b.image || 'assets/images/store_flagship.jpg'}" alt="${escapeHtml(b.name)}" loading="lazy">
+        <img src="${encodeURI(b.image || 'assets/images/store_flagship.jpg')}" alt="${escapeHtml(b.name)}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/store_flagship.jpg';">
         ${b.is24Hours ? '<span class="branch-badge-24"><i class="fa-solid fa-clock"></i> 24/7 OPEN</span>' : ''}
         <span class="branch-city-badge">${escapeHtml(b.city)}</span>
       </div>
@@ -970,8 +970,9 @@ function getFullImageUrl(imagePath) {
   if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) return imagePath;
   
   const cleanPath = imagePath.replace(/^\.?\//, "");
-  // Official GitHub Global CDN Raw Link (permanent, live, public)
-  return `https://raw.githubusercontent.com/wasidevxyz-pixel/dwatson/main/${cleanPath}`;
+  const encodedPath = encodeURI(cleanPath).replace(/\+/g, "%2B");
+  // Official GitHub Global CDN Raw Link (permanent, live, public, 100% reliable)
+  return `https://raw.githubusercontent.com/wasidevxyz-pixel/dwatson/main/${encodedPath}`;
 }
 
 /**

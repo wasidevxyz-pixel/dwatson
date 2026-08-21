@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D. Watson Chemist &amp; Superstore | Official Portal • Pharmacy, Cosmetics, Optics &amp; Grocery</title>
+  <meta name="description" content="Official D. Watson Chemist &amp; Superstore - Pakistan's premier 24/7 destination for 100% genuine medicines, international luxury cosmetics, optics clinics, hospital surgical supplies, and gourmet superstore groceries.">
+  <meta name="theme-color" content="#DC2626">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Announcement & Quick Contact Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="announcement-text">
+        <span class="badge-live">24/7 Live Service</span>
+        <span id="topAnnouncement">✨ 100% Genuine Medicines Guaranteed • 24/7 Universal Helpline: 051-8438111 • WhatsApp Express Delivery: 0332-9716666</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="tel:0518438111" id="topPhone"><i class="fa-solid fa-phone"></i> Helpline: 051-8438111</a>
+        <a href="https://wa.me/923329716666" id="topWhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp: 0332-9716666</a>
+        <a href="admin.html" class="portal-link-btn" title="Open Content Management Studio"><i class="fa-solid fa-lock"></i> Portal Studio</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Sticky Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <nav class="navbar">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo" title="D. Watson Chemist &amp; Superstore">
+          <img src="assets/images/logo.svg" alt="D. Watson Logo">
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">Our Heritage</a></li>
+          <li><a href="#departments" class="nav-link">Departments</a></li>
+          <li><a href="#products" class="nav-link">Products</a></li>
+          <li><a href="#branches" class="nav-link">Branches (24+)</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#contact" class="nav-link">Customer Care</a></li>
+          <li><a href="#faq" class="nav-link">FAQs</a></li>
+        </ul>
+
+        <!-- Right Action Button -->
+        <div class="nav-actions">
+          <a href="#prescription-box" class="btn btn-primary btn-sm">
+            <i class="fa-solid fa-file-prescription"></i> Upload Prescription
+          </a>
+          <button class="mobile-toggle" aria-label="Toggle navigation menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Slider Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-slider-wrapper" id="heroSliderWrapper">
+      <!-- Slides are dynamically loaded from data.js -->
+    </div>
+
+    <!-- Slider Navigation Controls -->
+    <button class="slider-arrow prev" id="sliderPrevBtn" aria-label="Previous Slide">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="slider-arrow next" id="sliderNextBtn" aria-label="Next Slide">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Dot Indicators -->
+    <div class="slider-dots" id="heroSliderDots"></div>
+
+    <!-- Progress Line -->
+    <div class="slider-progress" id="sliderProgressBar"></div>
+  </section>
+
+  <!-- Trust & Certification Highlights Bar -->
+  <section class="container" style="position: relative;">
+    <div class="trust-bar">
+      <div class="trust-grid" id="trustGrid">
+        <!-- Loaded dynamically from data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT & HERITAGE SECTION ================= -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-img-main">
+            <img src="assets/images/store_flagship.jpg" alt="D. Watson Superstore Flagship">
+          </div>
+          <div class="about-floating-card">
+            <div class="card-year">1975</div>
+            <div class="card-text">Named in grateful tribute to Dr. Watson • 50+ Years of Pure Trust &amp; Healthcare Leadership in Pakistan.</div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="section-tag">Authentic Heritage &amp; Story</span>
+          <h2>A Legacy of <span class="highlight-red">Absolute Trust</span> &amp; <span class="highlight-blue">Gratitude</span></h2>
+          <p class="about-desc" id="aboutShortText">
+            For five decades, D. Watson has stood as Pakistan's most trusted chain for certified pharmaceuticals, international beauty brands, optical precision, and premium daily superstore shopping.
+          </p>
+          <p class="about-desc" id="aboutHistoryText" style="font-size: 0.95rem;">
+            Founded in 1975 by Chairman Zafar Iqbal Bakhtawari and Zahid Bakhtawari, D. Watson was named in heartfelt homage to Dr. Watson, a British ophthalmologist who cured Mr. Bakhtawari's eye illness in England during his youth. From a single Murree Road dispensary, D. Watson pioneered the modern departmental superstore format with certified pharmacists, computerized cold chains, and curated international retail sections.
+          </p>
+
+          <div class="about-features-list">
+            <div class="about-feat-item">
+              <i class="fa-solid fa-shield-halved"></i> 100% Genuine Medicine Guarantee
+            </div>
+            <div class="about-feat-item">
+              <i class="fa-solid fa-temperature-arrow-down"></i> Strict Cold Chain Monitoring (2°C - 8°C)
+            </div>
+            <div class="about-feat-item">
+              <i class="fa-solid fa-user-doctor"></i> Qualified Registered Pharmacists 24/7
+            </div>
+            <div class="about-feat-item">
+              <i class="fa-solid fa-truck-fast"></i> Express Home Delivery Nationwide
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top:24px;">
+            <a href="#heritage-timeline" class="btn btn-primary">View Historical Milestones <i class="fa-solid fa-arrow-down"></i></a>
+            <a href="#branches" class="btn btn-outline">Explore 24+ Branches</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Historical Milestone Timeline -->
+      <div class="heritage-timeline-wrap" id="heritage-timeline" style="margin-top: 60px;">
+        <div style="text-align: center; margin-bottom: 36px;">
+          <span class="section-tag blue-tag">50 Years of Growth</span>
+          <h3 style="font-size: 1.85rem; font-weight: 800; color: #0F172A; margin-top: 6px;">The Journey of <span class="highlight-red">D. Watson</span></h3>
+          <p style="color: #64748B; font-size: 0.92rem; max-width: 600px; margin: 6px auto 0;">From a vision born in 1975 to Pakistan's premier departmental healthcare and superstore network.</p>
+        </div>
+
+        <div class="timeline-grid" id="timelineGrid">
+          <!-- Populated dynamically via main.js from data.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DEPARTMENTS SHOWCASE SECTION ================= -->
+  <section class="departments-section" id="departments">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag blue-tag">Complete Retail Ecosystem</span>
+        <h2 class="section-title">Our Specialized <span class="highlight-red">Departments</span></h2>
+        <p class="section-subtitle">
+          Everything your family needs with unmatched authenticity — from life-saving medicines to luxury cosmetics, vision clinics, surgical devices, and daily groceries.
+        </p>
+      </div>
+
+      <div class="departments-grid" id="departmentsGrid">
+        <!-- Rendered dynamically from data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURED PRODUCTS CATALOG SECTION ================= -->
+  <section class="products-section" id="products" style="padding: 90px 0; background: #FFFFFF;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Curated Brand Catalog</span>
+        <h2 class="section-title">Featured <span class="highlight-blue">Products &amp; Healthcare</span> Essentials</h2>
+        <p class="section-subtitle">
+          Directly sourced from official global manufacturers with 100% genuine authenticity guaranteed. Click to inquire or order instantly via WhatsApp.
+        </p>
+      </div>
+
+      <!-- Product Category Filters -->
+      <div class="product-filter-bar" id="productFilters" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px;">
+        <!-- Populated via main.js -->
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Populated via main.js -->
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="https://wa.me/923329716666?text=Hi%20D.Watson,%20I%20am%20looking%20for%20a%20specific%20product%20availability." target="_blank" class="btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> Inquire Any Specific Medicine or Product on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BRANCHES & STORE LOCATIONS EXPLORER ================= -->
+  <section class="branches-section" id="branches">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Store Locator</span>
+        <h2 class="section-title">Official <span class="highlight-blue">D. Watson Branches</span> (24+ Network)</h2>
+        <p class="section-subtitle">
+          Conveniently located across major commercial hubs in Islamabad, Rawalpindi, Lahore, and regional centers from <strong>dwatson.co</strong>.
+        </p>
+      </div>
+
+      <!-- Filter & Search Controls -->
+      <div class="branch-filter-bar">
+        <div class="branch-search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="branchSearchInput" placeholder="Search by area, sector, branch name...">
+        </div>
+        <div class="branch-pills" id="branchCityPills">
+          <!-- City pills rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Branches Grid -->
+      <div class="branches-grid" id="branchesGrid">
+        <!-- Rendered dynamically from data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INTERACTIVE IMAGE GALLERY ================= -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Visual Tour</span>
+        <h2 class="section-title">Inside <span class="highlight-red">D. Watson</span></h2>
+        <p class="section-subtitle">
+          Official store photos, modern cold-chain pharmacy labs, luxury cosmetics lounges, and optics clinics from <strong>facebook.com/DWatsonChemist</strong>.
+        </p>
+      </div>
+
+      <!-- Category Filter Buttons -->
+      <div class="gallery-filters" id="galleryFilters">
+        <!-- Filter pills dynamically loaded -->
+      </div>
+
+      <!-- Photo Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Gallery items dynamically loaded -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal for Gallery -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</button>
+    <button class="lightbox-nav prev" onclick="prevLightbox()" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="lightbox-nav next" onclick="nextLightbox()" aria-label="Next Image"><i class="fa-solid fa-chevron-right"></i></button>
+    
+    <div class="lightbox-content">
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImage" src="" alt="D. Watson Gallery Preview">
+      </div>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- High-End Product Zoom & Details Lightbox Modal -->
+  <div class="product-zoom-modal" id="productZoomModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="product-zoom-backdrop" onclick="closeProductZoomModal()"></div>
+    
+    <div class="product-zoom-dialog">
+      <!-- Modal Top Header & Action Controls Bar -->
+      <div class="zoom-modal-header">
+        <div class="zoom-modal-badge-group">
+          <span class="zoom-badge-pill" id="zoomModalCategory">Cosmetics &amp; Skincare</span>
+          <span class="zoom-counter" id="zoomModalCounter">1 / 12</span>
+        </div>
+
+        <div class="zoom-toolbar">
+          <button class="zoom-tool-btn" id="zoomInBtn" onclick="zoomInProduct()" title="Zoom In (+)" aria-label="Zoom In">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+          </button>
+          <button class="zoom-tool-btn" id="zoomOutBtn" onclick="zoomOutProduct()" title="Zoom Out (-)" aria-label="Zoom Out">
+            <i class="fa-solid fa-magnifying-glass-minus"></i>
+          </button>
+          <button class="zoom-tool-btn" id="zoomResetBtn" onclick="resetProductZoom()" title="Reset Zoom (100%)" aria-label="Reset Zoom">
+            <i class="fa-solid fa-arrows-rotate"></i>
+          </button>
+          <button class="zoom-tool-btn" id="zoomFullscreenBtn" onclick="toggleProductZoomFullscreen()" title="Toggle Fullscreen" aria-label="Toggle Fullscreen">
+            <i class="fa-solid fa-expand"></i>
+          </button>
+          <button class="zoom-tool-btn zoom-close-btn" onclick="closeProductZoomModal()" title="Close (Esc)" aria-label="Close Modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Stage: Image Viewer + Product Details Side-by-Side -->
+      <div class="zoom-modal-body">
+        <!-- Interactive Deep-Zoom Stage -->
+        <div class="zoom-stage" id="zoomStage">
+          <!-- Navigation Arrows -->
+          <button class="zoom-nav-arrow zoom-prev-btn" onclick="prevProductZoom()" aria-label="Previous Product">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="zoom-nav-arrow zoom-next-btn" onclick="nextProductZoom()" aria-label="Next Product">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <!-- Zoom Viewport -->
+          <div class="zoom-viewport" id="zoomViewport">
+            <img id="zoomModalImg" src="" alt="Product Detail Zoom Preview" draggable="false">
+            <div class="zoom-level-badge" id="zoomLevelBadge">100%</div>
+          </div>
+
+          <!-- Interaction Hint -->
+          <div class="zoom-hint-banner">
+            <span><i class="fa-solid fa-arrows-up-down-left-right"></i> Drag to Pan &bull; Mouse Wheel to Zoom &bull; Double-Click to Enlarge</span>
+          </div>
+        </div>
+
+        <!-- Product Details & Quick Order Sidebar -->
+        <div class="zoom-sidebar" id="zoomSidebar">
+          <div class="zoom-sidebar-scroll">
+            <div class="zoom-brand-row">
+              <span class="zoom-brand-text" id="zoomModalBrand">CeraVe USA</span>
+              <span class="zoom-genuine-badge"><i class="fa-solid fa-shield-check"></i> 100% Original</span>
+            </div>
+
+            <h3 class="zoom-product-title" id="zoomModalTitle">Product Name</h3>
+            
+            <div class="zoom-tag-wrapper">
+              <span class="zoom-product-tag" id="zoomModalTag">Dermatologist Recommended</span>
+            </div>
+
+            <div class="zoom-price-card">
+              <span class="zoom-price-caption">Official Price</span>
+              <div class="zoom-price-val" id="zoomModalPrice">PKR 0</div>
+            </div>
+
+            <div class="zoom-stock-badge">
+              <span class="zoom-live-dot"></span>
+              <span>Available in Store &amp; Express Delivery</span>
+            </div>
+
+            <div class="zoom-desc-block">
+              <h5>Description &amp; Key Usage</h5>
+              <p id="zoomModalDesc">Product detailed overview.</p>
+            </div>
+
+            <div class="zoom-perks-list">
+              <div class="zoom-perk">
+                <i class="fa-solid fa-truck-bolt"></i>
+                <span>Express Delivery within 2-4 Hours across Islamabad &amp; Rawalpindi</span>
+              </div>
+              <div class="zoom-perk">
+                <i class="fa-solid fa-temperature-arrow-down"></i>
+                <span>Strict Temperature-Controlled Cold Chain Storage</span>
+              </div>
+              <div class="zoom-perk">
+                <i class="fa-solid fa-user-doctor"></i>
+                <span>Free Pharmacist Consultation with Every Order</span>
+              </div>
+            </div>
+
+            <div class="zoom-cta-group">
+              <a href="#" id="zoomModalWhatsApp" target="_blank" class="btn btn-whatsapp zoom-order-btn">
+                <i class="fa-brands fa-whatsapp"></i> Inquire / Order on WhatsApp
+              </a>
+              <a href="tel:0518438111" class="btn btn-outline zoom-call-btn">
+                <i class="fa-solid fa-phone"></i> Call Universal Helpline (051-8438111)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Thumbnails Strip for Rapid Browsing -->
+      <div class="zoom-thumbs-container">
+        <div class="zoom-thumbs-strip" id="zoomThumbsStrip">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= CUSTOMER SUPPORT & CONTACT HUB ================= -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag blue-tag">Dedicated Support</span>
+        <h2 class="section-title">Customer Care &amp; <span class="highlight-red">Inquiry Portal</span></h2>
+        <p class="section-subtitle">
+          Reach our dedicated pharmacist and customer care teams instantly via WhatsApp, Messenger, phone helpline, or online inquiry.
+        </p>
+      </div>
+
+      <!-- 4 Quick Channel Cards -->
+      <div class="contact-channels-grid">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/923329716666?text=Hello%20D.Watson,%20I%20need%20assistance." target="_blank" class="channel-card wa">
+          <div class="channel-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <h3 class="channel-title">WhatsApp Support</h3>
+          <p class="channel-desc">0332-9716666 • Instant replies for medicine stock &amp; orders.</p>
+          <span class="btn btn-whatsapp btn-sm" style="width:100%;"><i class="fa-brands fa-whatsapp"></i> Chat Now</span>
+        </a>
+
+        <!-- Facebook Messenger -->
+        <a href="https://m.me/DWatsonChemist" target="_blank" class="channel-card messenger">
+          <div class="channel-icon"><i class="fa-brands fa-facebook-messenger"></i></div>
+          <h3 class="channel-title">FB Messenger</h3>
+          <p class="channel-desc">facebook.com/DWatsonChemist • Connect with our official desk.</p>
+          <span class="btn btn-blue btn-sm" style="width:100%;"><i class="fa-brands fa-facebook-messenger"></i> Open Messenger</span>
+        </a>
+
+        <!-- 24/7 Helpline -->
+        <a href="tel:0518438111" class="channel-card phone">
+          <div class="channel-icon"><i class="fa-solid fa-headset"></i></div>
+          <h3 class="channel-title">24/7 Helpline</h3>
+          <p class="channel-desc">051-8438111 • Centralized customer phone support.</p>
+          <span class="btn btn-primary btn-sm" style="width:100%;"><i class="fa-solid fa-phone"></i> Call 051-8438111</span>
+        </a>
+
+        <!-- Email Desk -->
+        <a href="mailto:care@dwatson.co" class="channel-card email">
+          <div class="channel-icon"><i class="fa-regular fa-envelope"></i></div>
+          <h3 class="channel-title">Official Email</h3>
+          <p class="channel-desc">care@dwatson.co • Corporate &amp; institutional inquiries.</p>
+          <span class="btn btn-outline btn-sm" style="width:100%;"><i class="fa-solid fa-envelope"></i> Send Email</span>
+        </a>
+      </div>
+
+      <!-- Interactive Contact & Prescription Submission Form -->
+      <div class="contact-interactive-grid" id="prescription-box">
+        <!-- Prescription / Quick Medicine Order Box -->
+        <div class="contact-card-box">
+          <div class="box-heading">
+            <div class="box-icon"><i class="fa-solid fa-prescription"></i></div>
+            <div>
+              <h3 style="font-size:1.3rem;">Digital Prescription &amp; Medicine Dispatch</h3>
+              <p style="font-size:0.85rem; color:#64748B;">Upload your prescription for instant pharmacist verification via WhatsApp.</p>
+            </div>
+          </div>
+
+          <form id="prescriptionForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Your Name *</label>
+                <input type="text" id="custName" class="form-control" placeholder="e.g. Tariq Mehmood" required>
+              </div>
+              <div class="form-group">
+                <label>Phone / WhatsApp Number *</label>
+                <input type="tel" id="custPhone" class="form-control" placeholder="0300 1234567" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Select Nearest Branch</label>
+              <select id="custBranch" class="form-control">
+                <option value="Blue Area Flagship Mega Store">Blue Area Mega Flagship, Islamabad (24/7)</option>
+                <option value="Super Market F-6 Markaz">Super Market F-6, Islamabad (24/7)</option>
+                <option value="F-7 Markaz (Din Pavilion)">F-7 Markaz (Din Pavilion), Islamabad</option>
+                <option value="F-10 Markaz Super Branch">F-10 Markaz, Islamabad (24/7)</option>
+                <option value="F-11 Markaz Branch">F-11 Markaz, Islamabad</option>
+                <option value="G-9 Markaz (Karachi Company)">G-9 Markaz, Islamabad</option>
+                <option value="G-11 Markaz Branch">G-11 Markaz, Islamabad</option>
+                <option value="I-8 Markaz Branch">I-8 Markaz, Islamabad</option>
+                <option value="I-10 Markaz Branch">I-10 Markaz, Islamabad</option>
+                <option value="DHA Phase 2 Central Branch">DHA Phase 2, Islamabad (24/7)</option>
+                <option value="PWD Main Boulevard Branch">PWD Main Road, Islamabad</option>
+                <option value="Bahria Town Phase 6 Branch">Bahria Town Phase 6 / 4, Islamabad</option>
+                <option value="Chandni Chowk Branch">Chandni Chowk, Rawalpindi (24/7)</option>
+                <option value="Saddar Cantonment Branch">Saddar Cantt, Rawalpindi (24/7)</option>
+                <option value="Chaklala Scheme 3 Branch">Chaklala Scheme 3, Rawalpindi</option>
+                <option value="Gulberg III Mega Center">Gulberg III, Lahore (24/7)</option>
+                <option value="Other Regional Branch">Other Regional Branch</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Prescription Photo or Medicine Names</label>
+              <div class="prescription-dropzone" id="prescriptionDropzone">
+                <i class="fa-solid fa-cloud-arrow-up dropzone-icon"></i>
+                <div class="dropzone-title">Click to attach prescription photo</div>
+                <div class="dropzone-sub">Supports JPG, PNG, PDF formats</div>
+                <input type="file" id="prescriptionFileInput" accept="image/*,.pdf" style="display:none;">
+              </div>
+
+              <!-- Upload Preview Container -->
+              <div class="prescription-preview-box" id="prescriptionPreview">
+                <img id="previewImg" src="" alt="Prescription Preview">
+                <div style="flex:1;">
+                  <strong id="prescriptionFileName" style="font-size:0.88rem; color:#0F172A;">file.jpg</strong>
+                  <div id="prescriptionUploadStatus" style="font-size:0.78rem; font-weight:600; color:#16A34A;">Ready to attach with WhatsApp inquiry</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Additional Notes / Instructions</label>
+              <textarea id="custNotes" class="form-control" placeholder="Specify dosage, duration, brand preference..." rows="2"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-whatsapp" style="width: 100%;">
+              <i class="fa-brands fa-whatsapp"></i> Send to Pharmacy Desk on WhatsApp (0332-9716666)
+            </button>
+            <div style="font-size:0.78rem; color:#64748B; margin-top:8px; text-align:center;">
+              <i class="fa-solid fa-shield-halved" style="color:#16A34A;"></i> Prescription is securely registered in D. Watson Pharmacy Desk with instant WhatsApp verification.
+            </div>
+          </form>
+        </div>
+
+        <!-- General Feedback & Inquiry Form -->
+        <div class="contact-card-box">
+          <div class="box-heading">
+            <div class="box-icon" style="background:var(--dw-blue-soft); color:var(--dw-blue);"><i class="fa-regular fa-comment-dots"></i></div>
+            <div>
+              <h3 style="font-size:1.3rem;">Direct Inquiry Desk</h3>
+              <p style="font-size:0.85rem; color:#64748B;">Send direct inquiries regarding cosmetics, optics, or surgical equipment.</p>
+            </div>
+          </div>
+
+          <form id="contactForm">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="contactName" class="form-control" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" id="contactEmail" class="form-control" placeholder="name@example.com" required>
+            </div>
+            <div class="form-group">
+              <label>Department</label>
+              <select id="contactDept" class="form-control">
+                <option value="Pharmacy & Medicines">Pharmacy &amp; Medicines</option>
+                <option value="Cosmetics & Fragrances">Cosmetics &amp; Fragrances</option>
+                <option value="Optics & Eye Testing">Optics &amp; Eye Testing</option>
+                <option value="Surgical & Equipment">Surgical &amp; Medical Equipment</option>
+                <option value="Supermarket Grocery">Superstore Grocery</option>
+                <option value="Corporate & Management">Corporate / Feedback</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Your Message</label>
+              <textarea id="contactMessage" class="form-control" placeholder="How may we assist you today?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ SECTION ================= -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Frequently Asked Questions</span>
+        <h2 class="section-title">Answers to <span class="highlight-red">Common Queries</span></h2>
+        <p class="section-subtitle">Everything you need to know about our services, genuine medicine guarantee, and branch operations.</p>
+      </div>
+
+      <div class="faq-accordion" id="faqAccordion">
+        <!-- Rendered dynamically from data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER SECTION ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand Profile -->
+        <div class="footer-brand">
+          <img src="assets/images/logo-white.svg" alt="D. Watson Chemist &amp; Superstore">
+          <p class="footer-tagline" id="footerAboutText">
+            Pakistan's premier trusted retail pharmacy and superstore chain since 1975. Offering genuine pharmaceuticals, international cosmetics, optics, surgical supplies, and gourmet groceries.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://www.facebook.com/DWatsonChemist/" target="_blank" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://instagram.com/dwatsonchemist" target="_blank" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/923329716666" target="_blank" class="footer-social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://m.me/DWatsonChemist" target="_blank" class="footer-social-btn" aria-label="Messenger"><i class="fa-brands fa-facebook-messenger"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home"><i class="fa-solid fa-angle-right"></i> Home Overview</a></li>
+            <li><a href="#about"><i class="fa-solid fa-angle-right"></i> Our Heritage &amp; Story</a></li>
+            <li><a href="#departments"><i class="fa-solid fa-angle-right"></i> Store Departments</a></li>
+            <li><a href="#products"><i class="fa-solid fa-angle-right"></i> Featured Products</a></li>
+            <li><a href="#branches"><i class="fa-solid fa-angle-right"></i> Branch Locator (24+)</a></li>
+            <li><a href="#gallery"><i class="fa-solid fa-angle-right"></i> Store Gallery</a></li>
+            <li><a href="admin.html"><i class="fa-solid fa-angle-right"></i> Content Portal Studio</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Key Branches -->
+        <div>
+          <h4 class="footer-heading">Flagship Branches</h4>
+          <ul class="footer-links" id="footerBranchList">
+            <!-- Dynamic branch links -->
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Helpline -->
+        <div>
+          <h4 class="footer-heading">Customer Helpline</h4>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <strong style="color:white; display:block;">Universal Helpline</strong>
+              <span id="footerHelpline">051-8438111</span>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <strong style="color:white; display:block;">Customer Care Email</strong>
+              <span id="footerEmail">care@dwatson.co</span>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong style="color:white; display:block;">Headquarters</strong>
+              <span id="footerAddress">94-West, Jinnah Avenue, Block I, Blue Area, Islamabad</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 1975 &ndash; 2026 <strong>D. Watson Chemist &amp; Superstore</strong>. All Rights Reserved.
+        </div>
+        <div style="display:flex; gap:16px;">
+          <a href="#about" style="color:#94A3B8;">Privacy Policy</a>
+          <a href="#about" style="color:#94A3B8;">Terms of Service</a>
+          <a href="admin.html" style="color:#DC2626; font-weight:700;"><i class="fa-solid fa-lock"></i> Portal Login</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Quick WhatsApp Widget -->
+  <div class="floating-widget-wrapper">
+    <div class="floating-popup" id="floatingPopup">
+      <div class="floating-popup-header">
+        <i class="fa-brands fa-whatsapp" style="color:#25D366; font-size:1.3rem;"></i>
+        <span>D. Watson Pharmacy Desk</span>
+      </div>
+      <p class="floating-popup-text">Have a prescription or medicine inquiry? Chat with our pharmacist live on WhatsApp (0332-9716666).</p>
+      <a href="https://wa.me/923329716666?text=Hello%20D.Watson,%20I%20need%20assistance." target="_blank" class="btn btn-whatsapp btn-sm" style="width:100%;">
+        Start WhatsApp Chat
+      </a>
+    </div>
+    <a href="#" id="floatingWaBtn" target="_blank" class="floating-btn-main" aria-label="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Mobile Bottom Quick Actions Bar (Shown on Mobile Screens <= 768px) -->
+  <nav class="mobile-bottom-bar" aria-label="Mobile Navigation">
+    <a href="#home" class="mobile-nav-tab active" id="mobTabHome">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="tel:051111392876" class="mobile-nav-tab" id="mobTabCall">
+      <i class="fa-solid fa-phone"></i>
+      <span>Call 24/7</span>
+    </a>
+    <a href="#prescription-box" class="mobile-nav-tab highlight-rx" id="mobTabRx">
+      <div class="mobile-rx-icon-bubble">
+        <i class="fa-solid fa-camera"></i>
+      </div>
+      <span>Upload Rx</span>
+    </a>
+    <a href="#branches" class="mobile-nav-tab" id="mobTabBranches">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>Branches</span>
+    </a>
+    <a href="https://wa.me/923329716666?text=Hi%20D.Watson%20Chemist,%20I%20need%20assistance." target="_blank" class="mobile-nav-tab mobile-wa-tab" id="mobTabWa">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -3,11 +3,24 @@
    Zero Error, Touch-Optimized, Ultra-Fast Responsive Design System
    ========================================================================== */
 
-/* Prevent horizontal scroll bleed on mobile devices */
+/* Prevent horizontal scroll bleed on all mobile devices */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
 html, body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
   -webkit-text-size-adjust: 100%;
+}
+
+section, header, footer, nav, main, .container {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 /* ==========================================================================
@@ -18,18 +31,20 @@ html, body {
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
+  width: 100% !important;
+  max-width: 100% !important;
   height: 66px;
-  background: rgba(15, 23, 42, 0.94);
+  background: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   z-index: 9999;
   box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.35);
-  padding: 0 10px;
+  padding: 0 8px;
   padding-bottom: env(safe-area-inset-bottom, 0);
   align-items: center;
   justify-content: space-around;
+  box-sizing: border-box !important;
 }
 
 .mobile-nav-tab {

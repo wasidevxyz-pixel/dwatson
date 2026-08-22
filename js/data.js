@@ -1157,7 +1157,13 @@ function getSiteData() {
           }
           return m;
         }) : DEFAULT_SITE_DATA.management,
-        departments: Array.isArray(parsed.departments) && parsed.departments.length ? parsed.departments : DEFAULT_SITE_DATA.departments,
+        departments: (Array.isArray(parsed.departments) && parsed.departments.length >= 10) ? parsed.departments.map(d => {
+          const def = DEFAULT_SITE_DATA.departments.find(dd => dd.id === d.id);
+          if (def && (!d.image || d.image === 'assets/images/pharmacy.jpg' || d.image === 'assets/images/cosmetics.jpg' || d.image === 'assets/images/grocery.jpg' || d.image === 'assets/images/apparel.jpg')) {
+            d.image = def.image;
+          }
+          return d;
+        }) : DEFAULT_SITE_DATA.departments,
         products: Array.isArray(parsed.products) && parsed.products.length ? parsed.products : DEFAULT_SITE_DATA.products,
         branches: Array.isArray(parsed.branches) && parsed.branches.length ? parsed.branches.map(b => {
           const def = DEFAULT_SITE_DATA.branches.find(db => db.id === b.id);
@@ -1166,7 +1172,7 @@ function getSiteData() {
           }
           return b;
         }) : DEFAULT_SITE_DATA.branches,
-        gallery: Array.isArray(parsed.gallery) && parsed.gallery.length ? parsed.gallery : DEFAULT_SITE_DATA.gallery,
+        gallery: (Array.isArray(parsed.gallery) && parsed.gallery.length >= 15) ? parsed.gallery : DEFAULT_SITE_DATA.gallery,
         faqs: Array.isArray(parsed.faqs) && parsed.faqs.length ? parsed.faqs : DEFAULT_SITE_DATA.faqs
       };
     }

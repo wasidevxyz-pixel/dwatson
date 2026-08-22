@@ -81,7 +81,7 @@ async function handleLoginSubmit(e) {
     username: "admin",
     passwordHash: "46f882fc025cba277fc20e6a86e9275bcf11d2797e88deaaaeeb19a164ad0bf2",
     defaultPassPlain: "dwatson@admin2026",
-    securityPin: "1975"
+    securityPin: "1978"
   };
 
   const inputHash = await sha256(passwordInput);
@@ -1062,11 +1062,11 @@ window.saveCompanySettings = function(e) {
    6. SECURITY & PASSWORD SETTINGS
    ========================================================================== */
 function populateSecurityForm() {
-  const auth = adminData.company.adminAuth || { username: "admin", securityPin: "1975" };
+  const auth = adminData.company.adminAuth || { username: "admin", securityPin: "1978" };
   const userEl = document.getElementById("secUsername");
   const pinEl = document.getElementById("secPin");
   if (userEl) userEl.value = auth.username || "admin";
-  if (pinEl) pinEl.value = auth.securityPin || "1975";
+  if (pinEl) pinEl.value = auth.securityPin || "1978";
 }
 
 window.saveSecurityCredentials = async function(e) {

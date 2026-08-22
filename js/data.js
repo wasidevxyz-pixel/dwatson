@@ -9,7 +9,7 @@ const DEFAULT_SITE_DATA = {
     name: "D. Watson Chemist & Superstore",
     shortName: "D. Watson",
     tagline: "Your Trusted Partner in Health, Beauty & Everyday Care",
-    badge: "Est. 1975 • Pakistan's Premier Pharmacy & Superstore Chain",
+    badge: "Est. 1978 • Pakistan's Premier Pharmacy & Superstore Chain",
     phone: "051-8438111",
     helpline: "051-8438111",
     whatsapp: "923329716666",
@@ -22,7 +22,7 @@ const DEFAULT_SITE_DATA = {
     
     // Heritage, Founders & Family Leadership
     aboutShort: "For nearly five decades, D. Watson has stood as Pakistan's premier healthcare and retail legacy, established by the Bakhtawari family with an unwavering commitment to 100% authentic medicines, global luxury beauty, optics, surgical care, and supermarket convenience.",
-    aboutHistory: "The story of D. Watson is rooted in a heartfelt tribute of gratitude. In 1978, three brothers — Chairman Zafar Iqbal Bakhtawari, Co-Chairman Zahid Bakhtawari, and CEO Abid Bakhtawari — established their first pharmacy. The name 'D. Watson' was chosen in deep appreciation of Dr. Watson, the renowned British eye specialist in England who successfully cured Mr. Bakhtawari's eye illness and restored his eyesight during his youth. In 1982, the brothers inaugurated their landmark store in Islamabad's F-6 Super Market, setting a new benchmark for pharmacy retail. The legacy continues through the next generation: Ahsan Zafar Bakhtawari (Managing Director), son of Chairman Zafar Iqbal Bakhtawari, leads D. Watson's expansion — today operating 25+ modern branches across Islamabad, Rawalpindi, Lahore, and Abbottabad.",
+    aboutHistory: "The story of D. Watson is rooted in a heartfelt tribute of gratitude. In 1978, three brothers — Chairman Zafar Iqbal Bakhtawari, Co-Chairman Zahid Bakhtawari, and CEO Abid Bakhtawari — established their first pharmacy. The name 'D. Watson' was chosen in deep appreciation of Dr. Watson, the renowned British eye specialist in England who successfully cured Mr. Bakhtawari's eye illness and restored his eyesight during his youth. In 1982, the brothers inaugurated their landmark store in Islamabad's F-6 Super Market, setting a new benchmark for pharmacy retail. The legacy and nationwide expansion continues through the next generation of the Bakhtawari family: Ahsan Zafar Bakhtawari (Managing Director, son of Chairman Zafar Iqbal Bakhtawari), Bilal Zahid Bakhtawari (Director, son of Co-Chairman Zahid Bakhtawari), and Haris Bakhtawari & Salman Bakhtawari (Directors, sons of CEO Abid Bakhtawari) — leading D. Watson across 25+ modern branches in Islamabad, Rawalpindi, Lahore, and Abbottabad.",
     
     // Historical Milestones
     historyTimeline: [
@@ -54,7 +54,7 @@ const DEFAULT_SITE_DATA = {
       {
         year: "2026",
         title: "Omnichannel Digital Healthcare Hub",
-        desc: "Led by founding brothers Chairman Zafar Iqbal Bakhtawari, Co-Chairman Zahid Bakhtawari, and CEO Abid Bakhtawari, with the next generation represented by Managing Director Ahsan Zafar Bakhtawari (son of Chairman Zafar), operating 25+ premier branches with 24/7 express home delivery, digital WhatsApp prescription dispensing, and centralized customer helpline (051-8438111)."
+        desc: "Led by founding brothers Chairman Zafar Iqbal Bakhtawari, Co-Chairman Zahid Bakhtawari, and CEO Abid Bakhtawari, alongside the second-generation leadership: Ahsan Zafar Bakhtawari (Managing Director), Bilal Zahid Bakhtawari (Director), and Haris Bakhtawari & Salman Bakhtawari (Directors) — operating 25+ premier branches with 24/7 express home delivery, digital WhatsApp prescription dispensing, and centralized customer helpline (051-8438111)."
       }
     ],
 
@@ -78,7 +78,7 @@ const DEFAULT_SITE_DATA = {
       // SHA-256 hash of "dwatson@admin2026"
       passwordHash: "46f882fc025cba277fc20e6a86e9275bcf11d2797e88deaaaeeb19a164ad0bf2",
       defaultPassPlain: "dwatson@admin2026",
-      securityPin: "1975"
+      securityPin: "1978"
     }
   },
 

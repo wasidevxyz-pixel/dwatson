@@ -67,7 +67,7 @@ const DEFAULT_SITE_DATA = {
 
     social: {
       facebook: "https://www.facebook.com/DWatsonChemist/",
-      instagram: "https://instagram.com/dwatsonchemist",
+      instagram: "https://www.instagram.com/dwatson_chemist/",
       whatsapp: "https://wa.me/923329716666",
       messenger: "https://m.me/DWatsonChemist"
     },

@@ -884,11 +884,10 @@ function renderGallery(galleryItems) {
 
   const categories = [
     { key: "all", label: "All Photos" },
-    { key: "stores", label: "Store Interiors & Aisles" },
-    { key: "pharmacy", label: "Pharmacy & Wellness" },
-    { key: "cosmetics", label: "Cosmetics & Fragrances" },
-    { key: "grocery", label: "Gourmet Supermarket" },
-    { key: "baby", label: "Kids & Baby Care" }
+    { key: "stores", label: "Stores & Outlets" },
+    { key: "pharmacy", label: "Pharmacy & Care" },
+    { key: "cosmetics", label: "Beauty & Fragrance" },
+    { key: "grocery", label: "Superstore & Baby" }
   ];
 
   if (filterContainer) {
@@ -913,8 +912,8 @@ function renderGalleryGrid(items) {
       <img src="${encodeURI(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/pharmacy.jpg';">
       <div class="gallery-overlay">
         <span class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></span>
-        <span class="gallery-overlay-cat">${escapeHtml(item.categoryName || item.category)}</span>
-        <h4 class="gallery-overlay-title">${escapeHtml(item.title)}</h4>
+        ${item.categoryName ? `<span class="gallery-overlay-cat">${escapeHtml(item.categoryName)}</span>` : ''}
+        <h4 class="gallery-overlay-title">${escapeHtml(item.title || 'D. Watson Gallery')}</h4>
       </div>
     </div>
   `).join("");
@@ -928,7 +927,7 @@ window.filterGalleryCategory = function(category, btn) {
   if (category === "all") {
     renderGalleryGrid(data.gallery);
   } else {
-    const filtered = data.gallery.filter(item => item.category === category);
+    const filtered = (data.gallery || []).filter(item => item.category === category);
     renderGalleryGrid(filtered);
   }
 };

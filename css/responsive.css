@@ -915,8 +915,25 @@ section, header, footer, nav, main, .container {
   }
 
   .branch-scroll-list {
+    flex: 1 !important;
+    overflow-y: scroll !important;
     padding: 8px 10px !important;
     gap: 8px !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--dw-red) #F1F5F9 !important;
+  }
+
+  .branch-list-footer {
+    padding: 8px 12px !important;
+    background: #FFFFFF !important;
+    border-top: 1px solid #E2E8F0 !important;
+    font-size: 0.74rem !important;
+    font-weight: 700 !important;
+    color: #64748B !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
   }
 
   .branch-mini-item {
@@ -1014,9 +1031,9 @@ section, header, footer, nav, main, .container {
   }
 
   .branch-action-buttons-hub {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 8px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
     width: 100% !important;
     margin-top: 14px !important;
     padding-top: 14px !important;
@@ -1025,14 +1042,15 @@ section, header, footer, nav, main, .container {
 
   .branch-action-buttons-hub .btn {
     width: 100% !important;
-    min-width: 100% !important;
-    padding: 11px 14px !important;
-    font-size: 0.86rem !important;
+    min-width: 0 !important;
+    padding: 12px 10px !important;
+    font-size: 0.84rem !important;
     border-radius: 10px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 8px !important;
+    gap: 6px !important;
+    text-align: center !important;
   }
 
   /* Grid View Fallback */

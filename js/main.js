@@ -1111,9 +1111,6 @@ function renderActiveBranchDetail(b) {
       <a href="tel:${phoneCall}" class="btn btn-blue">
         <i class="fa-solid fa-phone"></i> Call Branch
       </a>
-      <a href="https://wa.me/${waNumber}?text=${waMsg}" target="_blank" class="btn btn-whatsapp">
-        <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
-      </a>
     </div>
   `;
 }

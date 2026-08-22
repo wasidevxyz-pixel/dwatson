@@ -42,6 +42,7 @@ function initWebsite() {
   renderHeroSlider(data.heroSlides);
   renderTrustStats(data.company.stats);
   renderAboutAndTimeline(data.company);
+  renderLeadership(data.management);
   renderDepartments(data.departments, data.company.whatsapp);
   renderProducts(data.products, data.company.whatsapp);
   renderBranches(data.branches);
@@ -261,6 +262,67 @@ function renderAboutAndTimeline(company) {
       </div>
     </div>
   `).join("");
+}
+
+/**
+ * Render Board of Directors & Executive Management
+ */
+function renderLeadership(management) {
+  const container = document.getElementById("leadershipGrid");
+  if (!container) return;
+
+  const members = (management && management.length) ? management : (DEFAULT_SITE_DATA.management || []);
+  
+  container.innerHTML = members.map((member, idx) => {
+    const roleUpper = (member.role || "").toUpperCase();
+    const isChairman = roleUpper.includes("CHAIRMAN") && !roleUpper.includes("CO-");
+    const isCoChairman = roleUpper.includes("CO-CHAIRMAN");
+    const isCEO = roleUpper.includes("CEO");
+    
+    let tierClass = "leader-director-card";
+    let accentBadge = "Executive Director";
+    if (isChairman) {
+      tierClass = "leader-chairman-card";
+      accentBadge = "Founding Chairman";
+    } else if (isCoChairman) {
+      tierClass = "leader-cochairman-card";
+      accentBadge = "Founding Co-Chairman";
+    } else if (isCEO) {
+      tierClass = "leader-ceo-card";
+      accentBadge = "Chief Executive Officer";
+    }
+
+    return `
+      <div class="leader-card ${tierClass}" data-id="${member.id || idx}">
+        <div class="leader-card-inner">
+          <div class="leader-avatar-wrap">
+            <div class="avatar-ring-glow"></div>
+            <img src="${encodeURI(member.image)}" alt="${escapeHtml(member.name)}" class="leader-avatar" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/management/zafar-bakhtawari.png';">
+            <div class="leader-icon-badge" title="${escapeHtml(member.role)}">
+              <i class="${member.icon || 'fa-solid fa-award'}"></i>
+            </div>
+          </div>
+          
+          <div class="leader-info">
+            <div class="leader-header-row">
+              <span class="leader-badge-pill">${escapeHtml(member.badge || accentBadge)}</span>
+            </div>
+            
+            <h3 class="leader-name">${escapeHtml(member.name)}</h3>
+            <div class="leader-role-wrap">
+              <span class="leader-role">${escapeHtml(member.role)}</span>
+              <div class="leader-role-divider"></div>
+            </div>
+            <div class="leader-org">
+              <i class="fa-solid fa-building-shield"></i> ${escapeHtml(member.organization || "D. Watson Group of Pharmacies")}
+            </div>
+            
+            ${member.bio ? `<p class="leader-bio">${escapeHtml(member.bio)}</p>` : ''}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join("");
 }
 
 /**

@@ -239,6 +239,7 @@ function renderAllSections() {
   renderBranchesList();
   renderProductsList();
   renderGalleryList();
+  renderManagementList();
   renderPrescriptionsList();
   populateCompanySettingsForm();
   populateSecurityForm();
@@ -856,7 +857,168 @@ window.deleteGalleryItem = function(idx) {
 };
 
 /* ==========================================================================
-   5. COMPANY PROFILE & HERITAGE SETTINGS
+   5. BOARD OF DIRECTORS & MANAGEMENT TEAM MANAGER
+   ========================================================================== */
+function renderManagementList() {
+  const container = document.getElementById("adminManagementList");
+  if (!container) return;
+
+  const members = (adminData.management && adminData.management.length) ? adminData.management : (DEFAULT_SITE_DATA.management || []);
+
+  if (!members.length) {
+    container.innerHTML = `<p style="color: #64748B;">No executive management profiles configured. Click "+ Add Executive Member".</p>`;
+    return;
+  }
+
+  container.innerHTML = members.map((m, idx) => `
+    <div class="editable-item-card">
+      <img src="${m.image || 'assets/images/management/zafar-bakhtawari.png'}" class="item-thumbnail" style="border-radius: 50%; width: 56px; height: 56px; object-fit: cover; border: 2px solid #E2E8F0;" alt="${escapeAdminHtml(m.name)}" onerror="this.onerror=null; this.src='assets/images/management/zafar-bakhtawari.png';">
+      <div class="item-info">
+        <div class="item-title">${escapeAdminHtml(m.name)} <span style="font-weight:700; color:var(--dw-red); font-size:0.82rem;">(${escapeAdminHtml(m.role)})</span></div>
+        <div class="item-sub"><strong>Organization:</strong> ${escapeAdminHtml(m.organization || 'D. Watson Group of Pharmacies')} • <strong>Badge:</strong> ${escapeAdminHtml(m.badge || 'Executive')}</div>
+        <div style="font-size:0.78rem; color:#64748B; margin-top:2px;">${escapeAdminHtml(m.bio || '')}</div>
+      </div>
+      <div class="item-actions">
+        <button class="btn btn-outline btn-sm" onclick="openManagementModal(${idx})">
+          <i class="fa-solid fa-pen-to-square"></i> Edit
+        </button>
+        <button class="btn btn-sm" style="background:#FEE2E2; color:#DC2626;" onclick="deleteManagementMember(${idx})">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+    </div>
+  `).join("");
+}
+
+window.openManagementModal = function(index = -1) {
+  editItemIndex = index;
+  activeModalType = "management";
+  const modal = document.getElementById("adminEditModal");
+  const modalTitle = document.getElementById("adminModalTitle");
+  const modalBody = document.getElementById("adminModalBody");
+
+  if (!modal || !modalTitle || !modalBody) return;
+
+  const members = (adminData.management && adminData.management.length) ? adminData.management : (DEFAULT_SITE_DATA.management || []);
+  const isNew = index === -1;
+  const member = isNew ? {
+    name: "Executive Name",
+    role: "DIRECTOR",
+    organization: "D. Watson Group of Pharmacies",
+    badge: "Executive Director",
+    icon: "fa-solid fa-user-tie",
+    bio: "Leadership summary and corporate governance contributions.",
+    image: "assets/images/management/zafar-bakhtawari.png"
+  } : members[index];
+
+  modalTitle.textContent = isNew ? "Add Executive Board Member" : `Edit: ${member.name}`;
+
+  modalBody.innerHTML = `
+    <form id="modalManagementForm" onsubmit="saveManagementModal(event)">
+      <div class="form-grid-2">
+        <div class="admin-form-group">
+          <label>Executive Full Name *</label>
+          <input type="text" class="admin-form-input" id="mgrName" value="${escapeAdminHtml(member.name)}" required>
+        </div>
+        <div class="admin-form-group">
+          <label>Designation / Role (e.g. CHAIRMAN, CO-CHAIRMAN, CEO, DIRECTOR) *</label>
+          <input type="text" class="admin-form-input" id="mgrRole" value="${escapeAdminHtml(member.role)}" required>
+        </div>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="admin-form-group">
+          <label>Organization / Group *</label>
+          <input type="text" class="admin-form-input" id="mgrOrg" value="${escapeAdminHtml(member.organization || 'D. Watson Group of Pharmacies')}" required>
+        </div>
+        <div class="admin-form-group">
+          <label>Leadership Badge Pill Text (e.g. Founding Chairman, Executive Director)</label>
+          <input type="text" class="admin-form-input" id="mgrBadge" value="${escapeAdminHtml(member.badge || '')}">
+        </div>
+      </div>
+
+      <div class="admin-form-group">
+        <label>Executive Bio / Summary Description</label>
+        <textarea class="admin-form-input" id="mgrBio" rows="3">${escapeAdminHtml(member.bio || '')}</textarea>
+      </div>
+
+      <div class="admin-form-group">
+        <label>Profile Portrait Photo</label>
+        <div class="admin-img-upload-box">
+          <div class="admin-img-preview-wrap">
+            <img src="${member.image || 'assets/images/management/zafar-bakhtawari.png'}" id="mgrImgPreview" class="admin-preview-img" style="border-radius:50%; width:70px; height:70px; object-fit:cover;" alt="Portrait Preview" onerror="this.onerror=null; this.src='assets/images/management/zafar-bakhtawari.png';">
+          </div>
+          <div style="flex:1;">
+            <input type="text" class="admin-form-input" id="mgrImage" value="${escapeAdminHtml(member.image || '')}" placeholder="assets/images/management/... or paste photo URL" style="margin-bottom:8px;" oninput="document.getElementById('mgrImgPreview').src=this.value;">
+            <label class="btn btn-outline btn-sm admin-upload-btn">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Upload Portrait from Computer
+              <input type="file" accept="image/*" style="display:none;" onchange="handleAdminImageUpload(this, 'mgrImage', 'mgrImgPreview')">
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+        <button type="button" class="btn btn-outline btn-sm" onclick="closeAdminModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-check"></i> Save Profile</button>
+      </div>
+    </form>
+  `;
+
+  modal.classList.add("active");
+};
+
+window.saveManagementModal = function(e) {
+  e.preventDefault();
+  if (!adminData.management) {
+    adminData.management = JSON.parse(JSON.stringify(DEFAULT_SITE_DATA.management || []));
+  }
+
+  const roleVal = document.getElementById("mgrRole").value.trim();
+  const roleUpper = roleVal.toUpperCase();
+  let defaultIcon = "fa-solid fa-briefcase";
+  if (roleUpper.includes("CHAIRMAN") && !roleUpper.includes("CO-")) defaultIcon = "fa-solid fa-crown";
+  else if (roleUpper.includes("CO-CHAIRMAN")) defaultIcon = "fa-solid fa-star";
+  else if (roleUpper.includes("CEO")) defaultIcon = "fa-solid fa-user-tie";
+  else if (roleUpper.includes("DIRECTOR")) defaultIcon = "fa-solid fa-chart-line";
+
+  const updatedMember = {
+    id: editItemIndex === -1 ? Date.now() : (adminData.management[editItemIndex]?.id || Date.now()),
+    name: document.getElementById("mgrName").value.trim(),
+    role: roleVal,
+    organization: document.getElementById("mgrOrg").value.trim(),
+    badge: document.getElementById("mgrBadge").value.trim() || (roleUpper.includes("CHAIRMAN") ? "Founding Chairman" : "Executive Board"),
+    icon: defaultIcon,
+    bio: document.getElementById("mgrBio").value.trim(),
+    image: document.getElementById("mgrImage").value.trim() || "assets/images/management/zafar-bakhtawari.png"
+  };
+
+  if (editItemIndex === -1) {
+    adminData.management.push(updatedMember);
+  } else {
+    adminData.management[editItemIndex] = updatedMember;
+  }
+
+  saveSiteData(adminData);
+  closeAdminModal();
+  renderManagementList();
+  showToast("Executive profile saved successfully!");
+};
+
+window.deleteManagementMember = function(idx) {
+  if (confirm("Delete this executive board profile?")) {
+    if (!adminData.management) {
+      adminData.management = JSON.parse(JSON.stringify(DEFAULT_SITE_DATA.management || []));
+    }
+    adminData.management.splice(idx, 1);
+    saveSiteData(adminData);
+    renderManagementList();
+    showToast("Profile removed.");
+  }
+};
+
+/* ==========================================================================
+   6. COMPANY PROFILE & HERITAGE SETTINGS
    ========================================================================== */
 function populateCompanySettingsForm() {
   const c = adminData.company;

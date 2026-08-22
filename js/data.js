@@ -82,6 +82,70 @@ const DEFAULT_SITE_DATA = {
     }
   },
 
+  // Board of Directors & Executive Management
+  management: [
+    {
+      id: 1,
+      name: "Mr Zafar Bakhtawari",
+      role: "CHAIRMAN",
+      organization: "D. Watson Group of Pharmacies",
+      badge: "Founding Chairman",
+      icon: "fa-solid fa-crown",
+      bio: "Visionary founder of D. Watson and Former President of ICCI (Islamabad Chamber of Commerce & Industry). Established the healthcare legacy in 1978 built on 100% authentic medicine dispensing and community trust.",
+      image: "assets/images/management/zafar-bakhtawari.png",
+      order: 1,
+      tier: "founders"
+    },
+    {
+      id: 2,
+      name: "Mr Zahid Bakhtawari",
+      role: "CO-CHAIRMAN",
+      organization: "D. Watson Group of Pharmacies",
+      badge: "Founding Co-Chairman",
+      icon: "fa-solid fa-star",
+      bio: "Co-Founder and strategic pillar of D. Watson. Pioneered the network's commercial governance, institutional partnerships, and regional growth across Pakistan.",
+      image: "assets/images/management/zahid-bakhtawari.png",
+      order: 2,
+      tier: "founders"
+    },
+    {
+      id: 3,
+      name: "Mr Abid Bakhtawari",
+      role: "CEO",
+      organization: "D. Watson Group of Pharmacies",
+      badge: "Chief Executive Officer",
+      icon: "fa-solid fa-user-tie",
+      bio: "Co-Founder and Chief Executive Officer. Architect of D. Watson's stringent cold-chain pharmaceutical standards, hospital supplies, and continuous retail modernization.",
+      image: "assets/images/management/abid-bakhtawari.png",
+      order: 3,
+      tier: "founders"
+    },
+    {
+      id: 4,
+      name: "Mr Haris Bakhtawari",
+      role: "DIRECTOR",
+      organization: "D. Watson Group of Pharmacies",
+      badge: "Executive Director",
+      icon: "fa-solid fa-chart-line",
+      bio: "Leading modern retail operations, digital healthcare services, luxury cosmetics sourcing, and customer experience innovation across the 25+ branch ecosystem.",
+      image: "assets/images/management/haris-bakhtawari.png",
+      order: 4,
+      tier: "directors"
+    },
+    {
+      id: 5,
+      name: "Mr Salman Bakhtawari",
+      role: "DIRECTOR",
+      organization: "D. Watson Group of Pharmacies",
+      badge: "Executive Director",
+      icon: "fa-solid fa-briefcase",
+      bio: "Spearheading supply chain logistics, state-of-the-art superstore merchandising, optics clinics, and regional expansion initiatives for D. Watson.",
+      image: "assets/images/management/salman-bakhtawari.png",
+      order: 5,
+      tier: "directors"
+    }
+  ],
+
   heroSlides: [
     {
       id: 1,
@@ -894,6 +958,7 @@ function getSiteData() {
           }
         },
         heroSlides: Array.isArray(parsed.heroSlides) && parsed.heroSlides.length ? parsed.heroSlides : DEFAULT_SITE_DATA.heroSlides,
+        management: Array.isArray(parsed.management) && parsed.management.length ? parsed.management : DEFAULT_SITE_DATA.management,
         departments: Array.isArray(parsed.departments) && parsed.departments.length ? parsed.departments : DEFAULT_SITE_DATA.departments,
         products: Array.isArray(parsed.products) && parsed.products.length ? parsed.products : DEFAULT_SITE_DATA.products,
         branches: Array.isArray(parsed.branches) && parsed.branches.length ? parsed.branches.map(b => {

@@ -111,6 +111,9 @@
       </div>
 
       <div class="nav-category-title">Corporate Settings</div>
+      <div class="admin-nav-item" data-tab="tabManagement">
+        <i class="fa-solid fa-users-gear"></i> Leadership Team
+      </div>
       <div class="admin-nav-item" data-tab="tabCompany">
         <i class="fa-solid fa-building"></i> Company &amp; Heritage
       </div>
@@ -272,7 +275,26 @@
         </div>
       </section>
 
-      <!-- ================= 5. COMPANY SETTINGS TAB ================= -->
+      <!-- ================= 5. LEADERSHIP TEAM & BOARD TAB ================= -->
+      <section class="admin-tab-pane" id="tabManagement">
+        <div class="admin-card">
+          <div class="card-header-flex">
+            <div>
+              <h2 class="card-title">Board of Directors &amp; Executive Leadership</h2>
+              <p style="font-size:0.85rem; color:#64748B;">Manage Chairman, CEO, and Executive Directors, profile photos, official titles, and corporate biographies.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="openManagementModal(-1)">
+              <i class="fa-solid fa-plus"></i> Add Executive Member
+            </button>
+          </div>
+
+          <div class="editable-items-list" id="adminManagementList">
+            <!-- Populated dynamically via admin.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 6. COMPANY SETTINGS TAB ================= -->
       <section class="admin-tab-pane" id="tabCompany">
         <div class="admin-card">
           <div class="card-header-flex">

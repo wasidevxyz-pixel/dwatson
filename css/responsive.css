@@ -146,6 +146,20 @@ section, header, footer, nav, main, .container {
     gap: 20px;
   }
 
+  .timeline-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .leadership-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .leadership-motto-card {
+    padding: 28px 32px;
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
@@ -421,6 +435,94 @@ section, header, footer, nav, main, .container {
     width: 100%;
     border-radius: 14px;
     box-shadow: var(--shadow-md);
+  }
+
+  /* Timeline Grid Mobile */
+  .timeline-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .timeline-card {
+    padding: 18px 20px;
+  }
+
+  /* Leadership Section Mobile */
+  .leadership-section {
+    padding: 60px 0;
+  }
+
+  .leadership-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .leader-card {
+    padding: 18px 18px;
+    border-radius: 18px;
+  }
+
+  .leader-card-inner {
+    gap: 16px;
+    align-items: center;
+  }
+
+  .leader-avatar-wrap {
+    width: 90px;
+    height: 90px;
+  }
+
+  .leader-icon-badge {
+    width: 28px;
+    height: 28px;
+    font-size: 0.72rem;
+  }
+
+  .leader-name {
+    font-size: 1.12rem;
+  }
+
+  .leader-role {
+    font-size: 0.78rem;
+  }
+
+  .leader-org {
+    font-size: 0.76rem;
+    margin-bottom: 6px;
+  }
+
+  .leader-bio {
+    font-size: 0.76rem;
+    line-height: 1.4;
+    -webkit-line-clamp: 2;
+  }
+
+  .leadership-motto-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 18px;
+    gap: 14px;
+    margin-top: 32px;
+    border-radius: 18px;
+  }
+
+  .motto-icon-wrap {
+    width: 52px;
+    height: 52px;
+    font-size: 1.3rem;
+    margin: 0 auto;
+  }
+
+  .motto-quote {
+    font-size: 0.96rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .motto-signature {
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
   }
 
   /* Departments Grid */
@@ -920,6 +1022,19 @@ section, header, footer, nav, main, .container {
 
   .gallery-item {
     height: 200px;
+  }
+
+  .leader-avatar-wrap {
+    width: 78px;
+    height: 78px;
+  }
+
+  .leader-card {
+    padding: 14px 14px;
+  }
+
+  .leader-name {
+    font-size: 1.05rem;
   }
 }
 

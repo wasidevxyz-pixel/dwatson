@@ -17,7 +17,7 @@ const DEFAULT_SITE_DATA = {
     messenger: "https://m.me/DWatsonChemist",
     email: "care@dwatson.co",
     website: "https://dwatson.co",
-    address: "Flagship Mega Store: 94-West, Jinnah Avenue, Block I, Blue Area, Islamabad",
+    address: "Head Office: School Road, Super Market, F-6 Markaz, Islamabad",
     announcement: "✨ 100% Genuine Medicines Guaranteed • 24/7 Universal Helpline: 051-8438111 • WhatsApp Express Delivery: 0332-9716666",
     
     // Heritage, Founders & Family Leadership

@@ -929,8 +929,8 @@ const DEFAULT_SITE_DATA = {
   ]
 };
 
-// LocalStorage Storage Key (v7 - Fresh Historical Data & Image CDN)
-const STORAGE_KEY = "dwatson_site_data_v7";
+// LocalStorage Storage Key (v8 - Executive Leadership & Management Grid)
+const STORAGE_KEY = "dwatson_site_data_v8";
 
 /**
  * Get current site data (from LocalStorage or fallback to default)
@@ -958,7 +958,13 @@ function getSiteData() {
           }
         },
         heroSlides: Array.isArray(parsed.heroSlides) && parsed.heroSlides.length ? parsed.heroSlides : DEFAULT_SITE_DATA.heroSlides,
-        management: Array.isArray(parsed.management) && parsed.management.length ? parsed.management : DEFAULT_SITE_DATA.management,
+        management: (Array.isArray(parsed.management) && parsed.management.length) ? parsed.management.map(m => {
+          const def = DEFAULT_SITE_DATA.management.find(dm => dm.id === m.id || dm.name === m.name);
+          if (def && (!m.image || !m.image.includes('management/'))) {
+            m.image = def.image;
+          }
+          return m;
+        }) : DEFAULT_SITE_DATA.management,
         departments: Array.isArray(parsed.departments) && parsed.departments.length ? parsed.departments : DEFAULT_SITE_DATA.departments,
         products: Array.isArray(parsed.products) && parsed.products.length ? parsed.products : DEFAULT_SITE_DATA.products,
         branches: Array.isArray(parsed.branches) && parsed.branches.length ? parsed.branches.map(b => {

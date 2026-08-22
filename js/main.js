@@ -884,12 +884,11 @@ function renderGallery(galleryItems) {
 
   const categories = [
     { key: "all", label: "All Photos" },
-    { key: "stores", label: "Stores & Facades" },
-    { key: "pharmacy", label: "Pharmacy & Cold-Chain Labs" },
-    { key: "cosmetics", label: "Cosmetics & Skincare" },
-    { key: "optics", label: "Optics Clinic" },
-    { key: "surgical", label: "Surgical Equipment" },
-    { key: "grocery", label: "Supermarket Aisles" }
+    { key: "stores", label: "Store Interiors & Aisles" },
+    { key: "pharmacy", label: "Pharmacy & Wellness" },
+    { key: "cosmetics", label: "Cosmetics & Fragrances" },
+    { key: "grocery", label: "Gourmet Supermarket" },
+    { key: "baby", label: "Kids & Baby Care" }
   ];
 
   if (filterContainer) {
@@ -911,7 +910,7 @@ function renderGalleryGrid(items) {
 
   container.innerHTML = items.map((item, index) => `
     <div class="gallery-item" onclick="openLightbox(${index})">
-      <img src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy">
+      <img src="${encodeURI(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/pharmacy.jpg';">
       <div class="gallery-overlay">
         <span class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></span>
         <span class="gallery-overlay-cat">${escapeHtml(item.categoryName || item.category)}</span>

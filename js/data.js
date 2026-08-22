@@ -233,7 +233,7 @@ const DEFAULT_SITE_DATA = {
       name: "Pharmacy & Medicines",
       badge: "Core Specialty",
       tagline: "100% Genuine Prescription & OTC Medicines",
-      image: "assets/images/pharmacy.jpg",
+      image: "assets/images/Shop Inside/Medicine.jpeg",
       icon: "fa-solid fa-prescription-bottle-medical",
       description: "Our licensed pharmacies operate under rigorous temperature and quality protocols. We carry rare life-saving drugs, oncology, cardiology, pediatric, and daily wellness medications with certified pharmacist counseling.",
       features: [
@@ -249,32 +249,160 @@ const DEFAULT_SITE_DATA = {
       name: "Cosmetics & Skincare",
       badge: "Luxury & Dermatological",
       tagline: "International Beauty, Fragrances & Derma Care",
-      image: "assets/images/cosmetics.jpg",
+      image: "assets/images/Shop Inside/Cosmetics.jpeg",
       icon: "fa-solid fa-wand-magic-sparkles",
-      description: "Step into our prestigious beauty counters featuring authentic international fragrances, dermatologist-recommended skincare (La Roche-Posay, CeraVe, Bioderma, Vichy), and iconic cosmetic brands.",
+      description: "Step into our prestigious beauty counters featuring authentic international skincare, dermatologist-recommended formulations (La Roche-Posay, CeraVe, Bioderma, Vichy), and iconic beauty brands.",
       features: [
-        "100% Original imported perfumes & colognes",
-        "Dermatologist-recommended clinical skincare",
+        "100% Original imported skincare & treatments",
+        "Dermatologist-recommended clinical derma care",
         "Expert beauty advisors & skin consultation",
         "Premium haircare, nail care & luxury personal care"
       ],
       whatsappMsg: "Hi D.Watson, I am inquiring about Cosmetics and Skincare product availability."
     },
     {
+      id: "perfumes",
+      name: "Luxury Perfumes & Fragrances",
+      badge: "Designer Scents",
+      tagline: "100% Original Global Perfume Brands",
+      image: "assets/images/Shop Inside/Perfumes.jpeg",
+      icon: "fa-solid fa-spray-can-sparkles",
+      description: "Explore our exclusive fragrance collection featuring genuine designer perfumes, French colognes, luxury ouds, and signature gift sets directly sourced from authorized brand distributors.",
+      features: [
+        "100% Guaranteed original brand perfumes",
+        "Extensive designer collection for men & women",
+        "Specialty Arabian ouds & French Eau de Parfum",
+        "Luxury gift boxes & seasonal fragrance sets"
+      ],
+      whatsappMsg: "Hi D.Watson, I would like to inquire about Luxury Perfumes and Fragrances."
+    },
+    {
+      id: "color_cosmetics",
+      name: "Color Cosmetics & Makeup",
+      badge: "Glamour & Beauty",
+      tagline: "Trending Global Makeup & Beauty Accessories",
+      image: "assets/images/Shop Inside/ColorCosmetics.jpeg",
+      icon: "fa-solid fa-palette",
+      description: "A glamorous beauty station featuring high-definition foundations, lipsticks, eyeshadow palettes, makeup brushes, and professional cosmetic tools from top international beauty houses.",
+      features: [
+        "Authentic international makeup palettes & foundations",
+        "Wide shade selection for all skin tones",
+        "Professional application tools, sponges & brushes",
+        "Cruelty-free & dermatologist-tested formulations"
+      ],
+      whatsappMsg: "Hi D.Watson, I am inquiring about Color Cosmetics and Makeup products."
+    },
+    {
       id: "grocery",
       name: "Superstore & Grocery",
       badge: "Full Hypermarket Range",
       tagline: "Premium Daily Groceries & Imported Goods",
-      image: "assets/images/grocery.jpg",
+      image: "assets/images/Shop Inside/Grocery.jpeg",
       icon: "fa-solid fa-cart-shopping",
       description: "Our modern superstores offer an extensive variety of daily grocery essentials, imported beverages, organic snacks, baby foods, toiletries, and household supplies organized in spacious aisles.",
       features: [
         "Wide range of imported gourmet & dietary goods",
-        "Comprehensive baby nutrition & care products",
-        "Fresh packaged essentials & household pantry staples",
+        "Comprehensive dairy, beverages & household staples",
+        "Fresh packaged essentials & confectionery aisles",
         "Express billing counters & dedicated customer assistance"
       ],
       whatsappMsg: "Hi D.Watson, I would like to inquire about Superstore and Grocery items."
+    },
+    {
+      id: "babycare",
+      name: "Baby Care & Infant Nutrition",
+      badge: "Gentle Care",
+      tagline: "Premium Infant Formulas, Diapers & Mother Care",
+      image: "assets/images/Shop Inside/BabyCare.jpeg",
+      icon: "fa-solid fa-baby",
+      description: "Everything for your baby's wellness: certified infant milk formulas, sensitive diapers, organic baby foods, gentle derma lotions, feeding bottles, and maternal care essentials.",
+      features: [
+        "Certified infant formulas (Aptamil, Similac, Meiji)",
+        "Hypoallergenic baby skincare, wipes & diapers",
+        "BPA-free feeding bottles, warmers & accessories",
+        "Specialized maternal & post-natal wellness products"
+      ],
+      whatsappMsg: "Hi D.Watson, I am inquiring about Baby Care and Nutrition products."
+    },
+    {
+      id: "crockery",
+      name: "Premium Crockery & Homeware",
+      badge: "Lifestyle Elegance",
+      tagline: "Luxury Tableware, Glassware & Kitchenware",
+      image: "assets/images/Shop Inside/Crockery.jpeg",
+      icon: "fa-solid fa-utensils",
+      description: "Elevate your living space with our refined selection of imported dinner sets, crystal glassware, non-stick cookware, thermo flasks, and decorative household essentials.",
+      features: [
+        "Imported porcelain & bone china dinner sets",
+        "Heat-resistant cookware & kitchen appliances",
+        "Crystal glassware, mug sets & vacuum flasks",
+        "Elegant gift sets for weddings & celebrations"
+      ],
+      whatsappMsg: "Hi D.Watson, I want to inquire about Crockery and Homeware items."
+    },
+    {
+      id: "homeo",
+      name: "Homeopathic & Natural Care",
+      badge: "Natural Wellness",
+      tagline: "German & Authentic Homeopathic Remedies",
+      image: "assets/images/Shop Inside/Homeo.jpeg",
+      icon: "fa-solid fa-leaf",
+      description: "Dedicated natural wellness department carrying authentic German Schwabe, Reckeweg, and certified herbal supplements for holistic family healthcare.",
+      features: [
+        "Authentic German Schwabe & Dr. Reckeweg remedies",
+        "Herbal wellness tinctures & natural dietary aids",
+        "Organic supplements & therapeutic botanicals",
+        "Expert natural care dispensing assistance"
+      ],
+      whatsappMsg: "Hi D.Watson, I am inquiring about Homeopathic remedies and Natural wellness products."
+    },
+    {
+      id: "hearing_aid",
+      name: "Hearing & Diagnostic Aids",
+      badge: "Precision Care",
+      tagline: "Advanced Hearing Devices & Home Health Monitors",
+      image: "assets/images/Shop Inside/HearingAid.jpeg",
+      icon: "fa-solid fa-ear-listen",
+      description: "Modern hearing instruments, digital diagnostic monitors, diabetes care supplies, and personal health testing equipment for seniors and clinical home use.",
+      features: [
+        "Discreet digital hearing aids & sound amplifiers",
+        "Certified blood glucose & cholesterol meters",
+        "Automatic digital BP monitors & pulse oximeters",
+        "Hearing aid batteries, replacement tips & cleaning kits"
+      ],
+      whatsappMsg: "Hi D.Watson, I would like to inquire about Hearing Aids and Diagnostic equipment."
+    },
+    {
+      id: "toys",
+      name: "Kids World & Educational Toys",
+      badge: "Fun & Learning",
+      tagline: "Safe Toys, Games & Creative Fun for Children",
+      image: "assets/images/Shop Inside/Toys.jpeg",
+      icon: "fa-solid fa-gamepad",
+      description: "A joyful children's aisle featuring educational STEM games, plush toys, diecast vehicles, creative art kits, and safe developmental toys for kids of all ages.",
+      features: [
+        "Certified safe, non-toxic educational toys",
+        "STEM learning kits, puzzles & board games",
+        "Diecast cars, action figures & dolls",
+        "Art supplies, coloring sets & seasonal gifts"
+      ],
+      whatsappMsg: "Hi D.Watson, I want to inquire about Kids Toys and games."
+    },
+    {
+      id: "undergarments",
+      name: "Undergarments & Comfort Apparel",
+      badge: "Boutique Collection",
+      tagline: "High-Quality Innerwear & Loungewear",
+      image: "assets/images/Shop Inside/Undergarments.jpeg",
+      icon: "fa-solid fa-shirt",
+      description: "A private, comfortable shopping section offering top local and international innerwear, shapewear, thermal wear, and loungewear crafted with breathable, skin-friendly fabrics for the entire family.",
+      features: [
+        "Leading brand collections (Triumph, Jockey, IFG, and more)",
+        "Dedicated private fitting assistance and sizing guides",
+        "Premium cotton innerwear for men, women, and kids",
+        "Seasonal thermal wear, socks, sleepwear & loungewear"
+      ],
+      whatsappMsg: "Hi D.Watson, I want to inquire about Undergarments and Comfort apparel."
     },
     {
       id: "optics",
@@ -294,12 +422,12 @@ const DEFAULT_SITE_DATA = {
     },
     {
       id: "surgical",
-      name: "Surgical & Medical Equipment",
+      name: "Surgical & Hospital Equipment",
       badge: "Clinical Grade",
       tagline: "Hospital Supplies, Diagnostics & Rehab Aids",
       image: "assets/images/surgical.jpg",
       icon: "fa-solid fa-stethoscope",
-      description: "Providing patients, clinics, and hospitals with top-tier diagnostic devices (BP monitors, glucometers, nebulizers), mobility aids (wheelchairs, walkers), orthopedic braces, and sterile surgical disposables.",
+      description: "Providing patients, clinics, and hospitals with top-tier diagnostic devices, mobility aids (wheelchairs, walkers), orthopedic braces, and sterile surgical disposables.",
       features: [
         "Digital BP monitors, pulse oximeters & nebulizers (Omron, Beurer)",
         "Orthopedic supports, knee braces, cervical collars & belts",
@@ -307,22 +435,6 @@ const DEFAULT_SITE_DATA = {
         "Sterile surgical instruments, gloves, and wound dressings"
       ],
       whatsappMsg: "Hi D.Watson, I am looking for Surgical equipment and healthcare supplies."
-    },
-    {
-      id: "undergarments",
-      name: "Undergarments & Comfort Apparel",
-      badge: "Boutique Collection",
-      tagline: "High-Quality Innerwear & Loungewear",
-      image: "assets/images/apparel.jpg",
-      icon: "fa-solid fa-shirt",
-      description: "A private, comfortable shopping section offering top local and international innerwear, shapewear, thermal wear, and loungewear crafted with breathable, skin-friendly fabrics for the entire family.",
-      features: [
-        "Leading brand collections (Triumph, Jockey, IFG, and more)",
-        "Dedicated private fitting assistance and sizing guides",
-        "Premium cotton innerwear for men, women, and kids",
-        "Seasonal thermal wear, socks, sleepwear & loungewear"
-      ],
-      whatsappMsg: "Hi D.Watson, I want to inquire about Undergarments and Comfort apparel."
     }
   ],
 
@@ -836,6 +948,134 @@ const DEFAULT_SITE_DATA = {
   gallery: [
     {
       id: "g1",
+      title: "Store Interior & Product Aisles",
+      category: "stores",
+      categoryName: "Store Interior",
+      image: "assets/images/Shop Inside/gallery-9.jpg",
+      description: "Organized, spacious shopping aisles with curated international health and beauty products."
+    },
+    {
+      id: "g2",
+      title: "Luxury Cosmetics & Skincare Display",
+      category: "cosmetics",
+      categoryName: "Cosmetics & Derma",
+      image: "assets/images/Shop Inside/gallery-10.jpg",
+      description: "Authentic imported skincare, serums, and French dermatologist-recommended derma counters."
+    },
+    {
+      id: "g3",
+      title: "Superstore Gourmet Confectionery & Grocery",
+      category: "grocery",
+      categoryName: "Gourmet Grocery",
+      image: "assets/images/Shop Inside/gallery-11.jpg",
+      description: "Premium imported confectionery, chocolates, snacks, and daily household groceries."
+    },
+    {
+      id: "g4",
+      title: "Personal Care & Infant Essentials Aisle",
+      category: "baby",
+      categoryName: "Baby & Personal",
+      image: "assets/images/Shop Inside/gallery-13.jpg",
+      description: "Comprehensive baby nutrition, sensitive wipes, diapers, and gentle infant care products."
+    },
+    {
+      id: "g5",
+      title: "24/7 Clinical Pharmacy Dispensing Counter",
+      category: "pharmacy",
+      categoryName: "Pharmacy & Labs",
+      image: "assets/images/Shop Inside/gallery-14.jpg",
+      description: "Certified pharmacist dispensing station with strict cold chain storage for life-saving biologicals."
+    },
+    {
+      id: "g6",
+      title: "Dermatological Care & Beauty Lounge",
+      category: "cosmetics",
+      categoryName: "Cosmetics & Derma",
+      image: "assets/images/Shop Inside/gallery-15.jpg",
+      description: "Dedicated beauty advisors providing personalized skin type matching and original imports."
+    },
+    {
+      id: "g7",
+      title: "Haircare, Bath & Body Care Aisle",
+      category: "stores",
+      categoryName: "Store Interior",
+      image: "assets/images/Shop Inside/gallery-16.jpg",
+      description: "Top international shampoo, conditioner, body wash, and organic botanical care products."
+    },
+    {
+      id: "g8",
+      title: "Original Designer Fragrances & Perfume Bar",
+      category: "cosmetics",
+      categoryName: "Fragrances & Scents",
+      image: "assets/images/Shop Inside/gallery-17.jpg",
+      description: "100% original French perfumes, luxury Arabian ouds, and signature colognes."
+    },
+    {
+      id: "g9",
+      title: "Hypermarket Snacks & Daily Provisions",
+      category: "grocery",
+      categoryName: "Gourmet Grocery",
+      image: "assets/images/Shop Inside/gallery-18.jpg",
+      description: "Wide variety of breakfast cereals, organic beverages, baking supplies, and pantry goods."
+    },
+    {
+      id: "g10",
+      title: "Vitamins, Supplements & Wellness Section",
+      category: "pharmacy",
+      categoryName: "Pharmacy & Wellness",
+      image: "assets/images/Shop Inside/gallery-19.jpg",
+      description: "Authentic imported multivitamins, immunity boosters, sports nutrition, and herbal remedies."
+    },
+    {
+      id: "g11",
+      title: "Household & Lifestyle Essentials Counter",
+      category: "stores",
+      categoryName: "Store Interior",
+      image: "assets/images/Shop Inside/gallery-20.jpg",
+      description: "Everyday household convenience goods, toiletries, and cleaning care supplies."
+    },
+    {
+      id: "g12",
+      title: "Kids Toys & Educational Games Gallery",
+      category: "baby",
+      categoryName: "Kids World",
+      image: "assets/images/Shop Inside/gallery-22.jpg",
+      description: "Safe educational toys, board games, creative art supplies, and children's gifts."
+    },
+    {
+      id: "g13",
+      title: "Superstore Department Floor Overview",
+      category: "stores",
+      categoryName: "Store Interior",
+      image: "assets/images/Shop Inside/gallery-25.jpg",
+      description: "Modern retail environment designed for seamless family shopping across departments."
+    },
+    {
+      id: "g14",
+      title: "Specialty Healthcare & Personal Comfort",
+      category: "stores",
+      categoryName: "Store Interior",
+      image: "assets/images/Shop Inside/gallery-28.jpg",
+      description: "Premium comfort innerwear, socks, thermal wear, and specialized personal care goods."
+    },
+    {
+      id: "g15",
+      title: "Express Checkout & Customer Service Desk",
+      category: "stores",
+      categoryName: "Store Interior",
+      image: "assets/images/Shop Inside/gallery-31.jpg",
+      description: "Fast multi-pos billing counters with courteous staff assisting customers at every step."
+    },
+    {
+      id: "g16",
+      title: "Comprehensive Retail Department Overview",
+      category: "stores",
+      categoryName: "Store Interior",
+      image: "assets/images/Shop Inside/gallery-32.jpg",
+      description: "The complete departmental superstore experience uniting healthcare, beauty, and grocery."
+    },
+    {
+      id: "g17",
       title: "Flagship Mega Store Architecture",
       category: "stores",
       categoryName: "Store Facade",
@@ -843,60 +1083,12 @@ const DEFAULT_SITE_DATA = {
       description: "D. Watson's multi-level flagship superstore in Jinnah Avenue, Blue Area Islamabad."
     },
     {
-      id: "g2",
-      title: "24/7 Temperature-Controlled Pharmacy Lab",
-      category: "pharmacy",
-      categoryName: "Pharmacy & Labs",
-      image: "assets/images/pharmacy.jpg",
-      description: "Certified clinical dispensing counter with 2°C - 8°C cold chain vaccine refrigerators."
-    },
-    {
-      id: "g3",
-      title: "International Luxury Cosmetics Lounge",
-      category: "cosmetics",
-      categoryName: "Cosmetics & Skincare",
-      image: "assets/images/cosmetics.jpg",
-      description: "Prestigious beauty department featuring authentic imported perfumes, serums, and French skincare."
-    },
-    {
-      id: "g4",
-      title: "Gourmet Hypermarket & Confectionery Aisles",
-      category: "grocery",
-      categoryName: "Supermarket Aisles",
-      image: "assets/images/grocery.jpg",
-      description: "Spacious grocery aisles offering premium imported snacks, infant nutrition, and household goods."
-    },
-    {
-      id: "g5",
+      id: "g18",
       title: "Optics Clinic & Designer Eyewear Boutique",
-      category: "optics",
+      category: "stores",
       categoryName: "Optics & Eye Care",
       image: "assets/images/optics.jpg",
       description: "Equipped with computerized refraction autorefractometers and trending designer frames."
-    },
-    {
-      id: "g6",
-      title: "Hospital Grade Surgical & Diagnostic Care",
-      category: "surgical",
-      categoryName: "Surgical Equipment",
-      image: "assets/images/surgical.jpg",
-      description: "Hospital monitors, orthopedic rehabilitation braces, oxygen concentrators, and mobility wheelchairs."
-    },
-    {
-      id: "g7",
-      title: "Personal Comfort & Innerwear Boutique",
-      category: "apparel",
-      categoryName: "Comfort Apparel",
-      image: "assets/images/apparel.jpg",
-      description: "Curated collections of premium breathable innerwear, sleepwear, and shapewear."
-    },
-    {
-      id: "g8",
-      title: "Cold Chain Biological Storage Facility",
-      category: "pharmacy",
-      categoryName: "Pharmacy & Labs",
-      image: "assets/images/pharmacy.jpg",
-      description: "High-precision digital climate monitoring for insulin, oncology, and specialty injectables."
     }
   ],
 
@@ -929,8 +1121,8 @@ const DEFAULT_SITE_DATA = {
   ]
 };
 
-// LocalStorage Storage Key (v8 - Executive Leadership & Management Grid)
-const STORAGE_KEY = "dwatson_site_data_v8";
+// LocalStorage Storage Key (v9 - Shop Inside Real Images & Gallery Collection)
+const STORAGE_KEY = "dwatson_site_data_v9";
 
 /**
  * Get current site data (from LocalStorage or fallback to default)

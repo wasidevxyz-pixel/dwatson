@@ -2531,10 +2531,15 @@ textarea.form-control {
   margin-bottom: 60px;
 }
 
-.footer-brand img {
-  height: 46px;
-  width: auto;
+.footer-brand img, .footer-emblem-logo {
+  height: 56px;
+  width: 56px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #FFFFFF;
+  padding: 4px;
   margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 
 .footer-tagline {
@@ -2777,6 +2782,52 @@ textarea.form-control {
 /* ==========================================================================
    Featured Products Sliding Showcase & Interactive Carousel
    ========================================================================== */
+.product-filter-bar {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  padding: 6px 8px;
+  background: #F1F5F9;
+  border-radius: var(--radius-full);
+  border: 1px solid #E2E8F0;
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prod-category-pill {
+  padding: 9px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.86rem;
+  font-weight: 700;
+  background: transparent;
+  color: #475569;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.prod-category-pill:hover {
+  color: var(--dw-navy);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.prod-category-pill.active {
+  background: #FFFFFF;
+  color: var(--dw-navy);
+  font-weight: 800;
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+}
+
 .products-carousel-container {
   position: relative;
   display: flex;

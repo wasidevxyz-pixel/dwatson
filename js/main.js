@@ -415,7 +415,7 @@ function renderProducts(products, defaultWhatsApp) {
 
   if (filterContainer) {
     filterContainer.innerHTML = categories.map((cat, idx) => `
-      <button class="branch-pill-btn ${idx === 0 ? 'active' : ''}" onclick="filterProductsCategory('${cat.key}', this)">
+      <button class="prod-category-pill ${idx === 0 ? 'active' : ''}" onclick="filterProductsCategory('${cat.key}', this)">
         ${escapeHtml(cat.label)}
       </button>
     `).join("");
@@ -602,7 +602,7 @@ function updateActiveDot() {
 }
 
 window.filterProductsCategory = function(catKey, btn) {
-  document.querySelectorAll("#productFilters .branch-pill-btn").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll("#productFilters .prod-category-pill").forEach(b => b.classList.remove("active"));
   if (btn) btn.classList.add("active");
 
   currentProductCategory = catKey;
@@ -1006,7 +1006,7 @@ function renderBranchHub(branches) {
   scrollList.innerHTML = branches.map(b => {
     const isActive = b.id === activeBranchId;
     return `
-      <div class="branch-mini-item ${isActive ? 'active' : ''}" onclick="selectActiveBranch('${b.id}')" id="branch-mini-${b.id}">
+      <div class="branch-mini-item ${isActive ? 'active' : ''}" onclick="selectActiveBranch('${b.id}', true)" id="branch-mini-${b.id}">
         <div class="branch-mini-top">
           <span class="branch-mini-name">${escapeHtml(b.name)}</span>
           <div class="branch-mini-badges">
@@ -1118,7 +1118,7 @@ function renderActiveBranchDetail(b) {
   `;
 }
 
-window.selectActiveBranch = function(branchId) {
+window.selectActiveBranch = function(branchId, userTriggered = false) {
   activeBranchId = branchId;
   document.querySelectorAll(".branch-mini-item").forEach(el => el.classList.remove("active"));
   const activeEl = document.getElementById(`branch-mini-${branchId}`);
@@ -1127,6 +1127,15 @@ window.selectActiveBranch = function(branchId) {
   const branch = allBranchesData.find(b => b.id === branchId);
   if (branch) {
     renderActiveBranchDetail(branch);
+  }
+
+  // If on mobile/tablet and user explicitly tapped a branch, smooth-scroll down to showcase card
+  if (userTriggered && window.innerWidth <= 992) {
+    const detailPane = document.getElementById("branchDetailPane");
+    if (detailPane) {
+      const topOffset = detailPane.getBoundingClientRect().top + window.pageYOffset - 90;
+      window.scrollTo({ top: topOffset, behavior: "smooth" });
+    }
   }
 };
 

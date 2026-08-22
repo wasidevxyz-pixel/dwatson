@@ -647,7 +647,7 @@ const DEFAULT_SITE_DATA = {
       phone: "051-8438111 / 051-2827534",
       timings: "Open 24 Hours • 7 Days a Week",
       is24Hours: true,
-      image: "assets/images/branches/f6-supermarket.jpg",
+      image: "assets/images/branches/D-Watson_f6.jpg",
       services: ["24/7 Pharmacy", "Luxury Cosmetics", "Grocery Essentials", "Optics", "Undergarments"],
       mapUrl: "https://maps.google.com/?q=D.+Watson+F-6+Super+Market+Islamabad",
       whatsapp: "923329716666"
@@ -1236,8 +1236,8 @@ const DEFAULT_SITE_DATA = {
   ]
 };
 
-// LocalStorage Storage Key (v11 - Multi-Card Products Carousel & K-Beauty Brand Catalog)
-const STORAGE_KEY = "dwatson_site_data_v11";
+// LocalStorage Storage Key (v12 - Authentic Storefront Branch Showcase & Emblem Footer)
+const STORAGE_KEY = "dwatson_site_data_v12";
 
 /**
  * Get current site data (from LocalStorage or fallback to default)

@@ -874,63 +874,33 @@ window.filterBranchesByCity = function(cityOption, btn) {
 };
 
 /**
- * Filterable Image Gallery & Lightbox
+ * Image Gallery & Lightbox
  */
 function renderGallery(galleryItems) {
-  activeGalleryItems = galleryItems;
+  activeGalleryItems = galleryItems || [];
   const container = document.getElementById("galleryGrid");
-  const filterContainer = document.getElementById("galleryFilters");
-  if (!container || !galleryItems) return;
+  if (!container || !activeGalleryItems.length) return;
 
-  const categories = [
-    { key: "all", label: "All Photos" },
-    { key: "stores", label: "Stores & Outlets" },
-    { key: "pharmacy", label: "Pharmacy & Care" },
-    { key: "cosmetics", label: "Beauty & Fragrance" },
-    { key: "grocery", label: "Superstore & Baby" }
-  ];
-
-  if (filterContainer) {
-    filterContainer.innerHTML = categories.map((cat, idx) => `
-      <button class="gallery-filter-btn ${idx === 0 ? 'active' : ''}" onclick="filterGalleryCategory('${cat.key}', this)">
-        ${escapeHtml(cat.label)}
-      </button>
-    `).join("");
-  }
-
-  renderGalleryGrid(galleryItems);
+  renderGalleryGrid(activeGalleryItems);
 }
 
 function renderGalleryGrid(items) {
   const container = document.getElementById("galleryGrid");
   if (!container) return;
 
-  activeGalleryItems = items;
+  activeGalleryItems = items || [];
 
-  container.innerHTML = items.map((item, index) => `
+  container.innerHTML = activeGalleryItems.map((item, index) => `
     <div class="gallery-item" onclick="openLightbox(${index})">
-      <img src="${encodeURI(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/pharmacy.jpg';">
+      <img src="${encodeURI(item.image)}" alt="${escapeHtml(item.title || 'D. Watson Photo')}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/pharmacy.jpg';">
       <div class="gallery-overlay">
         <span class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></span>
-        ${item.categoryName ? `<span class="gallery-overlay-cat">${escapeHtml(item.categoryName)}</span>` : ''}
-        <h4 class="gallery-overlay-title">${escapeHtml(item.title || 'D. Watson Gallery')}</h4>
+        <h4 class="gallery-overlay-title">${escapeHtml(item.title || 'D. Watson Photo')}</h4>
+        ${item.description ? `<p style="font-size:0.8rem; color:#E2E8F0; margin-top:4px; opacity:0.9;">${escapeHtml(item.description)}</p>` : ''}
       </div>
     </div>
   `).join("");
 }
-
-window.filterGalleryCategory = function(category, btn) {
-  document.querySelectorAll(".gallery-filter-btn").forEach(b => b.classList.remove("active"));
-  if (btn) btn.classList.add("active");
-
-  const data = getSiteData();
-  if (category === "all") {
-    renderGalleryGrid(data.gallery);
-  } else {
-    const filtered = (data.gallery || []).filter(item => item.category === category);
-    renderGalleryGrid(filtered);
-  }
-};
 
 /**
  * Lightbox Modal Logic

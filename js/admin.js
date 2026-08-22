@@ -720,23 +720,23 @@ window.deleteProduct = function(idx) {
 };
 
 /* ==========================================================================
-   4. GALLERY MANAGER
+   4. GALLERY MANAGER (Random Photos, Uploads & Captions)
    ========================================================================== */
 function renderGalleryList() {
   const container = document.getElementById("adminGalleryList");
   if (!container) return;
 
   if (!adminData.gallery || !adminData.gallery.length) {
-    container.innerHTML = `<p style="color: #64748B;">No photos in gallery. Click "+ Add Photo".</p>`;
+    container.innerHTML = `<p style="color: #64748B;">No photos in gallery yet. Click "+ Add Photo" above to upload images.</p>`;
     return;
   }
 
   container.innerHTML = adminData.gallery.map((item, idx) => `
     <div class="editable-item-card">
-      <img src="${item.image}" class="item-thumbnail" alt="${escapeAdminHtml(item.title)}">
+      <img src="${encodeURI(item.image)}" class="item-thumbnail" alt="${escapeAdminHtml(item.title || 'Photo')}" onerror="this.onerror=null; this.src='assets/images/pharmacy.jpg';">
       <div class="item-info">
-        <div class="item-title">${escapeAdminHtml(item.title)}</div>
-        <div class="item-sub"><strong>Category:</strong> ${escapeAdminHtml(item.categoryName || item.category)}</div>
+        <div class="item-title">${escapeAdminHtml(item.title || 'Untitled Photo')}</div>
+        <div class="item-sub">${item.description ? escapeAdminHtml(item.description) : '<span style="color:#94A3B8;">No caption</span>'}</div>
       </div>
       <div class="item-actions">
         <button class="btn btn-outline btn-sm" onclick="openGalleryModal(${idx})">
@@ -761,48 +761,37 @@ window.openGalleryModal = function(index = -1) {
 
   const isNew = index === -1;
   const item = isNew ? {
-    title: "New Showcase Photo",
-    category: "stores",
-    categoryName: "Store Facade",
-    image: "assets/images/store_flagship.jpg",
-    description: "D. Watson official store and department interior."
+    title: "",
+    category: "general",
+    categoryName: "General",
+    image: "assets/images/Shop Inside/gallery-10.jpg",
+    description: ""
   } : adminData.gallery[index];
 
-  modalTitle.textContent = isNew ? "Add Photo to Gallery" : "Edit Gallery Item";
+  modalTitle.textContent = isNew ? "Add New Photo to Gallery" : "Edit Gallery Photo";
   modalBody.innerHTML = `
     <form id="galleryEditForm" onsubmit="saveGalleryModal(event)">
       <div class="admin-form-group">
         <label>Photo Title</label>
-        <input type="text" class="admin-form-input" id="galTitle" value="${escapeAdminHtml(item.title)}" required>
+        <input type="text" class="admin-form-input" id="galTitle" placeholder="e.g. Ramadan Offer, New Fragrance Arrival, F-6 Branch" value="${escapeAdminHtml(item.title || '')}">
       </div>
       <div class="admin-form-group">
-        <label>Department Category</label>
-        <select class="admin-form-input" id="galCategory">
-          <option value="stores" ${item.category === 'stores' ? 'selected' : ''}>Store Facade &amp; Architecture</option>
-          <option value="pharmacy" ${item.category === 'pharmacy' ? 'selected' : ''}>Pharmacy &amp; Labs</option>
-          <option value="cosmetics" ${item.category === 'cosmetics' ? 'selected' : ''}>Cosmetics &amp; Skincare</option>
-          <option value="optics" ${item.category === 'optics' ? 'selected' : ''}>Optics Clinic</option>
-          <option value="surgical" ${item.category === 'surgical' ? 'selected' : ''}>Surgical Equipment</option>
-          <option value="grocery" ${item.category === 'grocery' ? 'selected' : ''}>Supermarket Aisles</option>
-        </select>
-      </div>
-      <div class="admin-form-group">
-        <label>Gallery Photo (Upload Photo or Enter Path/URL)</label>
+        <label>Gallery Photo (Upload from Computer or Enter Path/URL)</label>
         <div style="display:flex; gap:8px; align-items:center; margin-bottom:8px;">
-          <input type="text" class="admin-form-input" id="galImage" value="${escapeAdminHtml(item.image)}" required style="flex:1;" oninput="document.getElementById('galImgPreview').src=this.value;">
+          <input type="text" class="admin-form-input" id="galImage" placeholder="assets/images/Shop Inside/... or paste image URL" value="${escapeAdminHtml(item.image || '')}" required style="flex:1;" oninput="document.getElementById('galImgPreview').src=this.value;">
           <label class="btn btn-outline btn-sm" style="cursor:pointer; white-space:nowrap; margin-bottom:0; display:inline-flex; align-items:center; gap:6px;">
-            <i class="fa-solid fa-cloud-arrow-up"></i> Upload
+            <i class="fa-solid fa-cloud-arrow-up"></i> Upload from PC
             <input type="file" accept="image/*" style="display:none;" onchange="handleAdminImageUpload(this, 'galImage', 'galImgPreview')">
           </label>
         </div>
         <div style="display:flex; align-items:center; gap:10px;">
-          <img id="galImgPreview" src="${item.image || 'assets/images/store_flagship.jpg'}" alt="Preview" style="width:90px; height:50px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1;" onerror="this.onerror=null; this.src='assets/images/store_flagship.jpg';">
-          <small style="color:#64748B; font-size:0.78rem;">Showcase photo preview.</small>
+          <img id="galImgPreview" src="${encodeURI(item.image || 'assets/images/pharmacy.jpg')}" alt="Preview" style="width:90px; height:60px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1;" onerror="this.onerror=null; this.src='assets/images/pharmacy.jpg';">
+          <small style="color:#64748B; font-size:0.78rem;">Live preview. You can upload any image format (.jpg, .png, .webp).</small>
         </div>
       </div>
       <div class="admin-form-group">
-        <label>Caption / Description</label>
-        <textarea class="admin-form-input" id="galDesc" rows="2">${escapeAdminHtml(item.description || '')}</textarea>
+        <label>Caption / Short Note (Optional)</label>
+        <textarea class="admin-form-input" id="galDesc" rows="2" placeholder="Optional description or details">${escapeAdminHtml(item.description || '')}</textarea>
       </div>
       <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
         <button type="button" class="btn btn-outline btn-sm" onclick="closeAdminModal()">Cancel</button>
@@ -816,27 +805,29 @@ window.openGalleryModal = function(index = -1) {
 
 window.saveGalleryModal = function(e) {
   e.preventDefault();
-  const catKey = document.getElementById("galCategory").value;
-  const catMap = {
-    stores: "Store Facade",
-    pharmacy: "Pharmacy & Labs",
-    cosmetics: "Cosmetics",
-    optics: "Optics Clinic",
-    surgical: "Surgical Care",
-    grocery: "Supermarket"
-  };
+
+  const titleVal = document.getElementById("galTitle").value.trim();
+  const imgVal = document.getElementById("galImage").value.trim();
+  const descVal = document.getElementById("galDesc").value.trim();
+
+  if (!imgVal) {
+    showToast("Please choose or upload a photo.", "error");
+    return;
+  }
 
   const newItem = {
-    id: editItemIndex === -1 ? `g_${Date.now()}` : adminData.gallery[editItemIndex].id,
-    title: document.getElementById("galTitle").value.trim(),
-    category: catKey,
-    categoryName: catMap[catKey] || "Showcase",
-    image: document.getElementById("galImage").value.trim(),
-    description: document.getElementById("galDesc").value.trim()
+    id: editItemIndex === -1 ? `g_${Date.now()}` : (adminData.gallery[editItemIndex] && adminData.gallery[editItemIndex].id ? adminData.gallery[editItemIndex].id : `g_${Date.now()}`),
+    title: titleVal || "D. Watson Photo",
+    category: "general",
+    categoryName: "General",
+    image: imgVal,
+    description: descVal
   };
 
+  if (!adminData.gallery) adminData.gallery = [];
+
   if (editItemIndex === -1) {
-    adminData.gallery.push(newItem);
+    adminData.gallery.unshift(newItem); // add to beginning of gallery
   } else {
     adminData.gallery[editItemIndex] = newItem;
   }
@@ -844,7 +835,7 @@ window.saveGalleryModal = function(e) {
   saveSiteData(adminData);
   closeAdminModal();
   renderGalleryList();
-  showToast("Gallery updated!");
+  showToast("Photo saved to gallery!", "success");
 };
 
 window.deleteGalleryItem = function(idx) {
@@ -852,7 +843,7 @@ window.deleteGalleryItem = function(idx) {
     adminData.gallery.splice(idx, 1);
     saveSiteData(adminData);
     renderGalleryList();
-    showToast("Photo removed.");
+    showToast("Photo removed from gallery.", "info");
   }
 };
 

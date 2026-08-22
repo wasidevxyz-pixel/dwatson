@@ -23,9 +23,11 @@ body {
   margin: 0 !important;
   padding: 0 !important;
   position: relative !important;
+  overflow-x: hidden !important;
 }
 
 section, header, footer, nav, main, .container {
+  width: 100% !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
 }
@@ -38,16 +40,18 @@ section, header, footer, nav, main, .container {
   position: fixed;
   bottom: 0;
   left: 0;
+  right: 0;
   width: 100% !important;
   max-width: 100% !important;
-  height: 66px;
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  height: 64px;
+  background: #0B132B !important;
+  background: rgba(11, 19, 43, 0.98) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  z-index: 9999;
-  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.35);
-  padding: 0 8px;
+  z-index: 999999 !important;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.45);
+  padding: 0 6px;
   padding-bottom: env(safe-area-inset-bottom, 0);
   align-items: center;
   justify-content: space-around;
@@ -182,16 +186,18 @@ section, header, footer, nav, main, .container {
 }
 
 /* ==========================================================================
-   3. MEDIUM TABLETS & PHONES (<= 768px)
+   3. MOBILE PHONES & TABLETS (<= 992px)
    ========================================================================== */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   /* Provide clearance for the mobile bottom bar */
   body {
-    padding-bottom: 68px;
+    padding-bottom: 74px !important;
   }
 
   .mobile-bottom-bar {
-    display: flex;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   /* Header adjustments */
@@ -390,37 +396,52 @@ section, header, footer, nav, main, .container {
 
   /* Trust Highlights Bar */
   .trust-bar {
-    margin-top: -30px;
-    padding: 16px;
-    border-radius: 16px;
+    margin-top: 14px !important;
+    padding: 12px 10px !important;
+    border-radius: 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05) !important;
   }
 
   .trust-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
   }
 
   .trust-item {
-    border-right: none;
-    padding: 10px;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+    border-right: none !important;
+    padding: 8px 6px !important;
+    flex-direction: row !important;
+    text-align: left !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #F8FAFC !important;
+    border-radius: 10px !important;
+    border: 1px solid #E2E8F0 !important;
   }
 
   .trust-icon {
-    width: 42px;
-    height: 42px;
-    font-size: 1.1rem;
-    margin-bottom: 6px;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1rem !important;
+    margin-bottom: 0 !important;
+    border-radius: 8px !important;
+    flex-shrink: 0 !important;
   }
 
-  .trust-val {
-    font-size: 1.15rem;
+  .trust-number {
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    color: var(--dw-navy) !important;
+    line-height: 1.1 !important;
   }
 
   .trust-label {
-    font-size: 0.72rem;
+    font-size: 0.68rem !important;
+    color: #64748B !important;
+    line-height: 1.2 !important;
   }
 
   /* About Section */
@@ -574,10 +595,10 @@ section, header, footer, nav, main, .container {
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
     gap: 8px !important;
-    padding: 6px 16px 12px !important;
-    margin: 0 -16px 18px !important;
-    width: calc(100% + 32px) !important;
-    max-width: none !important;
+    padding: 6px 4px 12px !important;
+    margin: 0 0 16px 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
@@ -595,7 +616,7 @@ section, header, footer, nav, main, .container {
     flex: 0 0 auto !important;
     white-space: nowrap !important;
     scroll-snap-align: start !important;
-    padding: 9px 18px !important;
+    padding: 8px 16px !important;
     font-size: 0.82rem !important;
     border-radius: 9999px !important;
     background: #FFFFFF !important;
@@ -617,7 +638,9 @@ section, header, footer, nav, main, .container {
   .products-carousel-container {
     position: relative !important;
     width: 100% !important;
+    max-width: 100% !important;
     margin: 0 !important;
+    overflow: hidden !important;
   }
 
   .products-carousel-track {
@@ -625,13 +648,14 @@ section, header, footer, nav, main, .container {
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
-    gap: 16px !important;
-    padding: 6px 16px 18px !important;
-    margin: 0 -16px !important;
+    gap: 14px !important;
+    padding: 6px 4px 16px !important;
+    margin: 0 0 10px 0 !important;
     scroll-snap-type: x mandatory !important;
     scrollbar-width: none !important;
     -webkit-overflow-scrolling: touch !important;
-    width: calc(100% + 32px) !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .products-carousel-track::-webkit-scrollbar {
@@ -858,7 +882,9 @@ section, header, footer, nav, main, .container {
     flex-wrap: nowrap !important;
     gap: 8px !important;
     padding: 4px 2px 8px !important;
-    margin: 0 -4px !important;
+    margin: 0 0 10px 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
     -webkit-overflow-scrolling: touch !important;
     scrollbar-width: none !important;
     scroll-snap-type: x mandatory !important;
@@ -883,13 +909,15 @@ section, header, footer, nav, main, .container {
     justify-content: center !important;
     width: 100% !important;
     max-width: 280px !important;
-    margin: 0 auto !important;
+    margin: 0 auto 14px !important;
   }
 
   /* Master-Detail Hub Layout on Mobile */
   .branch-hub-layout {
     display: flex !important;
     flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
     border-radius: 18px !important;
     overflow: hidden !important;

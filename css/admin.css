@@ -74,9 +74,11 @@ body.admin-body {
 }
 
 .auth-logo {
-  height: 48px;
+  height: 52px;
+  max-width: 210px;
   margin: 0 auto 16px;
   display: block;
+  object-fit: contain;
 }
 
 .auth-badge {
@@ -219,8 +221,15 @@ body.admin-body {
   gap: 12px;
 }
 
-.sidebar-header img {
+.sidebar-header img,
+.admin-sidebar-logo {
   height: 38px;
+  max-width: 170px;
+  background: #FFFFFF;
+  padding: 4px 10px;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar-nav {
@@ -588,7 +597,12 @@ body.admin-body {
 }
 
 .admin-mobile-logo {
-  height: 32px;
+  height: 34px;
+  max-width: 140px;
+  background: #FFFFFF;
+  padding: 3px 8px;
+  border-radius: 6px;
+  object-fit: contain;
 }
 
 .admin-sidebar-close-btn {

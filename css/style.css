@@ -74,6 +74,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
@@ -82,6 +84,10 @@ body {
   background-color: var(--bg-page);
   color: var(--text-main);
   line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 img {

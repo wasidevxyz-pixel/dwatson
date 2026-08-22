@@ -19,9 +19,9 @@
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="shortcut icon" href="favicon.ico">
 
-  <!-- Stylesheets (v3.5 - High-Res Slider Banners & Master-Detail Branch Locator) -->
-  <link rel="stylesheet" href="css/style.css?v=3.5">
-  <link rel="stylesheet" href="css/responsive.css?v=3.5">
+  <!-- Stylesheets (v4.0 - Auto-Sliding Responsive Product Showcase) -->
+  <link rel="stylesheet" href="css/style.css?v=4.0">
+  <link rel="stylesheet" href="css/responsive.css?v=4.0">
 </head>
 <body>
 
@@ -353,30 +353,45 @@
     </div>
   </section>
 
-  <!-- ================= FEATURED PRODUCTS CATALOG SECTION ================= -->
-  <section class="products-section" id="products" style="padding: 90px 0; background: #FFFFFF;">
+  <!-- ================= FEATURED PRODUCTS SLIDER SECTION ================= -->
+  <section class="products-section" id="products">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Curated Brand Catalog</span>
-        <h2 class="section-title">Featured <span class="highlight-blue">Products &amp; Healthcare</span> Essentials</h2>
+        <span class="section-tag">Curated Brand Showcase</span>
+        <h2 class="section-title">Trending <span class="highlight-blue">Products &amp; Essentials</span></h2>
         <p class="section-subtitle">
-          Directly sourced from official global manufacturers with 100% genuine authenticity guaranteed. Click to inquire or order instantly via WhatsApp.
+          Directly sourced from official global manufacturers with 100% authenticity guaranteed. Swipe or use arrows to discover viral K-Beauty, hair therapy, diagnostics, and baby care.
         </p>
       </div>
 
       <!-- Product Category Filters -->
-      <div class="product-filter-bar" id="productFilters" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px;">
-        <!-- Populated via main.js -->
+      <div class="product-filter-bar" id="productFilters">
+        <!-- Populated dynamically via main.js -->
       </div>
 
-      <!-- Products Grid -->
-      <div class="products-grid" id="productsGrid">
-        <!-- Populated via main.js -->
+      <!-- Interactive Multi-Card Product Carousel -->
+      <div class="products-carousel-container">
+        <button class="prod-carousel-btn prev" id="prodPrevBtn" onclick="slideProducts(-1)" aria-label="Previous Products" title="Previous">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="products-carousel-track" id="productsGrid">
+          <!-- Populated dynamically via main.js -->
+        </div>
+
+        <button class="prod-carousel-btn next" id="prodNextBtn" onclick="slideProducts(1)" aria-label="Next Products" title="Next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
       </div>
 
-      <div style="text-align: center; margin-top: 40px;">
+      <!-- Carousel Pagination Indicators -->
+      <div class="prod-carousel-dots" id="productCarouselDots">
+        <!-- Rendered dynamically via main.js -->
+      </div>
+
+      <div style="text-align: center; margin-top: 36px;">
         <a href="https://wa.me/923329716666?text=Hi%20D.Watson,%20I%20am%20looking%20for%20a%20specific%20product%20availability." target="_blank" class="btn btn-whatsapp">
-          <i class="fa-brands fa-whatsapp"></i> Inquire Any Specific Medicine or Product on WhatsApp
+          <i class="fa-brands fa-whatsapp"></i> Inquire Any Specific Medicine or Brand on WhatsApp
         </a>
       </div>
     </div>
@@ -940,8 +955,8 @@
     </a>
   </nav>
 
-  <!-- Scripts (v3.5) -->
-  <script src="js/data.js?v=3.5"></script>
-  <script src="js/main.js?v=3.5"></script>
+  <!-- Scripts (v4.0) -->
+  <script src="js/data.js?v=4.0"></script>
+  <script src="js/main.js?v=4.0"></script>
 </body>
 </html>

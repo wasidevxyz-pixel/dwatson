@@ -4,6 +4,24 @@
  * Pure JavaScript, clean architecture, high performance
  */
 
+// Global Product Slider Controls (Available immediately)
+window.slideProducts = function(direction) {
+  const track = document.getElementById("productsGrid");
+  if (!track) return;
+
+  const firstCard = track.querySelector(".product-card");
+  const cardWidth = firstCard ? firstCard.offsetWidth + 24 : 310;
+  const maxScroll = track.scrollWidth - track.clientWidth - 10;
+
+  if (direction > 0 && track.scrollLeft >= maxScroll) {
+    track.scrollTo({ left: 0, behavior: "smooth" });
+  } else if (direction < 0 && track.scrollLeft <= 10) {
+    track.scrollTo({ left: track.scrollWidth, behavior: "smooth" });
+  } else {
+    track.scrollBy({ left: cardWidth * direction, behavior: "smooth" });
+  }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   initWebsite();
 
@@ -31,6 +49,11 @@ let isPanning = false;
 let panStartX = 0;
 let panStartY = 0;
 let isZoomModalEventsInit = false;
+
+// Product Auto-Slide State
+let productAutoSlideTimer = null;
+let isProductCarouselHovered = false;
+let isProductCarouselControlsInit = false;
 
 /**
  * Main Initialization
@@ -370,8 +393,10 @@ function renderDepartments(departments, defaultWhatsApp) {
 }
 
 /**
- * Render Featured Products Showcase
+ * Render Featured Products Sliding Showcase & Interactive Carousel
  */
+let currentProductCategory = "all";
+
 function renderProducts(products, defaultWhatsApp) {
   allProductsData = products || [];
   const container = document.getElementById("productsGrid");
@@ -379,12 +404,13 @@ function renderProducts(products, defaultWhatsApp) {
   if (!container || !allProductsData.length) return;
 
   const categories = [
-    { key: "all", label: "All Showcase" },
-    { key: "pharmacy", label: "Medicines & Vitamins" },
-    { key: "cosmetics", label: "Luxury Cosmetics & Derma" },
-    { key: "optics", label: "Optics & Designer Frames" },
-    { key: "surgical", label: "Surgical & Health Devices" },
-    { key: "grocery", label: "Baby Care & Gourmet" }
+    { key: "all", label: "🌟 All Featured" },
+    { key: "cosmetics", label: "💄 K-Beauty & Skincare" },
+    { key: "haircare", label: "💇 Hair Therapy & Shampoos" },
+    { key: "pharmacy", label: "💊 Medicines & Vitamins" },
+    { key: "surgical", label: "🩺 Surgical & BP Monitors" },
+    { key: "optics", label: "👓 Optics & Designer Eyewear" },
+    { key: "grocery", label: "🛒 Baby Care & Gourmet" }
   ];
 
   if (filterContainer) {
@@ -396,6 +422,7 @@ function renderProducts(products, defaultWhatsApp) {
   }
 
   renderProductCards(allProductsData, defaultWhatsApp);
+  initProductCarouselControls();
 }
 
 function renderProductCards(products, defaultWhatsApp) {
@@ -404,6 +431,18 @@ function renderProductCards(products, defaultWhatsApp) {
 
   currentProductZoomList = products || [];
   const waNum = defaultWhatsApp || "923329716666";
+
+  if (currentProductZoomList.length === 0) {
+    container.innerHTML = `
+      <div style="width: 100%; text-align: center; padding: 40px; color: #64748B;">
+        <i class="fa-solid fa-box-open" style="font-size: 2.5rem; color: #CBD5E1; margin-bottom: 10px;"></i>
+        <h4 style="color: #475569;">No products in this category</h4>
+        <p style="font-size: 0.85rem;">Select another category tab to view products.</p>
+      </div>
+    `;
+    updateProductCarouselDots();
+    return;
+  }
 
   container.innerHTML = currentProductZoomList.map((p, idx) => {
     const fullImgUrl = getFullImageUrl(p.image);
@@ -441,23 +480,124 @@ function renderProductCards(products, defaultWhatsApp) {
     `;
   }).join("");
 
-  // Attach dynamic cursor-tracking hover zoom lens filter
-  container.querySelectorAll(".product-img-wrap").forEach(wrap => {
-    const img = wrap.querySelector("img");
-    if (!img) return;
+  // Reset scroll to left
+  container.scrollLeft = 0;
+  updateProductCarouselDots();
+}
 
-    wrap.addEventListener("mousemove", (e) => {
-      const rect = wrap.getBoundingClientRect();
-      const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
-      const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
-      img.style.transformOrigin = `${x}% ${y}%`;
-      img.style.transform = `scale(1.5)`;
-    });
+/**
+ * Multi-Card Carousel Slider Controls & Auto-Slide Engine
+ */
+function startProductAutoSlide() {
+  stopProductAutoSlide();
+  // Auto-slide every 3.5 seconds
+  productAutoSlideTimer = setInterval(() => {
+    if (isProductCarouselHovered) return;
+    const track = document.getElementById("productsGrid");
+    if (!track) return;
+    
+    const maxScroll = track.scrollWidth - track.clientWidth - 10;
+    if (track.scrollLeft >= maxScroll) {
+      track.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      slideProducts(1);
+    }
+  }, 3500);
+}
 
-    wrap.addEventListener("mouseleave", () => {
-      img.style.transformOrigin = `center center`;
-      img.style.transform = `scale(1)`;
+function stopProductAutoSlide() {
+  if (productAutoSlideTimer) {
+    clearInterval(productAutoSlideTimer);
+    productAutoSlideTimer = null;
+  }
+}
+
+function initProductCarouselControls() {
+  const track = document.getElementById("productsGrid");
+  const carouselContainer = document.querySelector(".products-carousel-container");
+  if (!track || isProductCarouselControlsInit) return;
+  isProductCarouselControlsInit = true;
+
+  // Scroll listener for dot indicators
+  track.addEventListener("scroll", () => {
+    updateActiveDot();
+  }, { passive: true });
+
+  // Hover & Touch listeners to pause auto-sliding
+  if (carouselContainer) {
+    carouselContainer.addEventListener("mouseenter", () => {
+      isProductCarouselHovered = true;
     });
+    carouselContainer.addEventListener("mouseleave", () => {
+      isProductCarouselHovered = false;
+    });
+    carouselContainer.addEventListener("touchstart", () => {
+      isProductCarouselHovered = true;
+    }, { passive: true });
+    carouselContainer.addEventListener("touchend", () => {
+      setTimeout(() => {
+        isProductCarouselHovered = false;
+      }, 3000);
+    }, { passive: true });
+  }
+
+  // Prev / Next button direct event handlers (redundancy for onclick)
+  const prevBtn = document.getElementById("prodPrevBtn");
+  const nextBtn = document.getElementById("prodNextBtn");
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      slideProducts(-1);
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      slideProducts(1);
+    });
+  }
+
+  // Start auto slide timer
+  startProductAutoSlide();
+}
+
+function updateProductCarouselDots() {
+  const dotsContainer = document.getElementById("productCarouselDots");
+  const track = document.getElementById("productsGrid");
+  if (!dotsContainer || !track) return;
+
+  const cards = track.querySelectorAll(".product-card");
+  const count = Math.ceil(cards.length / 2);
+
+  if (count <= 1) {
+    dotsContainer.innerHTML = "";
+    return;
+  }
+
+  dotsContainer.innerHTML = Array.from({ length: count }).map((_, idx) => `
+    <div class="prod-dot ${idx === 0 ? 'active' : ''}" onclick="goToProductSlide(${idx})" title="Slide ${idx + 1}"></div>
+  `).join("");
+}
+
+window.goToProductSlide = function(index) {
+  const track = document.getElementById("productsGrid");
+  if (!track) return;
+  const firstCard = track.querySelector(".product-card");
+  const cardWidth = firstCard ? firstCard.offsetWidth + 24 : 310;
+  track.scrollTo({ left: cardWidth * index * 2, behavior: "smooth" });
+};
+
+function updateActiveDot() {
+  const track = document.getElementById("productsGrid");
+  const dots = document.querySelectorAll("#productCarouselDots .prod-dot");
+  if (!track || !dots.length) return;
+
+  const firstCard = track.querySelector(".product-card");
+  const cardWidth = firstCard ? firstCard.offsetWidth + 24 : 310;
+  const activeIdx = Math.min(dots.length - 1, Math.round(track.scrollLeft / (cardWidth * 2)));
+
+  dots.forEach((dot, idx) => {
+    dot.classList.toggle("active", idx === activeIdx);
   });
 }
 
@@ -465,6 +605,7 @@ window.filterProductsCategory = function(catKey, btn) {
   document.querySelectorAll("#productFilters .branch-pill-btn").forEach(b => b.classList.remove("active"));
   if (btn) btn.classList.add("active");
 
+  currentProductCategory = catKey;
   const data = getSiteData();
   if (catKey === "all") {
     renderProductCards(data.products, data.company.whatsapp);
@@ -472,6 +613,9 @@ window.filterProductsCategory = function(catKey, btn) {
     const filtered = (data.products || []).filter(p => p.category === catKey);
     renderProductCards(filtered, data.company.whatsapp);
   }
+
+  // Restart auto-slide on category change
+  startProductAutoSlide();
 };
 
 /**

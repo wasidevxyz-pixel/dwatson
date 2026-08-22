@@ -429,6 +429,114 @@ const DEFAULT_SITE_DATA = {
   products: [
     {
       id: "p1",
+      name: "The Purest Solutions Niacinamide 5% + Zinc 1%",
+      category: "cosmetics",
+      categoryName: "Cosmetics & Skincare",
+      brand: "The Purest Solutions",
+      price: "PKR 3,850",
+      tag: "Pore Minimizing & Blemish Care",
+      image: "assets/images/Shop Inside/THEPURESTSERUMNIACINAMIDE5_ZINC1_30ML.jpg",
+      description: "Targeted active serum to clarify enlarged pores, balance sebum production, and smooth skin texture.",
+      inStock: true
+    },
+    {
+      id: "p2",
+      name: "Bioblas Organic Repairing & Volumizing Shampoo (360ml)",
+      category: "haircare",
+      categoryName: "Hair Care & Therapy",
+      brand: "Bioblas Botanical",
+      price: "PKR 2,450",
+      tag: "Herbal Anti-Hairloss",
+      image: "assets/images/Shop Inside/15.BIOBLAS-ONARICI-REPAIRING-VOLUMIZING-SHAMPOO-360ML.jpg",
+      description: "Dermatologically proven herbal formula enriched with Vitamin B19 and natural phytosterols to strengthen root to tip.",
+      inStock: true
+    },
+    {
+      id: "p3",
+      name: "L'Oreal Pro Absolut Repair Gold Quinoa Masque (250ml)",
+      category: "haircare",
+      categoryName: "Hair Care & Therapy",
+      brand: "L'Oreal Professionnel Paris",
+      price: "PKR 7,200",
+      tag: "Instant Deep Damage Repair",
+      image: "assets/images/Shop Inside/34.LOREAL-PRO-ABSOLUT-REPAIR-MASQUE-250ML-PROTEIN_OMEGA-9-Specs.png",
+      description: "Professional resurfacing mask powered by Gold Quinoa and Wheat Protein to restore damaged hair without weighing it down.",
+      inStock: true
+    },
+    {
+      id: "p4",
+      name: "The Purest Solutions Caffeine 5% + Vitamin C (30ml)",
+      category: "cosmetics",
+      categoryName: "Cosmetics & Skincare",
+      brand: "The Purest Solutions",
+      price: "PKR 3,950",
+      tag: "Dark Circle & Puffiness Defense",
+      image: "assets/images/Shop Inside/THEPURESTSERUMCAFFEINESOLUTION5_VITAMINC30ML.jpg",
+      description: "Energizing under-eye antioxidant serum to brighten tired eyes, diminish puffiness, and reduce fine lines.",
+      inStock: true
+    },
+    {
+      id: "p5",
+      name: "Pretty By Flormar Mattifying Makeup Primer",
+      category: "cosmetics",
+      categoryName: "Cosmetics & Skincare",
+      brand: "Flormar Europe",
+      price: "PKR 2,150",
+      tag: "All-Day Shine Control",
+      image: "assets/images/Shop Inside/42.Pretty-Primer-Mattifying.jpg",
+      description: "Velvety smooth oil-free base primer that blurs imperfections and preps skin for long-lasting makeup application.",
+      inStock: true
+    },
+    {
+      id: "p6",
+      name: "Pretty By Flormar Silky Touch Blush",
+      category: "cosmetics",
+      categoryName: "Cosmetics & Skincare",
+      brand: "Flormar Europe",
+      price: "PKR 1,750",
+      tag: "Silky Radiant Glow",
+      image: "assets/images/Shop Inside/5.Pretty-blush.jpg",
+      description: "Micronized color pigments delivering a natural, flushed radiance with a weightless, blendable texture.",
+      inStock: true
+    },
+    {
+      id: "p7",
+      name: "Golden Rose Creamy Blusher Stick",
+      category: "cosmetics",
+      categoryName: "Cosmetics & Skincare",
+      brand: "Golden Rose Europe",
+      price: "PKR 2,250",
+      tag: "Dewy Multi-Stick",
+      image: "assets/images/Shop Inside/blusherstick1.jpg",
+      description: "Hydrating cream-to-powder blush stick for effortless cheek and lip tinting on the go.",
+      inStock: true
+    },
+    {
+      id: "p8",
+      name: "Bio Balance Super Serum Pure Vitamin C (30ml)",
+      category: "cosmetics",
+      categoryName: "Cosmetics & Skincare",
+      brand: "Bio Balance",
+      price: "PKR 3,450",
+      tag: "Radiance & Spot Corrector",
+      image: "assets/images/Shop Inside/BIO-BALANCE-SUPER-SERUM-PURE-VITAMIN-C-30ML.jpg",
+      description: "Stabilized Vitamin C formula designed to fade dark spots, even skin tone, and promote collagen synthesis.",
+      inStock: true
+    },
+    {
+      id: "p9",
+      name: "Sea Color Ammonia-Free Botanical Hair Color",
+      category: "haircare",
+      categoryName: "Hair Care & Therapy",
+      brand: "Sea Color",
+      price: "PKR 1,650",
+      tag: "100% Grey Coverage & Shine",
+      image: "assets/images/Shop Inside/3.SEA-COLOR-AMMONIA-FREE-6.0.jpg",
+      description: "Gentle ammonia-free salon hair coloring cream with rich botanical oils for vibrant, glossy color.",
+      inStock: true
+    },
+    {
+      id: "p10",
       name: "CeraVe Moisturizing Cream (454g)",
       category: "cosmetics",
       categoryName: "Cosmetics & Skincare",
@@ -440,19 +548,7 @@ const DEFAULT_SITE_DATA = {
       inStock: true
     },
     {
-      id: "p2",
-      name: "La Roche-Posay Effaclar Duo+M",
-      category: "cosmetics",
-      categoryName: "Cosmetics & Skincare",
-      brand: "La Roche-Posay France",
-      price: "PKR 6,200",
-      tag: "Anti-Blemish Care",
-      image: "assets/images/La Roche-Posay Effaclar Duo+M.jpg",
-      description: "Triple-action anti-imperfections, anti-marks & anti-recurrence treatment for acne-prone skin.",
-      inStock: true
-    },
-    {
-      id: "p3",
+      id: "p11",
       name: "Omron M2 Basic Digital BP Monitor",
       category: "surgical",
       categoryName: "Surgical & Health Devices",
@@ -464,7 +560,7 @@ const DEFAULT_SITE_DATA = {
       inStock: true
     },
     {
-      id: "p4",
+      id: "p12",
       name: "Accu-Chek Instant Blood Glucose Meter",
       category: "surgical",
       categoryName: "Surgical & Health Devices",
@@ -476,7 +572,7 @@ const DEFAULT_SITE_DATA = {
       inStock: true
     },
     {
-      id: "p5",
+      id: "p13",
       name: "Ray-Ban Aviator Classic Polarized",
       category: "optics",
       categoryName: "Optics & Eyewear",
@@ -488,19 +584,7 @@ const DEFAULT_SITE_DATA = {
       inStock: true
     },
     {
-      id: "p6",
-      name: "Acuvue Oasys with HydraLuxe Contact Lenses",
-      category: "optics",
-      categoryName: "Optics & Eyewear",
-      brand: "Johnson & Johnson",
-      price: "PKR 7,500",
-      tag: "Daily Disposable (30pk)",
-      image: "assets/images/Acuvue Oasys with HydraLuxe Contact Lenses.jpg",
-      description: "Tear-infused contact lenses designed for demanding days and tired, dry eyes.",
-      inStock: true
-    },
-    {
-      id: "p7",
+      id: "p14",
       name: "Aptamil Gold+ Stage 1 Infant Formula (900g)",
       category: "grocery",
       categoryName: "Baby Care & Nutrition",
@@ -512,7 +596,7 @@ const DEFAULT_SITE_DATA = {
       inStock: true
     },
     {
-      id: "p8",
+      id: "p15",
       name: "Seven Seas Cod Liver Oil + Omega 3 (500ml)",
       category: "pharmacy",
       categoryName: "Medicines & Supplements",
@@ -524,7 +608,7 @@ const DEFAULT_SITE_DATA = {
       inStock: true
     },
     {
-      id: "p9",
+      id: "p16",
       name: "Centrum Adults Multivitamin (100 Tabs)",
       category: "pharmacy",
       categoryName: "Medicines & Supplements",
@@ -533,42 +617,6 @@ const DEFAULT_SITE_DATA = {
       tag: "Daily Vitality",
       image: "assets/images/Centrum Adults Multivitamin (100 Tabs).jpg",
       description: "Complete multivitamin with micronutrients to feed cells, boost energy, immunity & metabolism.",
-      inStock: true
-    },
-    {
-      id: "p10",
-      name: "Bioderma Sensibio H2O Micellar Water (500ml)",
-      category: "cosmetics",
-      categoryName: "Cosmetics & Skincare",
-      brand: "Bioderma France",
-      price: "PKR 5,200",
-      tag: "Cult Cleanser",
-      image: "assets/images/Bioderma Sensibio H2O Micellar Water (500ml).jpg",
-      description: "Iconic soothing non-rinse micellar water makeup remover for sensitive skin.",
-      inStock: true
-    },
-    {
-      id: "p11",
-      name: "Folding Lightweight Mobility Wheelchair",
-      category: "surgical",
-      categoryName: "Surgical & Health Devices",
-      brand: "D. Watson Surgical",
-      price: "PKR 24,000",
-      tag: "Hospital Grade",
-      image: "assets/images/Folding Lightweight Mobility Wheelchair.jpg",
-      description: "Durable chrome-plated steel frame wheelchair with ergonomic armrests and swing-away footrests.",
-      inStock: true
-    },
-    {
-      id: "p12",
-      name: "Lindt Excellence 85% Cocoa Dark Chocolate",
-      category: "grocery",
-      categoryName: "Supermarket & Grocery",
-      brand: "Lindt Switzerland",
-      price: "PKR 1,150",
-      tag: "Imported Confectionery",
-      image: "assets/images/Lindt Excellence 85% Cocoa Dark Chocolate.jpg",
-      description: "Rich, full-bodied dark chocolate crafted with passion by Lindt Swiss master chocolatiers.",
       inStock: true
     }
   ],
@@ -1188,8 +1236,8 @@ const DEFAULT_SITE_DATA = {
   ]
 };
 
-// LocalStorage Storage Key (v10 - High-Res Hero Banners, Gallery Expansion & Compact Master-Detail Locator)
-const STORAGE_KEY = "dwatson_site_data_v10";
+// LocalStorage Storage Key (v11 - Multi-Card Products Carousel & K-Beauty Brand Catalog)
+const STORAGE_KEY = "dwatson_site_data_v11";
 
 /**
  * Get current site data (from LocalStorage or fallback to default)
@@ -1231,7 +1279,7 @@ function getSiteData() {
           }
           return d;
         }) : DEFAULT_SITE_DATA.departments,
-        products: Array.isArray(parsed.products) && parsed.products.length ? parsed.products : DEFAULT_SITE_DATA.products,
+        products: (Array.isArray(parsed.products) && parsed.products.length >= 15 && parsed.products[0].image && parsed.products[0].image.includes('Shop Inside/')) ? parsed.products : DEFAULT_SITE_DATA.products,
         branches: Array.isArray(parsed.branches) && parsed.branches.length ? parsed.branches.map(b => {
           const def = DEFAULT_SITE_DATA.branches.find(db => db.id === b.id);
           if (def && (!b.image || b.image === 'assets/images/store_flagship.jpg' || b.image === 'assets/images/pharmacy.jpg' || b.image === 'assets/images/grocery.jpg' || b.image === 'assets/images/surgical.jpg' || b.image === 'assets/images/optics.jpg' || b.image === 'assets/images/cosmetics.jpg')) {

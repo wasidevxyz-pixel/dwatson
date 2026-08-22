@@ -149,80 +149,67 @@ const DEFAULT_SITE_DATA = {
   heroSlides: [
     {
       id: 1,
-      tag: "Certified Healthcare & Pharmacy",
-      title: "100% Authentic Medicines & 24/7 Pharmaceutical Care",
-      subtitle: "Stringent temperature-controlled cold storage, licensed clinical pharmacists on duty, and express prescription dispensing at your service.",
-      image: "assets/images/pharmacy.jpg",
-      badgeText: "Verified Genuine Meds",
-      ctaPrimaryText: "Send Prescription on WhatsApp",
-      ctaPrimaryLink: "#prescription-box",
-      ctaSecondaryText: "Find Nearest Pharmacy",
-      ctaSecondaryLink: "#branches",
-      theme: "red-blue"
+      tag: "Original Korean Skincare",
+      title: "Authentic K-Beauty & Clinical Skincare Revolution",
+      subtitle: "Discover viral Korean skincare favorites — COSRX, Anua, Skin1004 Madagascar Centella, Axis-Y & Beauty of Joseon. 100% genuine imported serums, soothing toners, and lightweight sunscreens.",
+      image: "assets/images/Slider Image/korean_wide_hero_banner.jpg",
+      badgeText: "100% Certified Import",
+      ctaPrimaryText: "Explore Skincare",
+      ctaPrimaryLink: "#products",
+      ctaSecondaryText: "Order on WhatsApp",
+      ctaSecondaryLink: "https://wa.me/923329716666?text=Hi%20D.Watson,%20I%20am%20inquiring%20about%20Korean%20Skincare%20products.",
+      theme: "blue-red"
     },
     {
       id: 2,
-      tag: "Global Luxury & Skincare",
-      title: "Prestigious Cosmetics & International Fragrances",
-      subtitle: "Discover 100% genuine world-renowned skincare, luxury fragrances, dermatological essentials, and designer makeup collections.",
-      image: "assets/images/cosmetics.jpg",
-      badgeText: "Original Brand Imports",
-      ctaPrimaryText: "Explore Cosmetics",
-      ctaPrimaryLink: "#products",
+      tag: "Glamour & Beauty Studio",
+      title: "Golden Rose Signature Makeup & Color Cosmetics",
+      subtitle: "Express your true elegance with long-lasting matte lipsticks, HD foundations, flawless primers, and richly pigmented blushes curated for Pakistani beauty lovers.",
+      image: "assets/images/Slider Image/Golden_Rose_Banner_Desktop_2.jpg",
+      badgeText: "Exclusive Beauty Collection",
+      ctaPrimaryText: "View Cosmetics",
+      ctaPrimaryLink: "#departments",
       ctaSecondaryText: "WhatsApp Beauty Desk",
-      ctaSecondaryLink: "https://wa.me/923329716666?text=Hi%20D.Watson,%20I%20am%20inquiring%20about%20cosmetics%20and%20fragrances",
-      theme: "blue-red"
+      ctaSecondaryLink: "https://wa.me/923329716666?text=Hi%20D.Watson,%20I%20am%20inquiring%20about%20Golden%20Rose%20Cosmetics.",
+      theme: "red-blue"
     },
     {
       id: 3,
-      tag: "Gourmet Grocery & Superstore",
-      title: "Your Premier Family Superstore & Daily Essentials",
-      subtitle: "A world of fresh groceries, premium imported confectionery, gourmet delicacies, baby care, and daily household FMCG under one roof.",
-      image: "assets/images/grocery.jpg",
-      badgeText: "Fresh & Imported",
-      ctaPrimaryText: "Superstore Overview",
+      tag: "Salon-Grade Hair Therapy",
+      title: "Urban Care & Botanical Hair Repair Treatments",
+      subtitle: "Nourish and revitalize your hair with biotin, caffeine, keratin, and natural botanical extracts. Professional shampoos, intense repair masques, and scalp reviving serums.",
+      image: "assets/images/Slider Image/Urbancare_Banner_Desktop.jpg",
+      badgeText: "Natural & Sulfate-Free",
+      ctaPrimaryText: "Discover Haircare",
       ctaPrimaryLink: "#departments",
-      ctaSecondaryText: "View Branches",
-      ctaSecondaryLink: "#branches",
-      theme: "red-blue"
-    },
-    {
-      id: 4,
-      tag: "Precision Vision & Eyewear",
-      title: "Advanced Optics & Designer Eyewear Boutique",
-      subtitle: "Computerized eye refraction, licensed optometrists, premium progressive lenses, and trending designer frames & polarized sunglasses.",
-      image: "assets/images/optics.jpg",
-      badgeText: "Certified Optometry",
-      ctaPrimaryText: "Optics Department",
-      ctaPrimaryLink: "#departments",
-      ctaSecondaryText: "Book Eye Test",
-      ctaSecondaryLink: "https://wa.me/923329716666?text=Hi%20D.Watson,%20I%20would%20like%20to%20inquire%20about%20an%20Optics%20and%20Eye%20Test%20appointment",
+      ctaSecondaryText: "Inquire on WhatsApp",
+      ctaSecondaryLink: "https://wa.me/923329716666?text=Hi%20D.Watson,%20I%20am%20inquiring%20about%20Urban%20Care%20Hair%20Products.",
       theme: "blue-red"
     },
     {
-      id: 5,
-      tag: "Surgical & Hospital Care",
-      title: "Comprehensive Surgical, Rehab & Diagnostic Devices",
-      subtitle: "Hospital-grade surgical instruments, orthopedic supports, digital vitals monitors, mobility wheelchairs, and home-care medical equipment.",
-      image: "assets/images/surgical.jpg",
-      badgeText: "Clinical Grade",
-      ctaPrimaryText: "Surgical Catalog",
+      id: 4,
+      tag: "European Fashion Glamour",
+      title: "Flormar Cosmetics: Bold Colors & Everyday Radiance",
+      subtitle: "From velvety lip colors to water-resistant mascaras and glowing highlighters — premium European beauty essentials available across all D. Watson flagship outlets.",
+      image: "assets/images/Slider Image/Flormar_Banner_Desktop.jpg",
+      badgeText: "European Quality Standard",
+      ctaPrimaryText: "Explore Beauty Lounge",
       ctaPrimaryLink: "#departments",
-      ctaSecondaryText: "Inquire Equipment",
-      ctaSecondaryLink: "https://wa.me/923329716666?text=Hi%20D.Watson,%20I%20need%20information%20regarding%20surgical%20and%20medical%20equipment",
+      ctaSecondaryText: "WhatsApp Delivery",
+      ctaSecondaryLink: "https://wa.me/923329716666?text=Hi%20D.Watson,%20I%20want%20to%20order%20Flormar%20Cosmetics.",
       theme: "red-blue"
     },
     {
-      id: 6,
-      tag: "Personal Comfort & Apparel",
-      title: "Exclusive Undergarments & Comfort Loungewear",
-      subtitle: "Curated selection of top international and premium local brands in innerwear, sleepwear, and everyday comfort essentials for men, women & kids.",
-      image: "assets/images/apparel.jpg",
-      badgeText: "Premium Comfort",
-      ctaPrimaryText: "Explore Collection",
-      ctaPrimaryLink: "#departments",
-      ctaSecondaryText: "Customer Support",
-      ctaSecondaryLink: "#contact",
+      id: 5,
+      tag: "Pakistan's Most Trusted Pharmacy",
+      title: "48+ Years of Uncompromising Healthcare Excellence",
+      subtitle: "100% genuine temperature-controlled medicines, surgical hospital supplies, computerized optics clinics, and 24/7 prescription home delivery across 25+ flagship branches.",
+      image: "assets/images/Shop Inside/Medicine.jpeg",
+      badgeText: "24/7 Cold Chain Pharmacy",
+      ctaPrimaryText: "Upload Prescription",
+      ctaPrimaryLink: "#prescription-box",
+      ctaSecondaryText: "Find Nearest Branch",
+      ctaSecondaryLink: "#branches",
       theme: "blue-red"
     }
   ],
@@ -1044,6 +1031,110 @@ const DEFAULT_SITE_DATA = {
     },
     {
       id: "g13",
+      title: "Golden Rose Color Cosmetics Collection",
+      category: "cosmetics",
+      categoryName: "Color Cosmetics",
+      image: "assets/images/Shop Inside/GoldenRose-179.jpg",
+      description: "Flawless pigments, silky blushes, and velvet matte lip products."
+    },
+    {
+      id: "g14",
+      title: "Anua Korean Skincare & Heartleaf Toners",
+      category: "cosmetics",
+      categoryName: "K-Beauty",
+      image: "assets/images/Shop Inside/Section-Image-anua.jpg",
+      description: "Soothing natural heartleaf Korean skincare formulas for sensitive skin."
+    },
+    {
+      id: "g15",
+      title: "COSRX Snail Mucin & Derm Essentials",
+      category: "cosmetics",
+      categoryName: "K-Beauty",
+      image: "assets/images/Shop Inside/Section-Image-cosrx.jpg",
+      description: "World-famous Korean COSRX Advanced Snail 96 Mucin Power Essence & barrier repair."
+    },
+    {
+      id: "g16",
+      title: "Skin1004 Madagascar Centella Serums",
+      category: "cosmetics",
+      categoryName: "K-Beauty",
+      image: "assets/images/Shop Inside/Section-Image-madagascar-centella.jpg",
+      description: "Pure Madagascar Centella Asiatica ampoules and gentle soothing formulations."
+    },
+    {
+      id: "g17",
+      title: "Maru Derm Active Skincare Range",
+      category: "cosmetics",
+      categoryName: "Derma Care",
+      image: "assets/images/Shop Inside/Maru_Derm_Category_Image.jpg",
+      description: "High-performance clinical serums, barrier creams, and clarifying toners."
+    },
+    {
+      id: "g18",
+      title: "Urban Care Botanical Haircare Lounge",
+      category: "cosmetics",
+      categoryName: "Hair Care",
+      image: "assets/images/Shop Inside/Urban_Care_Category_Image.jpg",
+      description: "Biotin, caffeine, and keratin specialized hair therapies for volume and damage repair."
+    },
+    {
+      id: "g19",
+      title: "The Purest Solutions High-Potency Serums",
+      category: "cosmetics",
+      categoryName: "Derma Care",
+      image: "assets/images/Shop Inside/The_Purest_Solutions_Category_Image.jpg",
+      description: "Niacinamide, Caffeine, Hyaluronic Acid, and Vitamin C super-charged skin solutions."
+    },
+    {
+      id: "g20",
+      title: "Comfort Lingerie & Innerwear Boutique",
+      category: "stores",
+      categoryName: "Apparel Lounge",
+      image: "assets/images/Shop Inside/collection-banner-lingerie.jpg",
+      description: "Premium imported women's innerwear, comfort loungewear, and daily soft apparel."
+    },
+    {
+      id: "g21",
+      title: "Makeup & Beauty Counter Highlights",
+      category: "cosmetics",
+      categoryName: "Beauty Bar",
+      image: "assets/images/Shop Inside/Makeup_1.jpg",
+      description: "Latest seasonal collections from European and American beauty houses."
+    },
+    {
+      id: "g22",
+      title: "Original Luxury Fragrance Collection",
+      category: "cosmetics",
+      categoryName: "Fragrances",
+      image: "assets/images/Shop Inside/Perfume_1.jpg",
+      description: "Signature designer perfumes, concentrated attars, and luxury ouds."
+    },
+    {
+      id: "g23",
+      title: "Bioblas Organic Botanical Hair Therapy",
+      category: "cosmetics",
+      categoryName: "Hair Care",
+      image: "assets/images/Shop Inside/15.BIOBLAS-ONARICI-REPAIRING-VOLUMIZING-SHAMPOO-360ML.jpg",
+      description: "Herbal anti-hair loss and restorative botanical shampoos."
+    },
+    {
+      id: "g24",
+      title: "L'Oreal Professional Hair Repair Masques",
+      category: "cosmetics",
+      categoryName: "Hair Care",
+      image: "assets/images/Shop Inside/34.LOREAL-PRO-ABSOLUT-REPAIR-MASQUE-250ML-PROTEIN_OMEGA-9-Specs.png",
+      description: "Deep nourishing protein masques for chemically treated and dry hair."
+    },
+    {
+      id: "g25",
+      title: "Lifestyle Accessories & Premium Watches",
+      category: "stores",
+      categoryName: "Lifestyle",
+      image: "assets/images/Shop Inside/watches_1.jpg",
+      description: "Elegant wristwatches, sunglasses, and personal lifestyle gifts."
+    },
+    {
+      id: "g26",
       title: "Superstore Department Floor Overview",
       category: "stores",
       categoryName: "Store Interior",
@@ -1051,31 +1142,7 @@ const DEFAULT_SITE_DATA = {
       description: "Modern retail environment designed for seamless family shopping across departments."
     },
     {
-      id: "g14",
-      title: "Specialty Healthcare & Personal Comfort",
-      category: "stores",
-      categoryName: "Store Interior",
-      image: "assets/images/Shop Inside/gallery-28.jpg",
-      description: "Premium comfort innerwear, socks, thermal wear, and specialized personal care goods."
-    },
-    {
-      id: "g15",
-      title: "Express Checkout & Customer Service Desk",
-      category: "stores",
-      categoryName: "Store Interior",
-      image: "assets/images/Shop Inside/gallery-31.jpg",
-      description: "Fast multi-pos billing counters with courteous staff assisting customers at every step."
-    },
-    {
-      id: "g16",
-      title: "Comprehensive Retail Department Overview",
-      category: "stores",
-      categoryName: "Store Interior",
-      image: "assets/images/Shop Inside/gallery-32.jpg",
-      description: "The complete departmental superstore experience uniting healthcare, beauty, and grocery."
-    },
-    {
-      id: "g17",
+      id: "g27",
       title: "Flagship Mega Store Architecture",
       category: "stores",
       categoryName: "Store Facade",
@@ -1083,7 +1150,7 @@ const DEFAULT_SITE_DATA = {
       description: "D. Watson's multi-level flagship superstore in Jinnah Avenue, Blue Area Islamabad."
     },
     {
-      id: "g18",
+      id: "g28",
       title: "Optics Clinic & Designer Eyewear Boutique",
       category: "stores",
       categoryName: "Optics & Eye Care",
@@ -1121,8 +1188,8 @@ const DEFAULT_SITE_DATA = {
   ]
 };
 
-// LocalStorage Storage Key (v9 - Shop Inside Real Images & Gallery Collection)
-const STORAGE_KEY = "dwatson_site_data_v9";
+// LocalStorage Storage Key (v10 - High-Res Hero Banners, Gallery Expansion & Compact Master-Detail Locator)
+const STORAGE_KEY = "dwatson_site_data_v10";
 
 /**
  * Get current site data (from LocalStorage or fallback to default)
@@ -1149,7 +1216,7 @@ function getSiteData() {
             ...((parsed.company && parsed.company.adminAuth) || {})
           }
         },
-        heroSlides: Array.isArray(parsed.heroSlides) && parsed.heroSlides.length ? parsed.heroSlides : DEFAULT_SITE_DATA.heroSlides,
+        heroSlides: (Array.isArray(parsed.heroSlides) && parsed.heroSlides.length && parsed.heroSlides[0].image && parsed.heroSlides[0].image.includes('Slider Image/')) ? parsed.heroSlides : DEFAULT_SITE_DATA.heroSlides,
         management: (Array.isArray(parsed.management) && parsed.management.length) ? parsed.management.map(m => {
           const def = DEFAULT_SITE_DATA.management.find(dm => dm.id === m.id || dm.name === m.name);
           if (def && (!m.image || !m.image.includes('management/'))) {
@@ -1172,7 +1239,7 @@ function getSiteData() {
           }
           return b;
         }) : DEFAULT_SITE_DATA.branches,
-        gallery: (Array.isArray(parsed.gallery) && parsed.gallery.length >= 15) ? parsed.gallery : DEFAULT_SITE_DATA.gallery,
+        gallery: (Array.isArray(parsed.gallery) && parsed.gallery.length >= 20) ? parsed.gallery : DEFAULT_SITE_DATA.gallery,
         faqs: Array.isArray(parsed.faqs) && parsed.faqs.length ? parsed.faqs : DEFAULT_SITE_DATA.faqs
       };
     }

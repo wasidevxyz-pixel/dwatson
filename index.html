@@ -19,9 +19,9 @@
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="shortcut icon" href="favicon.ico">
 
-  <!-- Stylesheets (v3.3 - Official D. Watson Logo & Gallery) -->
-  <link rel="stylesheet" href="css/style.css?v=3.3">
-  <link rel="stylesheet" href="css/responsive.css?v=3.3">
+  <!-- Stylesheets (v3.5 - High-Res Slider Banners & Master-Detail Branch Locator) -->
+  <link rel="stylesheet" href="css/style.css?v=3.5">
+  <link rel="stylesheet" href="css/responsive.css?v=3.5">
 </head>
 <body>
 
@@ -382,30 +382,80 @@
     </div>
   </section>
 
-  <!-- ================= BRANCHES & STORE LOCATIONS EXPLORER ================= -->
+  <!-- ================= BRANCHES & STORE LOCATIONS LOCATOR ================= -->
   <section class="branches-section" id="branches">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Store Locator</span>
-        <h2 class="section-title">Official <span class="highlight-blue">D. Watson Branches</span> (24+ Network)</h2>
+        <span class="section-tag">Interactive Store Locator</span>
+        <h2 class="section-title">Official <span class="highlight-blue">D. Watson Branches</span> (25+ Network)</h2>
         <p class="section-subtitle">
-          Conveniently located across major commercial hubs in Islamabad, Rawalpindi, Lahore, and regional centers from <strong>dwatson.co</strong>.
+          Discover our 24/7 authentic pharmacies, luxury cosmetics lounges, optics clinics, and superstores across Islamabad, Rawalpindi, Lahore, Karachi, and regional centers.
         </p>
       </div>
 
-      <!-- Filter & Search Controls -->
-      <div class="branch-filter-bar">
-        <div class="branch-search-box">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" id="branchSearchInput" placeholder="Search by area, sector, branch name...">
+      <!-- Quick Metrics Counter Strip -->
+      <div class="branch-stats-strip">
+        <div class="branch-stat-item">
+          <i class="fa-solid fa-store"></i>
+          <div><strong>25+</strong> <span>Outlets</span></div>
         </div>
-        <div class="branch-pills" id="branchCityPills">
-          <!-- City pills rendered dynamically -->
+        <div class="branch-stat-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div><strong>5+</strong> <span>Major Cities</span></div>
+        </div>
+        <div class="branch-stat-item">
+          <i class="fa-solid fa-clock"></i>
+          <div><strong>10+</strong> <span>24/7 Pharmacies</span></div>
+        </div>
+        <div class="branch-stat-item">
+          <i class="fa-solid fa-truck-fast"></i>
+          <div><strong>100%</strong> <span>Express Delivery</span></div>
         </div>
       </div>
 
-      <!-- Branches Grid -->
-      <div class="branches-grid" id="branchesGrid">
+      <!-- Filter & Search Toolbar -->
+      <div class="branch-toolbar">
+        <div class="branch-search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="branchSearchInput" placeholder="Search by sector, road, city (e.g. F-6, Saddar, Lahore)...">
+          <button class="branch-search-clear" id="branchSearchClear" onclick="clearBranchSearch()" style="display:none;" title="Clear search"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="branch-pills" id="branchCityPills">
+          <!-- City pills rendered dynamically via main.js -->
+        </div>
+
+        <div class="branch-view-switcher">
+          <button class="branch-view-btn active" id="viewBtnHub" onclick="switchBranchView('hub')" title="Interactive Directory">
+            <i class="fa-solid fa-table-columns"></i> Directory Hub
+          </button>
+          <button class="branch-view-btn" id="viewBtnGrid" onclick="switchBranchView('grid')" title="Card Grid">
+            <i class="fa-solid fa-grip"></i> Grid
+          </button>
+        </div>
+      </div>
+
+      <!-- Master-Detail Interactive Hub View (Default) -->
+      <div class="branch-hub-layout" id="branchHubLayout">
+        <!-- Left Pane: Compact Scrollable List -->
+        <div class="branch-list-pane">
+          <div class="branch-list-header">
+            <span id="branchCountText">Showing 25 Branches</span>
+            <small style="color:#64748B;">Click any branch to view details</small>
+          </div>
+          <div class="branch-scroll-list" id="branchScrollList">
+            <!-- Populated dynamically via main.js -->
+          </div>
+        </div>
+
+        <!-- Right Pane: Active Branch Showcase Card -->
+        <div class="branch-detail-pane" id="branchDetailPane">
+          <!-- Populated dynamically via main.js -->
+        </div>
+      </div>
+
+      <!-- Compact Grid View (Toggleable) -->
+      <div class="branches-grid" id="branchesGrid" style="display: none;">
         <!-- Rendered dynamically from data.js -->
       </div>
     </div>
@@ -890,8 +940,8 @@
     </a>
   </nav>
 
-  <!-- Scripts (v3.3) -->
-  <script src="js/data.js?v=3.3"></script>
-  <script src="js/main.js?v=3.3"></script>
+  <!-- Scripts (v3.5) -->
+  <script src="js/data.js?v=3.5"></script>
+  <script src="js/main.js?v=3.5"></script>
 </body>
 </html>

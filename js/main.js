@@ -748,51 +748,294 @@ window.closeProductZoomModal = function() {
 };
 
 /**
- * Render Branches Explorer (24+ Network)
+ * Interactive Master-Detail Branches Locator & Directory (25+ Network)
  */
+let activeBranchId = null;
+let currentBranchView = "hub";
+let filteredBranchesData = [];
+
 function renderBranches(branches) {
   allBranchesData = branches || [];
-  const container = document.getElementById("branchesGrid");
-  const pillsContainer = document.getElementById("branchCityPills");
-  if (!container || !branches) return;
+  filteredBranchesData = allBranchesData;
 
-  const cities = ["All (24+)", "Islamabad", "Rawalpindi", "Lahore", "Other Cities", "Open 24/7"];
+  const hubContainer = document.getElementById("branchHubLayout");
+  const pillsContainer = document.getElementById("branchCityPills");
+  if (!allBranchesData.length) return;
+
+  // Render City Pills with actual counts
+  const isbCount = allBranchesData.filter(b => b.city.toLowerCase() === "islamabad").length;
+  const rwpCount = allBranchesData.filter(b => b.city.toLowerCase() === "rawalpindi").length;
+  const lhrCount = allBranchesData.filter(b => b.city.toLowerCase() === "lahore").length;
+  const open24Count = allBranchesData.filter(b => b.is24Hours).length;
+
+  const cityOptions = [
+    { key: "all", label: `All Outlets (${allBranchesData.length})` },
+    { key: "Islamabad", label: `Islamabad (${isbCount})` },
+    { key: "Rawalpindi", label: `Rawalpindi (${rwpCount})` },
+    { key: "Lahore", label: `Lahore (${lhrCount})` },
+    { key: "24hours", label: `⚡ 24/7 Open (${open24Count})` }
+  ];
 
   if (pillsContainer) {
-    pillsContainer.innerHTML = cities.map((city, idx) => `
-      <button class="branch-pill-btn ${idx === 0 ? 'active' : ''}" onclick="filterBranchesByCity('${city}', this)">
-        ${escapeHtml(city)}
+    pillsContainer.innerHTML = cityOptions.map((opt, idx) => `
+      <button class="branch-pill-btn ${idx === 0 ? 'active' : ''}" onclick="filterBranchesByCity('${opt.key}', this)">
+        ${escapeHtml(opt.label)}
       </button>
     `).join("");
   }
 
-  renderBranchCards(branches);
+  // Set default active branch to first branch (e.g. Blue Area Flagship)
+  activeBranchId = allBranchesData[0].id;
 
+  renderBranchHub(filteredBranchesData);
+  renderBranchCards(filteredBranchesData);
+
+  // Search Input Handler
   const searchInput = document.getElementById("branchSearchInput");
+  const clearBtn = document.getElementById("branchSearchClear");
+
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
       const term = e.target.value.toLowerCase().trim();
-      const filtered = allBranchesData.filter(b => 
+      if (clearBtn) clearBtn.style.display = term ? "block" : "none";
+
+      filteredBranchesData = allBranchesData.filter(b => 
         b.name.toLowerCase().includes(term) ||
         b.address.toLowerCase().includes(term) ||
         b.city.toLowerCase().includes(term) ||
-        b.area.toLowerCase().includes(term)
+        (b.area && b.area.toLowerCase().includes(term))
       );
-      renderBranchCards(filtered);
+
+      renderBranchHub(filteredBranchesData);
+      renderBranchCards(filteredBranchesData);
     });
   }
 }
 
-
-// Returns the branch-specific phone number, preferring the dedicated PTCL/branch
-// line over the central helpline (051-8438111). Works for any "num1 / num2" pattern.
+// Returns the branch-specific phone number, preferring the dedicated PTCL/branch line
 function getBranchPhone(phoneStr) {
+  if (!phoneStr) return "0518438111";
   const CENTRAL_HELPLINE = "0518438111";
   const numbers = phoneStr.split("/").map(n => n.trim());
-  // Prefer a number that is NOT the central helpline
   const own = numbers.find(n => n.replace(/[^0-9]/g, "") !== CENTRAL_HELPLINE);
   return (own || numbers[0]).replace(/[^0-9]/g, "");
 }
+
+/**
+ * Render Master-Detail Interactive Hub View
+ */
+function renderBranchHub(branches) {
+  const scrollList = document.getElementById("branchScrollList");
+  const countText = document.getElementById("branchCountText");
+  const detailPane = document.getElementById("branchDetailPane");
+
+  if (!scrollList || !detailPane) return;
+
+  if (countText) {
+    countText.textContent = `Showing ${branches.length} ${branches.length === 1 ? 'Branch' : 'Branches'}`;
+  }
+
+  if (branches.length === 0) {
+    scrollList.innerHTML = `
+      <div style="text-align: center; padding: 40px 14px; color: #64748B;">
+        <i class="fa-solid fa-map-location-dot" style="font-size: 2rem; color: #CBD5E1; margin-bottom: 8px;"></i>
+        <p style="font-weight: 700; font-size: 0.9rem; margin-bottom: 2px;">No Matching Branches</p>
+        <small>Try searching another sector or city.</small>
+      </div>
+    `;
+    detailPane.innerHTML = `
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; color: #94A3B8; padding: 40px;">
+        <i class="fa-solid fa-store-slash" style="font-size: 3rem; margin-bottom: 12px; color: #CBD5E1;"></i>
+        <h3 style="color: #475569; font-size: 1.1rem; margin-bottom: 6px;">No Branch Selected</h3>
+        <p style="font-size: 0.85rem;">Clear your search filter to see available branch locations.</p>
+      </div>
+    `;
+    return;
+  }
+
+  // Ensure active branch exists in filtered list
+  const activeExists = branches.some(b => b.id === activeBranchId);
+  if (!activeExists) {
+    activeBranchId = branches[0].id;
+  }
+
+  scrollList.innerHTML = branches.map(b => {
+    const isActive = b.id === activeBranchId;
+    return `
+      <div class="branch-mini-item ${isActive ? 'active' : ''}" onclick="selectActiveBranch('${b.id}')" id="branch-mini-${b.id}">
+        <div class="branch-mini-top">
+          <span class="branch-mini-name">${escapeHtml(b.name)}</span>
+          <div class="branch-mini-badges">
+            <span class="branch-mini-city">${escapeHtml(b.city)}</span>
+            ${b.is24Hours ? '<span class="branch-mini-24">24/7</span>' : ''}
+          </div>
+        </div>
+        <div class="branch-mini-address">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>${escapeHtml(b.address)}</span>
+        </div>
+        <div class="branch-mini-footer">
+          <span><i class="fa-regular fa-clock"></i> ${escapeHtml(b.timings)}</span>
+          <span style="color: var(--dw-blue); font-weight: 700;">View <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></span>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  // Render the currently active branch detail
+  const activeBranch = branches.find(b => b.id === activeBranchId) || branches[0];
+  renderActiveBranchDetail(activeBranch);
+}
+
+/**
+ * Render Right Pane: Active Branch Showcase
+ */
+function renderActiveBranchDetail(b) {
+  const detailPane = document.getElementById("branchDetailPane");
+  if (!detailPane || !b) return;
+
+  const phoneCall = getBranchPhone(b.phone);
+  const waNumber = b.whatsapp || "923329716666";
+  const waMsg = encodeURIComponent(`Hi D. Watson ${b.name}, I need assistance with medicine availability / delivery.`);
+
+  detailPane.innerHTML = `
+    <div class="branch-detail-hero">
+      <img src="${encodeURI(b.image || 'assets/images/store_flagship.jpg')}" alt="${escapeHtml(b.name)}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/store_flagship.jpg';">
+      <div class="branch-detail-hero-overlay">
+        <div>
+          <span style="display:inline-flex; align-items:center; gap:6px; background:${b.is24Hours ? 'var(--dw-red)' : '#10B981'}; color:white; font-size:0.75rem; font-weight:800; padding:3px 10px; border-radius:9999px; text-transform:uppercase; margin-bottom:6px;">
+            <i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> ${b.is24Hours ? 'Open 24 Hours • 7 Days' : 'Open Daily'}
+          </span>
+          <h3 class="branch-detail-hero-title">${escapeHtml(b.name)}</h3>
+        </div>
+        <span class="branch-detail-hero-city"><i class="fa-solid fa-map-pin"></i> ${escapeHtml(b.city)}</span>
+      </div>
+    </div>
+
+    <div class="branch-detail-info-grid">
+      <div class="branch-info-box">
+        <div class="branch-info-box-title">
+          <i class="fa-solid fa-location-dot"></i> Complete Branch Address
+        </div>
+        <div class="branch-info-box-val">
+          ${escapeHtml(b.address)}
+        </div>
+      </div>
+
+      <div class="branch-info-box">
+        <div class="branch-info-box-title">
+          <i class="fa-solid fa-phone"></i> Dedicated Phone / Helpline
+        </div>
+        <div class="branch-info-box-val">
+          <a href="tel:${phoneCall}" style="color:var(--dw-blue); text-decoration:none;">
+            ${escapeHtml(b.phone)}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="branch-info-box" style="margin-bottom: 20px;">
+      <div class="branch-info-box-title">
+        <i class="fa-regular fa-clock"></i> Operating Hours
+      </div>
+      <div class="branch-info-box-val" style="color:#0F172A;">
+        ${escapeHtml(b.timings)}
+      </div>
+    </div>
+
+    <div class="branch-amenities">
+      <div class="branch-amenities-title">Available Departments &amp; Services</div>
+      <div class="branch-amenities-tags">
+        ${(b.services || ["Pharmacy", "Cosmetics", "Superstore", "Optics"]).map(srv => `
+          <span class="branch-amenity-tag">
+            <i class="fa-solid fa-circle-check" style="color:var(--dw-blue); font-size:0.7rem;"></i> ${escapeHtml(srv)}
+          </span>
+        `).join("")}
+        <span class="branch-amenity-tag" style="background:#ECFDF5; color:#059669;">
+          <i class="fa-solid fa-truck-fast"></i> Home Delivery
+        </span>
+        <span class="branch-amenity-tag" style="background:#F8FAFC; color:#475569; border:1px solid #E2E8F0;">
+          <i class="fa-solid fa-wheelchair"></i> Accessible
+        </span>
+      </div>
+    </div>
+
+    <div class="branch-action-buttons-hub">
+      <a href="${b.mapUrl || `https://maps.google.com/?q=D.+Watson+${encodeURIComponent(b.name)}`}" target="_blank" class="btn btn-outline">
+        <i class="fa-solid fa-diamond-turn-right"></i> Google Directions
+      </a>
+      <a href="tel:${phoneCall}" class="btn btn-blue">
+        <i class="fa-solid fa-phone"></i> Call Branch
+      </a>
+      <a href="https://wa.me/${waNumber}?text=${waMsg}" target="_blank" class="btn btn-whatsapp">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
+      </a>
+    </div>
+  `;
+}
+
+window.selectActiveBranch = function(branchId) {
+  activeBranchId = branchId;
+  document.querySelectorAll(".branch-mini-item").forEach(el => el.classList.remove("active"));
+  const activeEl = document.getElementById(`branch-mini-${branchId}`);
+  if (activeEl) activeEl.classList.add("active");
+
+  const branch = allBranchesData.find(b => b.id === branchId);
+  if (branch) {
+    renderActiveBranchDetail(branch);
+  }
+};
+
+window.filterBranchesByCity = function(cityOption, btn) {
+  document.querySelectorAll("#branchCityPills .branch-pill-btn").forEach(p => p.classList.remove("active"));
+  if (btn) btn.classList.add("active");
+
+  const searchInput = document.getElementById("branchSearchInput");
+  if (searchInput) searchInput.value = "";
+  const clearBtn = document.getElementById("branchSearchClear");
+  if (clearBtn) clearBtn.style.display = "none";
+
+  if (cityOption === "all") {
+    filteredBranchesData = allBranchesData;
+  } else if (cityOption === "24hours") {
+    filteredBranchesData = allBranchesData.filter(b => b.is24Hours === true);
+  } else {
+    filteredBranchesData = allBranchesData.filter(b => b.city.toLowerCase() === cityOption.toLowerCase());
+  }
+
+  renderBranchHub(filteredBranchesData);
+  renderBranchCards(filteredBranchesData);
+};
+
+window.switchBranchView = function(viewMode) {
+  currentBranchView = viewMode;
+  const hubLayout = document.getElementById("branchHubLayout");
+  const gridLayout = document.getElementById("branchesGrid");
+  const btnHub = document.getElementById("viewBtnHub");
+  const btnGrid = document.getElementById("viewBtnGrid");
+
+  if (viewMode === "hub") {
+    if (hubLayout) hubLayout.style.display = "grid";
+    if (gridLayout) gridLayout.style.display = "none";
+    if (btnHub) btnHub.classList.add("active");
+    if (btnGrid) btnGrid.classList.remove("active");
+  } else {
+    if (hubLayout) hubLayout.style.display = "none";
+    if (gridLayout) gridLayout.style.display = "grid";
+    if (btnHub) btnHub.classList.remove("active");
+    if (btnGrid) btnGrid.classList.add("active");
+  }
+};
+
+window.clearBranchSearch = function() {
+  const searchInput = document.getElementById("branchSearchInput");
+  const clearBtn = document.getElementById("branchSearchClear");
+  if (searchInput) searchInput.value = "";
+  if (clearBtn) clearBtn.style.display = "none";
+  filteredBranchesData = allBranchesData;
+  renderBranchHub(filteredBranchesData);
+  renderBranchCards(filteredBranchesData);
+};
 
 function renderBranchCards(branches) {
   const container = document.getElementById("branchesGrid");
@@ -826,7 +1069,7 @@ function renderBranchCards(branches) {
 
         <div class="branch-info-row">
           <i class="fa-solid fa-phone"></i>
-          <a href="tel:${b.phone.split('/')[0].replace(/[^0-9]/g, '')}" style="color: var(--dw-blue); font-weight: 600;">
+          <a href="tel:${getBranchPhone(b.phone)}" style="color: var(--dw-blue); font-weight: 600;">
             ${escapeHtml(b.phone)}
           </a>
         </div>
@@ -854,24 +1097,6 @@ function renderBranchCards(branches) {
     </div>
   `).join("");
 }
-
-window.filterBranchesByCity = function(cityOption, btn) {
-  document.querySelectorAll("#branchCityPills .branch-pill-btn").forEach(p => p.classList.remove("active"));
-  if (btn) btn.classList.add("active");
-
-  const searchInput = document.getElementById("branchSearchInput");
-  if (searchInput) searchInput.value = "";
-
-  if (cityOption === "All (24+)") {
-    renderBranchCards(allBranchesData);
-  } else if (cityOption === "Open 24/7") {
-    const filtered = allBranchesData.filter(b => b.is24Hours === true);
-    renderBranchCards(filtered);
-  } else {
-    const filtered = allBranchesData.filter(b => b.city.toLowerCase() === cityOption.toLowerCase());
-    renderBranchCards(filtered);
-  }
-};
 
 /**
  * Image Gallery & Lightbox
